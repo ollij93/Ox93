@@ -1,0 +1,73 @@
+Texture2D depthMapTexture : register(t0);
+SamplerState SampleTypeClamp: register(s0);
+SamplerState SampleTypeWrap : register(s1);
+
+cbuffer LightBuffer
+{
+	float4 f4AmbientColor;
+	float4 f4DiffuseColor;
+};
+
+struct TerrainPixelInput
+{
+	float4 f4Position : SV_POSITION;
+	float4 f4Color : COLOR;
+	float3 f3Normal : NORMAL;
+	float4 f4LightViewPosition : TEXCOORD1;
+	float3 f3LightDir : TEXCOORD2;
+};
+
+float4 TerrainPixelShader(TerrainPixelInput xInput) : SV_TARGET
+{
+	float bias;
+    float4 color;
+	float2 projectTexCoord;
+	float depthValue;
+	float lightDepthValue;
+    float lightIntensity;
+	float4 textureColor;
+
+	bias = 0.001f;
+
+	color = f4AmbientColor;
+
+	projectTexCoord.x =  xInput.f4LightViewPosition.x / xInput.f4LightViewPosition.w / 2.0f + 0.5f;
+	projectTexCoord.y = -xInput.f4LightViewPosition.y / xInput.f4LightViewPosition.w / 2.0f + 0.5f;
+
+	// Determine if the projected coordinates are in the 0 to 1 range.  If so then this pixel is in the view of the light.
+	if((saturate(projectTexCoord.x) == projectTexCoord.x) && (saturate(projectTexCoord.y) == projectTexCoord.y))
+	{
+		depthValue = depthMapTexture.Sample(SampleTypeClamp, projectTexCoord).r;
+
+		lightDepthValue = xInput.f4LightViewPosition.z / xInput.f4LightViewPosition.w;
+
+		lightDepthValue = lightDepthValue - bias;
+
+		if(lightDepthValue < depthValue)
+		{
+		    lightIntensity = saturate(dot(xInput.f3Normal, xInput.f3LightDir));
+
+		    if(lightIntensity > 0.0f)
+			{
+				color += (f4DiffuseColor * lightIntensity);
+
+				color = saturate(color);
+			}
+		}
+	}
+	else
+	{
+		    lightIntensity = saturate(dot(xInput.f3Normal, xInput.f3LightDir));
+
+		    if(lightIntensity > 0.0f)
+			{
+				color += (f4DiffuseColor * lightIntensity);
+
+				color = saturate(color);
+			}
+	}
+
+	color = color * xInput.f4Color;
+
+    return color;
+}

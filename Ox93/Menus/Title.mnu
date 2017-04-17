@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<Menu name="TitleMenu">
+	<BackgroundImage texture="Textures/TitleBackground.dds" width="800" height="600"/>
+	<Button string="START" function="Menu.Title.StartGame" width="200" height="30" image="Textures/Button.dds">
+		<Position x="-100" y="0"/>
+	</Button>
+  <Button string="OPTIONS" function="Menu.Open.Options" width="200" height="30" image="Textures/Button.dds">
+    <Position x="-100" y="-50"/>
+  </Button>
+</Menu>

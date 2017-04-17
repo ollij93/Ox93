@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<Menu name="HUD">
+	<BackgroundImage texture="Textures/Inventory.dds" width="800" height="600"/>
+  <List string="%s" function="Player.Inventory.SelectItem" populatefunction="Player.Inventory.Name" width="200" height="20" image="Textures/Button.dds">
+    <Position x="-250" y="100"/>
+  </List>
+  <List string="%i" function="" populatefunction="Player.Inventory.Quantity" width="30" height="20" image="Textures/Button.dds">
+    <Position x="-50" y="100"/>
+  </List>
+</Menu>

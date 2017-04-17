@@ -1,0 +1,437 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Ox93">
+      <UniqueIdentifier>{6d70404e-a0e5-4c94-a78a-fd200e3cbf11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ox93\ROOT">
+      <UniqueIdentifier>{8e422912-e8e9-455d-9495-7d4d12b0784b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ox93\Game">
+      <UniqueIdentifier>{7ebeef14-b0f6-4380-844e-fb35fa1ae82a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ox93\Game\Entity">
+      <UniqueIdentifier>{b0446689-054f-4a52-a273-674dfdc86777}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ox93\Game\LoadSave">
+      <UniqueIdentifier>{7312ee30-846a-458a-9b5a-b0205cc1d815}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ox93\Game\World">
+      <UniqueIdentifier>{253e0ec9-2da0-4824-9d03-2f78e0864ba5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ox93\Game\World\Terrain">
+      <UniqueIdentifier>{5aa22c8f-56d3-4182-998f-61b989093ba9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ox93\Game\World\Skybox">
+      <UniqueIdentifier>{195c3afe-6b94-4445-aecf-26f370083235}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ox93\ROOT\Math">
+      <UniqueIdentifier>{5ff1fef0-9ecf-43f9-8900-a05afaa41a13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ox93\ROOT\Assert">
+      <UniqueIdentifier>{da1b0ab0-2c7b-40c1-b670-7884ad979a27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ox93\ROOT\Graphics">
+      <UniqueIdentifier>{1f052ecc-e146-40cb-a31a-9bee6ccade6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ox93\ROOT\Audio">
+      <UniqueIdentifier>{6541a1d5-82c0-427c-a6cb-95054370fe0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ox93\Game\Entity\PhysicalObject">
+      <UniqueIdentifier>{84a9cd4a-99a9-4eb7-815f-1a4ab895ed17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ox93\ROOT\Specification">
+      <UniqueIdentifier>{ec8e23df-39ad-4ec5-bb2a-d21dd545efc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ox93\Types">
+      <UniqueIdentifier>{5be52c57-200b-4f65-bba3-011a789eb7c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ox93\Game\LoadSave\ChunkStream">
+      <UniqueIdentifier>{1173eb02-d06d-4f9e-8a50-c804c67c793c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DirectX">
+      <UniqueIdentifier>{66b749d6-0bdb-412c-89c2-b4e9b17f006d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DirectX\DDSTextureLoader">
+      <UniqueIdentifier>{dcfcd77b-d78f-4b68-8273-c843c2419601}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ox93\Game\Camera">
+      <UniqueIdentifier>{433a8267-010a-4b52-81b1-1a8637e7640b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TinyXML">
+      <UniqueIdentifier>{c329de74-2750-4947-a6a6-770426657bf5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ox93\ROOT\Graphics\2D">
+      <UniqueIdentifier>{f6ba0b79-dfb1-44a1-baa0-b56d8435cff0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ox93\ROOT\Graphics\2D\Text">
+      <UniqueIdentifier>{2111e1f2-0429-4e7f-8283-bc65acf0ff25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ox93\ROOT\Graphics\Shader">
+      <UniqueIdentifier>{477c8d72-6ea4-4054-b6ec-170c804b7c0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ox93\ROOT\Graphics\Shader\VS">
+      <UniqueIdentifier>{957b8bac-e086-4e50-ad1d-10bc1cba6560}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ox93\ROOT\Graphics\Shader\PS">
+      <UniqueIdentifier>{d3ae441a-1bcd-45d2-ac88-b9e686214011}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ox93\Game\Menu">
+      <UniqueIdentifier>{46869581-6a53-4ddf-9f11-0af4aba18447}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ox93\Game\Entity\PhysicalObject\Character">
+      <UniqueIdentifier>{84a74e9e-bb3b-4996-bff2-c015fd35fcd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ox93\Game\Entity\SelectionObject">
+      <UniqueIdentifier>{189ae680-44ac-4083-9423-29404e459169}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ox93\Game\Inventory">
+      <UniqueIdentifier>{22b03a40-897b-4d04-86a7-cbe80f319853}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ox93\ROOT\Physics">
+      <UniqueIdentifier>{4ce70529-21e3-4a7b-9022-01767e2bc123}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Ox93\ROOT\Ox93_Main.cpp">
+      <Filter>Ox93\ROOT</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\ROOT\Ox93_System.cpp">
+      <Filter>Ox93\ROOT</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\ROOT\Ox93_TextureHandler.cpp">
+      <Filter>Ox93\ROOT</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\ROOT\Ox93_Light.cpp">
+      <Filter>Ox93\ROOT</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\Game\Entity\Ox93_Entity.cpp">
+      <Filter>Ox93\Game\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\ROOT\Ox93_InputSystem.cpp">
+      <Filter>Ox93\ROOT</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\Game\World\Terrain\Ox93_Terrain.cpp">
+      <Filter>Ox93\Game\World\Terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\Game\World\Skybox\Ox93_Skybox.cpp">
+      <Filter>Ox93\Game\World\Skybox</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\ROOT\Graphics\Ox93_D3D.cpp">
+      <Filter>Ox93\ROOT\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\ROOT\Graphics\Ox93_GraphicsSystem.cpp">
+      <Filter>Ox93\ROOT\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\ROOT\Graphics\Ox93_RenderSystem.cpp">
+      <Filter>Ox93\ROOT\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\ROOT\Audio\Ox93_AudioPlayer.cpp">
+      <Filter>Ox93\ROOT\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\Game\Entity\Ox93_Entity_Renderable.cpp">
+      <Filter>Ox93\Game\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\ROOT\Math\Ox93_Math_Vectors.cpp">
+      <Filter>Ox93\ROOT\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\ROOT\Math\Ox93_Matrices.cpp">
+      <Filter>Ox93\ROOT\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\Game\Entity\PhysicalObject\Ox93_PhysicalObject.cpp">
+      <Filter>Ox93\Game\Entity\PhysicalObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\Game\Entity\Ox93_Model.cpp">
+      <Filter>Ox93\Game\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\ROOT\Specification\Ox93_Specification.cpp">
+      <Filter>Ox93\ROOT\Specification</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\ROOT\Specification\Ox93_Specification_System.cpp">
+      <Filter>Ox93\ROOT\Specification</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\Types\Ox93_Hash.cpp">
+      <Filter>Ox93\Types</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\Game\LoadSave\Ox93_LoadSystem.cpp">
+      <Filter>Ox93\Game\LoadSave</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\Game\Entity\Ox93_EntityRegistry.cpp">
+      <Filter>Ox93\Game\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\Game\LoadSave\ChunkStream\Ox93_ChunkStream.cpp">
+      <Filter>Ox93\Game\LoadSave\ChunkStream</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectX\DDSTextureLoader\DDSTextureLoader.cpp">
+      <Filter>DirectX\DDSTextureLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\Game\LoadSave\Ox93_SaveSystem.cpp">
+      <Filter>Ox93\Game\LoadSave</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\Game\Camera\Ox93_Camera.cpp">
+      <Filter>Ox93\Game\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="TinyXML\tinyxml2.cpp">
+      <Filter>TinyXML</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\ROOT\Graphics\2D\Ox93_BitMap.cpp">
+      <Filter>Ox93\ROOT\Graphics\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\ROOT\Graphics\2D\Text\Ox93_Font.cpp">
+      <Filter>Ox93\ROOT\Graphics\2D\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\ROOT\Graphics\2D\Text\Ox93_Text.cpp">
+      <Filter>Ox93\ROOT\Graphics\2D\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\ROOT\Graphics\Shader\Ox93_LightShader.cpp">
+      <Filter>Ox93\ROOT\Graphics\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\ROOT\Graphics\Shader\Ox93_BitMapShader.cpp">
+      <Filter>Ox93\ROOT\Graphics\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\ROOT\Graphics\Shader\Ox93_TerrainShader.cpp">
+      <Filter>Ox93\ROOT\Graphics\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\Game\Menu\Ox93_MenuSystem.cpp">
+      <Filter>Ox93\Game\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\Game\Menu\Ox93_Menu.cpp">
+      <Filter>Ox93\Game\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\Game\Menu\Ox93_MenuButton.cpp">
+      <Filter>Ox93\Game\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\Game\Entity\PhysicalObject\Character\Ox93_Character.cpp">
+      <Filter>Ox93\Game\Entity\PhysicalObject\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\Game\World\Terrain\Ox93_TerrainSystem.cpp">
+      <Filter>Ox93\Game\World\Terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\ROOT\Ox93_Random.cpp">
+      <Filter>Ox93\ROOT</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\Game\Inventory\Ox93_Inventory.cpp">
+      <Filter>Ox93\Game\Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\Game\Inventory\Ox93_InventoryItem.cpp">
+      <Filter>Ox93\Game\Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\Game\Entity\SelectionObject\Ox93_SelectionObject.cpp">
+      <Filter>Ox93\Game\Entity\SelectionObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\ROOT\Graphics\2D\Ox93_RenderTexture.cpp">
+      <Filter>Ox93\ROOT\Graphics\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\Game\Ox93_MiniMap.cpp">
+      <Filter>Ox93\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\ROOT\Graphics\Shader\Ox93_SkyboxShader.cpp">
+      <Filter>Ox93\ROOT\Graphics\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\ROOT\Graphics\Shader\Ox93_DepthShader.cpp">
+      <Filter>Ox93\ROOT\Graphics\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\ROOT\Physics\Ox93_AABB.cpp">
+      <Filter>Ox93\ROOT\Physics</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Ox93\ROOT\Ox93_System.h">
+      <Filter>Ox93\ROOT</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\ROOT\Ox93_TextureHandler.h">
+      <Filter>Ox93\ROOT</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\ROOT\Ox93_Light.h">
+      <Filter>Ox93\ROOT</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\Game\Entity\Ox93_Entity.h">
+      <Filter>Ox93\Game\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\ROOT\Ox93_InputSystem.h">
+      <Filter>Ox93\ROOT</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\Game\World\Terrain\Ox93_Terrain.h">
+      <Filter>Ox93\Game\World\Terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\Game\World\Skybox\Ox93_Skybox.h">
+      <Filter>Ox93\Game\World\Skybox</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\ROOT\Math\Ox93_Math_Vectors.h">
+      <Filter>Ox93\ROOT\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\ROOT\Assert\Ox93_Assert.h">
+      <Filter>Ox93\ROOT\Assert</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\ROOT\Graphics\Ox93_D3D.h">
+      <Filter>Ox93\ROOT\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\ROOT\Graphics\Ox93_GraphicsSystem.h">
+      <Filter>Ox93\ROOT\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\ROOT\Graphics\Ox93_RenderSystem.h">
+      <Filter>Ox93\ROOT\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\ROOT\Audio\Ox93_AudioPlayer.h">
+      <Filter>Ox93\ROOT\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\Game\Entity\Ox93_Entity_Renderable.h">
+      <Filter>Ox93\Game\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\ROOT\Math\Ox93_Matrices.h">
+      <Filter>Ox93\ROOT\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\ROOT\Math\Ox93_Math.h">
+      <Filter>Ox93\ROOT\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\Game\Entity\PhysicalObject\Ox93_PhysicalObject.h">
+      <Filter>Ox93\Game\Entity\PhysicalObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\Game\Entity\Ox93_Model.h">
+      <Filter>Ox93\Game\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\ROOT\Specification\Ox93_Specification.h">
+      <Filter>Ox93\ROOT\Specification</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\ROOT\Specification\Ox93_Specification_System.h">
+      <Filter>Ox93\ROOT\Specification</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\Ox93_Core.h">
+      <Filter>Ox93</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\Types\Ox93_Hash.h">
+      <Filter>Ox93\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\Types\Ox93_Value.h">
+      <Filter>Ox93\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\ROOT\Specification\Ox93_Specification_Hash_IDs.h">
+      <Filter>Ox93\ROOT\Specification</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\Game\LoadSave\Ox93_LoadSystem.h">
+      <Filter>Ox93\Game\LoadSave</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\Game\Entity\Ox93_EntityRegistry.h">
+      <Filter>Ox93\Game\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\Game\LoadSave\ChunkStream\Ox93_ChunkStream.h">
+      <Filter>Ox93\Game\LoadSave\ChunkStream</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectX\DDSTextureLoader\DDSTextureLoader.h">
+      <Filter>DirectX\DDSTextureLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\Game\LoadSave\Ox93_SaveSystem.h">
+      <Filter>Ox93\Game\LoadSave</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\Game\Camera\Ox93_Camera.h">
+      <Filter>Ox93\Game\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="TinyXML\tinyxml2.h">
+      <Filter>TinyXML</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\ROOT\Graphics\2D\Ox93_BitMap.h">
+      <Filter>Ox93\ROOT\Graphics\2D</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\ROOT\Graphics\2D\Text\Ox93_Font.h">
+      <Filter>Ox93\ROOT\Graphics\2D\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\ROOT\Graphics\2D\Text\Ox93_Text.h">
+      <Filter>Ox93\ROOT\Graphics\2D\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\ROOT\Graphics\Shader\Ox93_LightShader.h">
+      <Filter>Ox93\ROOT\Graphics\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\ROOT\Graphics\Shader\Ox93_BitMapShader.h">
+      <Filter>Ox93\ROOT\Graphics\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\ROOT\Graphics\Shader\Ox93_TerrainShader.h">
+      <Filter>Ox93\ROOT\Graphics\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\Game\Menu\Ox93_MenuSystem.h">
+      <Filter>Ox93\Game\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\Game\Menu\Ox93_Menu.h">
+      <Filter>Ox93\Game\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\Game\Menu\Ox93_MenuButton.h">
+      <Filter>Ox93\Game\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\Game\Entity\PhysicalObject\Character\Ox93_Character.h">
+      <Filter>Ox93\Game\Entity\PhysicalObject\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\Game\World\Terrain\Ox93_TerrainSystem.h">
+      <Filter>Ox93\Game\World\Terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\ROOT\Ox93_Random.h">
+      <Filter>Ox93\ROOT</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\Game\Inventory\Ox93_Inventory.h">
+      <Filter>Ox93\Game\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\Game\Inventory\Ox93_InventoryItem.h">
+      <Filter>Ox93\Game\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\Game\Entity\SelectionObject\Ox93_SelectionObject.h">
+      <Filter>Ox93\Game\Entity\SelectionObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\ROOT\Graphics\2D\Ox93_RenderTexture.h">
+      <Filter>Ox93\ROOT\Graphics\2D</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\Game\Ox93_MiniMap.h">
+      <Filter>Ox93\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\ROOT\Graphics\Shader\Ox93_DepthShader.h">
+      <Filter>Ox93\ROOT\Graphics\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\ROOT\Graphics\Shader\Ox93_SkyboxShader.h">
+      <Filter>Ox93\ROOT\Graphics\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\ROOT\Physics\Ox93_AABB.h">
+      <Filter>Ox93\ROOT\Physics</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Ox93\ROOT\Graphics\Shader\PS\Color.ps">
+      <Filter>Ox93\ROOT\Graphics\Shader\PS</Filter>
+    </None>
+    <None Include="Ox93\ROOT\Graphics\Shader\PS\Light.ps">
+      <Filter>Ox93\ROOT\Graphics\Shader\PS</Filter>
+    </None>
+    <None Include="Ox93\ROOT\Graphics\Shader\PS\Texture.ps">
+      <Filter>Ox93\ROOT\Graphics\Shader\PS</Filter>
+    </None>
+    <None Include="Ox93\ROOT\Graphics\Shader\VS\Color.vs">
+      <Filter>Ox93\ROOT\Graphics\Shader\VS</Filter>
+    </None>
+    <None Include="Ox93\ROOT\Graphics\Shader\VS\Light.vs">
+      <Filter>Ox93\ROOT\Graphics\Shader\VS</Filter>
+    </None>
+    <None Include="Ox93\ROOT\Graphics\Shader\VS\BitMap.vs">
+      <Filter>Ox93\ROOT\Graphics\Shader\VS</Filter>
+    </None>
+    <None Include="Ox93\ROOT\Graphics\Shader\PS\BitMap.ps">
+      <Filter>Ox93\ROOT\Graphics\Shader\PS</Filter>
+    </None>
+    <None Include="Ox93\ROOT\Graphics\Shader\VS\Terrain.vs">
+      <Filter>Ox93\ROOT\Graphics\Shader\VS</Filter>
+    </None>
+    <None Include="Ox93\ROOT\Graphics\Shader\PS\Terrain.ps">
+      <Filter>Ox93\ROOT\Graphics\Shader\PS</Filter>
+    </None>
+    <None Include="Ox93\ROOT\Graphics\Shader\VS\Skybox.vs">
+      <Filter>Ox93\ROOT\Graphics\Shader\VS</Filter>
+    </None>
+    <None Include="Ox93\ROOT\Graphics\Shader\PS\Skybox.ps">
+      <Filter>Ox93\ROOT\Graphics\Shader\PS</Filter>
+    </None>
+    <None Include="Ox93\ROOT\Graphics\Shader\VS\Texture.vs">
+      <Filter>Ox93\ROOT\Graphics\Shader\VS</Filter>
+    </None>
+    <None Include="Ox93\ROOT\Graphics\Shader\PS\Depth.ps">
+      <Filter>Ox93\ROOT\Graphics\Shader\PS</Filter>
+    </None>
+    <None Include="Ox93\ROOT\Graphics\Shader\VS\Depth.vs">
+      <Filter>Ox93\ROOT\Graphics\Shader\VS</Filter>
+    </None>
+  </ItemGroup>
+</Project>

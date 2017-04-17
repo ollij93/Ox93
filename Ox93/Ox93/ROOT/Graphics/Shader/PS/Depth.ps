@@ -1,0 +1,14 @@
+struct PixelInputType
+{
+    float4 position : SV_POSITION;
+	float4 depthPosition : TEXCOORD0;
+};
+
+float4 DepthPixelShader(PixelInputType xInput) : SV_TARGET
+{
+    float depthValue = xInput.depthPosition.z / xInput.depthPosition.w;
+
+	float4 xOutput = float4(depthValue, depthValue, depthValue, 1.f);
+
+	return xOutput;
+}

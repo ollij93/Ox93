@@ -1,0 +1,14 @@
+/Ox93/Debug/
+/Ox93/Release/
+/Ox93/shader-error.txt
+/Ox93/.vs/
+/Debug/
+/Release/
+/$tf/
+/.vs/
+*.exe
+*.sdf
+*.VC.db
+*.vssscc
+*.v12.suo
+*.VC.VC.opendb

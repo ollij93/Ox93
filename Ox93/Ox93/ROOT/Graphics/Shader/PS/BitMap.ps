@@ -1,0 +1,25 @@
+//////////////////////////////////////////////////////
+// B I T M A P   P I X E L   S H A D E R
+//////////////////////////////////////////////////////
+
+// Parameters...
+Texture2D xShaderTexture;
+SamplerState xSamplerState;
+
+// Structures...
+struct BitMapPixelInput
+{
+	float4 f4Position : SV_POSITION;
+	float2 f2Tex : TEXCOORD0;
+	float4 f4Normal : NORMAL;
+};
+
+// Functions...
+float4 BitMapPixelShader(BitMapPixelInput xInput) : SV_TARGET
+{
+	float4 f4TextureColor;
+
+	f4TextureColor = xShaderTexture.Sample(xSamplerState, xInput.f2Tex);
+
+	return f4TextureColor;
+}

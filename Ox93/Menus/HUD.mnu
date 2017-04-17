@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<Menu name="HUD">
+	<BackgroundImage texture="Textures/Crosshair.dds" width="50" height="50"/>
+  <MiniMap/>
+  <Button string="FPS: %.2f" value="Graphics.FPS" function="" width="100" height="30" image="">
+    <Position x="-390" y="290"/>
+  </Button>
+</Menu>

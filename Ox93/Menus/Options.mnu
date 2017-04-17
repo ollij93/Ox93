@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<Menu name="Options">
+	<BackgroundImage texture="Textures/OptionsBackground.dds" width="800" height="600"/>
+  <Button string="BACK" function="Menu.ReturnToPrevious" width="200" height="30" image="Textures/Button.dds">
+    <Position x="-100" y="0"/>
+  </Button>
+  <Button string="FOV: %.0f" value="FOV.Value" function="" width="200" height="30" image="Textures/Button.dds">
+    <Position x="-100" y="-50"/>
+  </Button>
+  <Button string="-" function="FOV.Decrease" width="30" height="30" image="Textures/Button.dds">
+    <Position x="-150" y="-50"/>
+  </Button>
+  <Button string="+" function="FOV.Increase" width="30" height="30" image="Textures/Button.dds">
+    <Position x="120" y="-50"/>
+  </Button>
+</Menu>

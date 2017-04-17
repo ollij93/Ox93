@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<Menu name="PauseMenu">
+	<BackgroundImage texture="Textures/PauseMenuBackground.dds" width="800" height="600"/>
+  <Button string="RESUME" function="Game.Resume" width="200" height="30" image="Textures/Button.dds">
+    <Position x="-100" y="0"/>
+  </Button>
+  <Button string="OPTIONS" function="Menu.Open.Options" width="200" height="30" image="Textures/Button.dds">
+    <Position x="-100" y="-50"/>
+  </Button>
+  <Button string="QUIT GAME" function="Game.Quit" width="200" height="30" image="Textures/Button.dds">
+    <Position x="-100" y="-100"/>
+  </Button>
+</Menu>

@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{66EE6CF6-32ED-4287-9708-E0937FB44DA2}</ProjectGuid>
+    <RootNamespace>Ox93</RootNamespace>
+    <SccProjectName>SAK</SccProjectName>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccProvider>SAK</SccProvider>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(SolutionDir)\Ox93\Ox93;$(SolutionDir)\Ox93;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\Ox93\LibNoise\LIB;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(SolutionDir)/Ox93/Ox93;$(SolutionDir)/Ox93;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_UNICODE;UNICODE;USE_OX93_ASSERT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>NotSet</SubSystem>
+      <AdditionalDependencies>libnoise.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="DirectX\DDSTextureLoader\DDSTextureLoader.h" />
+    <ClInclude Include="Ox93\Game\Entity\Ox93_Entity.h" />
+    <ClInclude Include="Ox93\Game\Entity\Ox93_Model.h" />
+    <ClInclude Include="Ox93\Game\Entity\PhysicalObject\Character\Ox93_Character.h" />
+    <ClInclude Include="Ox93\Game\Entity\PhysicalObject\Ox93_PhysicalObject.h" />
+    <ClInclude Include="Ox93\Game\Entity\SelectionObject\Ox93_SelectionObject.h" />
+    <ClInclude Include="Ox93\Game\Inventory\Ox93_Inventory.h" />
+    <ClInclude Include="Ox93\Game\Inventory\Ox93_InventoryItem.h" />
+    <ClInclude Include="Ox93\Game\LoadSave\ChunkStream\Ox93_ChunkStream.h" />
+    <ClInclude Include="Ox93\Game\LoadSave\Ox93_LoadSystem.h" />
+    <ClInclude Include="Ox93\Game\LoadSave\Ox93_SaveSystem.h" />
+    <ClInclude Include="Ox93\Game\Menu\Ox93_Menu.h" />
+    <ClInclude Include="Ox93\Game\Menu\Ox93_MenuButton.h" />
+    <ClInclude Include="Ox93\Game\Menu\Ox93_MenuSystem.h" />
+    <ClInclude Include="Ox93\Game\Ox93_MiniMap.h" />
+    <ClInclude Include="Ox93\Game\World\Skybox\Ox93_Skybox.h" />
+    <ClInclude Include="Ox93\Game\World\Terrain\Ox93_Terrain.h" />
+    <ClInclude Include="Ox93\Game\World\Terrain\Ox93_TerrainSystem.h" />
+    <ClInclude Include="Ox93\ROOT\Assert\Ox93_Assert.h" />
+    <ClInclude Include="Ox93\ROOT\Graphics\2D\Ox93_BitMap.h" />
+    <ClInclude Include="Ox93\ROOT\Graphics\2D\Ox93_RenderTexture.h" />
+    <ClInclude Include="Ox93\ROOT\Graphics\2D\Text\Ox93_Font.h" />
+    <ClInclude Include="Ox93\ROOT\Graphics\2D\Text\Ox93_Text.h" />
+    <ClInclude Include="Ox93\ROOT\Graphics\Shader\Ox93_BitMapShader.h" />
+    <ClInclude Include="Ox93\ROOT\Graphics\Shader\Ox93_DepthShader.h" />
+    <ClInclude Include="Ox93\ROOT\Graphics\Shader\Ox93_LightShader.h" />
+    <ClInclude Include="Ox93\ROOT\Graphics\Shader\Ox93_SkyboxShader.h" />
+    <ClInclude Include="Ox93\ROOT\Math\Ox93_Math.h" />
+    <ClInclude Include="Ox93\ROOT\Math\Ox93_Math_Vectors.h" />
+    <ClInclude Include="Ox93\ROOT\Math\Ox93_Matrices.h" />
+    <ClInclude Include="Ox93\Game\Camera\Ox93_Camera.h" />
+    <ClInclude Include="Ox93\ROOT\Graphics\Ox93_D3D.h" />
+    <ClInclude Include="Ox93\ROOT\Graphics\Ox93_GraphicsSystem.h" />
+    <ClInclude Include="Ox93\ROOT\Ox93_InputSystem.h" />
+    <ClInclude Include="Ox93\ROOT\Ox93_Light.h" />
+    <ClInclude Include="Ox93\ROOT\Graphics\Ox93_RenderSystem.h" />
+    <ClInclude Include="Ox93\Game\Entity\Ox93_Entity_Renderable.h" />
+    <ClInclude Include="Ox93\ROOT\Ox93_Random.h" />
+    <ClInclude Include="Ox93\ROOT\Ox93_System.h" />
+    <ClInclude Include="Ox93\ROOT\Physics\Ox93_AABB.h" />
+    <ClInclude Include="Ox93\ROOT\Specification\Ox93_Specification.h" />
+    <ClInclude Include="Ox93\ROOT\Specification\Ox93_Specification_System.h" />
+    <ClInclude Include="Ox93\ROOT\Audio\Ox93_AudioPlayer.h" />
+    <ClInclude Include="Ox93\Ox93_Core.h" />
+    <ClInclude Include="Ox93\ROOT\Ox93_TextureHandler.h" />
+    <ClInclude Include="Ox93\Types\Ox93_Hash.h" />
+    <ClInclude Include="Ox93\Types\Ox93_Value.h" />
+    <ClInclude Include="Ox93\ROOT\Specification\Ox93_Specification_Hash_IDs.h" />
+    <ClInclude Include="Ox93\Game\Entity\Ox93_EntityRegistry.h" />
+    <ClInclude Include="Ox93\ROOT\Graphics\Shader\Ox93_TerrainShader.h" />
+    <ClInclude Include="TinyXML\tinyxml2.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DirectX\DDSTextureLoader\DDSTextureLoader.cpp" />
+    <ClCompile Include="Ox93\Game\Entity\Ox93_Entity.cpp" />
+    <ClCompile Include="Ox93\Game\Entity\Ox93_EntityRegistry.cpp" />
+    <ClCompile Include="Ox93\Game\Entity\Ox93_Model.cpp" />
+    <ClCompile Include="Ox93\Game\Entity\PhysicalObject\Character\Ox93_Character.cpp" />
+    <ClCompile Include="Ox93\Game\Entity\PhysicalObject\Ox93_PhysicalObject.cpp" />
+    <ClCompile Include="Ox93\Game\Entity\SelectionObject\Ox93_SelectionObject.cpp" />
+    <ClCompile Include="Ox93\Game\Inventory\Ox93_Inventory.cpp" />
+    <ClCompile Include="Ox93\Game\Inventory\Ox93_InventoryItem.cpp" />
+    <ClCompile Include="Ox93\Game\LoadSave\ChunkStream\Ox93_ChunkStream.cpp" />
+    <ClCompile Include="Ox93\Game\LoadSave\Ox93_LoadSystem.cpp" />
+    <ClCompile Include="Ox93\Game\LoadSave\Ox93_SaveSystem.cpp" />
+    <ClCompile Include="Ox93\Game\Menu\Ox93_Menu.cpp" />
+    <ClCompile Include="Ox93\Game\Menu\Ox93_MenuButton.cpp" />
+    <ClCompile Include="Ox93\Game\Menu\Ox93_MenuSystem.cpp" />
+    <ClCompile Include="Ox93\Game\Ox93_MiniMap.cpp" />
+    <ClCompile Include="Ox93\Game\World\Skybox\Ox93_Skybox.cpp" />
+    <ClCompile Include="Ox93\Game\World\Terrain\Ox93_Terrain.cpp" />
+    <ClCompile Include="Ox93\Game\World\Terrain\Ox93_TerrainSystem.cpp" />
+    <ClCompile Include="Ox93\ROOT\Graphics\2D\Ox93_BitMap.cpp" />
+    <ClCompile Include="Ox93\ROOT\Graphics\2D\Ox93_RenderTexture.cpp" />
+    <ClCompile Include="Ox93\ROOT\Graphics\2D\Text\Ox93_Font.cpp" />
+    <ClCompile Include="Ox93\ROOT\Graphics\2D\Text\Ox93_Text.cpp" />
+    <ClCompile Include="Ox93\ROOT\Graphics\Shader\Ox93_BitMapShader.cpp" />
+    <ClCompile Include="Ox93\ROOT\Graphics\Shader\Ox93_DepthShader.cpp" />
+    <ClCompile Include="Ox93\ROOT\Graphics\Shader\Ox93_LightShader.cpp" />
+    <ClCompile Include="Ox93\ROOT\Graphics\Shader\Ox93_SkyboxShader.cpp" />
+    <ClCompile Include="Ox93\ROOT\Math\Ox93_Math_Vectors.cpp" />
+    <ClCompile Include="Ox93\ROOT\Math\Ox93_Matrices.cpp" />
+    <ClCompile Include="Ox93\Game\Camera\Ox93_Camera.cpp" />
+    <ClCompile Include="Ox93\ROOT\Graphics\Ox93_D3D.cpp" />
+    <ClCompile Include="Ox93\ROOT\Ox93_Light.cpp" />
+    <ClCompile Include="Ox93\ROOT\Ox93_Main.cpp" />
+    <ClCompile Include="Ox93\ROOT\Graphics\Ox93_GraphicsSystem.cpp" />
+    <ClCompile Include="Ox93\ROOT\Ox93_InputSystem.cpp" />
+    <ClCompile Include="Ox93\ROOT\Graphics\Ox93_RenderSystem.cpp" />
+    <ClCompile Include="Ox93\Game\Entity\Ox93_Entity_Renderable.cpp" />
+    <ClCompile Include="Ox93\ROOT\Ox93_Random.cpp" />
+    <ClCompile Include="Ox93\ROOT\Ox93_System.cpp" />
+    <ClCompile Include="Ox93\ROOT\Ox93_TextureHandler.cpp" />
+    <ClCompile Include="Ox93\ROOT\Physics\Ox93_AABB.cpp" />
+    <ClCompile Include="Ox93\ROOT\Specification\Ox93_Specification.cpp" />
+    <ClCompile Include="Ox93\ROOT\Specification\Ox93_Specification_System.cpp" />
+    <ClCompile Include="Ox93\ROOT\Audio\Ox93_AudioPlayer.cpp" />
+    <ClCompile Include="Ox93\Types\Ox93_Hash.cpp" />
+    <ClCompile Include="Ox93\ROOT\Graphics\Shader\Ox93_TerrainShader.cpp" />
+    <ClCompile Include="TinyXML\tinyxml2.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Ox93\ROOT\Graphics\Shader\PS\BitMap.ps" />
+    <None Include="Ox93\ROOT\Graphics\Shader\PS\Depth.ps" />
+    <None Include="Ox93\ROOT\Graphics\Shader\PS\Skybox.ps" />
+    <None Include="Ox93\ROOT\Graphics\Shader\PS\Terrain.ps" />
+    <None Include="Ox93\ROOT\Graphics\Shader\VS\BitMap.vs" />
+    <None Include="Ox93\ROOT\Graphics\Shader\PS\Color.ps" />
+    <None Include="Ox93\ROOT\Graphics\Shader\VS\Color.vs" />
+    <None Include="Ox93\ROOT\Graphics\Shader\PS\Light.ps" />
+    <None Include="Ox93\ROOT\Graphics\Shader\VS\Depth.vs" />
+    <None Include="Ox93\ROOT\Graphics\Shader\VS\Light.vs" />
+    <None Include="Ox93\ROOT\Graphics\Shader\PS\Texture.ps" />
+    <None Include="Ox93\ROOT\Graphics\Shader\VS\Terrain.vs" />
+    <None Include="Ox93\ROOT\Graphics\Shader\VS\Skybox.vs" />
+    <None Include="Ox93\ROOT\Graphics\Shader\VS\Texture.vs" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
