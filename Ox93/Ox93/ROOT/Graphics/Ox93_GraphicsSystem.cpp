@@ -53,7 +53,11 @@ bool Ox93_GraphicsSystem::Init(u_int uScreenWidth, u_int uScreenHeight, HWND hWn
 	Ox93_Assert(bResult, "Failed to create Ox93_TextureHandler.");
 	if (!bResult) { return false; }
 
-	// Create and initialize the camera 
+	/* 
+	 * Create and initialize the default camera
+	 * Since this is an entity there is no need to delete
+	 * it as the EntitySystem takes care of that
+	 */
 	Ox93_Camera* pxCamera = new Ox93_Camera(OX93_CLASS_CAMERA);
 	if (!pxCamera) { return false; }
 

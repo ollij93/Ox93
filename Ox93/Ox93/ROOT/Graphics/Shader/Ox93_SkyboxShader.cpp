@@ -1,5 +1,6 @@
 // Includes...
 #include "Ox93_SkyboxShader.h"
+#include "Game/Entity/Camera/Ox93_Camera.h"
 #include "Game/World/Skybox/Ox93_Skybox.h"
 #include "ROOT/Graphics/Ox93_GraphicsSystem.h"
 
@@ -44,7 +45,9 @@ bool Ox93_SkyboxShader::Render()
 	DirectX::XMMATRIX xProjectionMatrix;
 	DirectX::XMMATRIX xViewMatrix;
 	Ox93_D3D::GetProjectionMatrix(xProjectionMatrix);
-	Ox93_GraphicsSystem::GetViewMatrix(xViewMatrix);
+
+	if (!Ox93_Camera::GetActive()) { return false; }
+	Ox93_Camera::GetActive()->GetViewMatrix(xViewMatrix);
 
 	Ox93_Skybox* pxSkybox = Ox93_Skybox::GetActiveSkybox();
 

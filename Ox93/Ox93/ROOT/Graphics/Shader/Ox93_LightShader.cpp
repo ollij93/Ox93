@@ -1,6 +1,7 @@
 // Includes...
 #include "Ox93_LightShader.h"
 #include "Game/Entity/Ox93_Entity_Renderable.h"
+#include "Game/Entity/Camera/Ox93_Camera.h"
 #include "Game/Entity/Light/Ox93_Light.h"
 #include "ROOT/Graphics/Ox93_D3D.h"
 #include "ROOT/Graphics/Ox93_GraphicsSystem.h"
@@ -52,7 +53,9 @@ bool Ox93_LightShader::Render()
 	DirectX::XMMATRIX xLightViewMatrix;
 	DirectX::XMMATRIX xLightProjectionMatrix;
 	Ox93_D3D::GetProjectionMatrix(xProjectionMatrix);
-	Ox93_GraphicsSystem::GetViewMatrix(xViewMatrix);
+
+	if (!Ox93_Camera::GetActive()) { return false; }
+	Ox93_Camera::GetActive()->GetViewMatrix(xViewMatrix);
 
 	// OJ - If no lights exist then we need to wait for one to be loaded, do nothing now
 	if (Ox93_Light::GetList().empty()) { return true; }

@@ -1,5 +1,6 @@
 // Includes...
 #include "Ox93_Character.h"
+#include "Game/Entity/Camera/Ox93_Camera.h"
 #include "Game/Inventory/Ox93_Inventory.h"
 #include "Game/LoadSave/ChunkStream/Ox93_ChunkStream.h"
 #include "Game/LoadSave/Ox93_LoadSystem.h"

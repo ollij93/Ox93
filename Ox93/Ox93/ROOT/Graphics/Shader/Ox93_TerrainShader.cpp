@@ -1,5 +1,6 @@
 // Includes...
 #include "Ox93_TerrainShader.h"
+#include "Game/Entity/Camera/Ox93_Camera.h"
 #include "Game/World/Terrain/Ox93_Terrain.h"
 #include "ROOT/Graphics/Ox93_D3D.h"
 #include "ROOT/Graphics/Ox93_GraphicsSystem.h"
@@ -51,7 +52,9 @@ bool Ox93_TerrainShader::Render()
 	DirectX::XMMATRIX xLightViewMatrix;
 	DirectX::XMMATRIX xLightProjectionMatrix;
 	Ox93_D3D::GetProjectionMatrix(xProjectionMatrix);
-	Ox93_GraphicsSystem::GetViewMatrix(xViewMatrix);
+
+	if (!Ox93_Camera::GetActive()) { return false; }
+	Ox93_Camera::GetActive()->GetViewMatrix(xViewMatrix);
 
 	// OJ - If no lights exist then we need to wait for one to be loaded, do nothing now
 	if (Ox93_Light::GetList().empty()) { return true; }

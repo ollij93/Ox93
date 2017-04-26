@@ -3,7 +3,6 @@
 
 // Includes...
 #include "Ox93_Core.h"
-#include "Game/Entity/Camera/Ox93_Camera.h"
 #include "Game/World/Skybox/Ox93_Skybox.h"
 #include "ROOT/Graphics/Ox93_D3D.h"
 #include "ROOT/Graphics/Ox93_RenderSystem.h"
@@ -15,8 +14,6 @@ public:
 	static void Destroy();
 
 	static bool Frame();
-
-	static void GetViewMatrix(DirectX::XMMATRIX& xViewMatrix) { if (Ox93_Camera::GetActive()) { Ox93_Camera::GetActive()->GetViewMatrix(xViewMatrix); } }
 
 	const static bool s_bFullscreen;
 	const static bool s_bVSyncEnabled;
