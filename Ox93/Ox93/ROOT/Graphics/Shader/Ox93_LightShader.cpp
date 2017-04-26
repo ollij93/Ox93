@@ -1,9 +1,9 @@
 // Includes...
 #include "Ox93_LightShader.h"
 #include "Game/Entity/Ox93_Entity_Renderable.h"
+#include "Game/Entity/Light/Ox93_Light.h"
 #include "ROOT/Graphics/Ox93_D3D.h"
 #include "ROOT/Graphics/Ox93_GraphicsSystem.h"
-#include "ROOT/Ox93_Light.h"
 
 // Statics...
 std::list<Ox93_Entity_Renderable*> Ox93_LightShader::s_lpxEntitesToRender;

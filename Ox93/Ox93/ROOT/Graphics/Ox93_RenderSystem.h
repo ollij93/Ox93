@@ -5,7 +5,7 @@
 
 // Includes...
 #include "Ox93_Core.h"
-#include "ROOT/Ox93_Light.h"
+#include "Game/Entity/Light/Ox93_Light.h"
 #include "ROOT/Ox93_TextureHandler.h"
 #include "ROOT/Math/Ox93_Math.h"
 

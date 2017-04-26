@@ -80,6 +80,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="DirectX\DDSTextureLoader\DDSTextureLoader.h" />
+    <ClInclude Include="Ox93\Game\Entity\Light\Ox93_Light.h" />
     <ClInclude Include="Ox93\Game\Entity\Ox93_Entity.h" />
     <ClInclude Include="Ox93\Game\Entity\Ox93_Model.h" />
     <ClInclude Include="Ox93\Game\Entity\PhysicalObject\Character\Ox93_Character.h" />
@@ -113,7 +114,6 @@
     <ClInclude Include="Ox93\ROOT\Graphics\Ox93_D3D.h" />
     <ClInclude Include="Ox93\ROOT\Graphics\Ox93_GraphicsSystem.h" />
     <ClInclude Include="Ox93\ROOT\Ox93_InputSystem.h" />
-    <ClInclude Include="Ox93\ROOT\Ox93_Light.h" />
     <ClInclude Include="Ox93\ROOT\Graphics\Ox93_RenderSystem.h" />
     <ClInclude Include="Ox93\Game\Entity\Ox93_Entity_Renderable.h" />
     <ClInclude Include="Ox93\ROOT\Ox93_Random.h" />
@@ -133,6 +133,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DirectX\DDSTextureLoader\DDSTextureLoader.cpp" />
+    <ClCompile Include="Ox93\Game\Entity\Light\Ox93_Light.cpp" />
     <ClCompile Include="Ox93\Game\Entity\Ox93_Entity.cpp" />
     <ClCompile Include="Ox93\Game\Entity\Ox93_EntityRegistry.cpp" />
     <ClCompile Include="Ox93\Game\Entity\Ox93_Model.cpp" />
@@ -163,7 +164,6 @@
     <ClCompile Include="Ox93\ROOT\Math\Ox93_Matrices.cpp" />
     <ClCompile Include="Ox93\Game\Camera\Ox93_Camera.cpp" />
     <ClCompile Include="Ox93\ROOT\Graphics\Ox93_D3D.cpp" />
-    <ClCompile Include="Ox93\ROOT\Ox93_Light.cpp" />
     <ClCompile Include="Ox93\ROOT\Ox93_Main.cpp" />
     <ClCompile Include="Ox93\ROOT\Graphics\Ox93_GraphicsSystem.cpp" />
     <ClCompile Include="Ox93\ROOT\Ox93_InputSystem.cpp" />

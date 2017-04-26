@@ -91,6 +91,9 @@
     <Filter Include="Ox93\ROOT\Physics">
       <UniqueIdentifier>{4ce70529-21e3-4a7b-9022-01767e2bc123}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Ox93\Game\Entity\Light">
+      <UniqueIdentifier>{0d430d40-6d81-4490-9996-69a18b068bfc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Ox93\ROOT\Ox93_Main.cpp">
@@ -100,9 +103,6 @@
       <Filter>Ox93\ROOT</Filter>
     </ClCompile>
     <ClCompile Include="Ox93\ROOT\Ox93_TextureHandler.cpp">
-      <Filter>Ox93\ROOT</Filter>
-    </ClCompile>
-    <ClCompile Include="Ox93\ROOT\Ox93_Light.cpp">
       <Filter>Ox93\ROOT</Filter>
     </ClCompile>
     <ClCompile Include="Ox93\Game\Entity\Ox93_Entity.cpp">
@@ -234,15 +234,15 @@
     <ClCompile Include="Ox93\ROOT\Physics\Ox93_AABB.cpp">
       <Filter>Ox93\ROOT\Physics</Filter>
     </ClCompile>
+    <ClCompile Include="Ox93\Game\Entity\Light\Ox93_Light.cpp">
+      <Filter>Ox93\Game\Entity\Light</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ox93\ROOT\Ox93_System.h">
       <Filter>Ox93\ROOT</Filter>
     </ClInclude>
     <ClInclude Include="Ox93\ROOT\Ox93_TextureHandler.h">
-      <Filter>Ox93\ROOT</Filter>
-    </ClInclude>
-    <ClInclude Include="Ox93\ROOT\Ox93_Light.h">
       <Filter>Ox93\ROOT</Filter>
     </ClInclude>
     <ClInclude Include="Ox93\Game\Entity\Ox93_Entity.h">
@@ -388,6 +388,9 @@
     </ClInclude>
     <ClInclude Include="Ox93\ROOT\Physics\Ox93_AABB.h">
       <Filter>Ox93\ROOT\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\Game\Entity\Light\Ox93_Light.h">
+      <Filter>Ox93\Game\Entity\Light</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
