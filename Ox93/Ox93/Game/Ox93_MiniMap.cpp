@@ -1,6 +1,6 @@
 // Includes...
 #include "Ox93_MiniMap.h"
-#include "Game/Camera/Ox93_Camera.h"
+#include "Game/Entity/Camera/Ox93_Camera.h"
 #include "ROOT/Graphics/2D/Ox93_BitMap.h"
 #include "ROOT/Graphics/2D/Ox93_RenderTexture.h"
 #include "ROOT/Graphics/Ox93_D3D.h"
@@ -71,7 +71,7 @@ void Ox93_MiniMap::Update()
 
 	Ox93_Vector_3 xCameraPos;
 	Ox93_Matrix3x3 xCameraOri;
-	Ox93_Camera* pxCamera = Ox93_GraphicsSystem::GetCamera();
+	Ox93_Camera* pxCamera = Ox93_Camera::GetActive();
 	if (pxCamera)
 	{
 		xCameraPos = pxCamera->GetPosition();

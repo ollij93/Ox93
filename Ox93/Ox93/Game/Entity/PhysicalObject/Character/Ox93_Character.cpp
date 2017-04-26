@@ -144,7 +144,7 @@ void Ox93_Character::Update()
 		m_xVelocity.y = 0.f;
 	}
 
-	Ox93_Camera* pxCamera = Ox93_GraphicsSystem::GetCamera();
+	Ox93_Camera* pxCamera = Ox93_Camera::GetActive();
 	if (pxCamera)
 	{
 		Ox93_Vector_3 xPosAdjust;

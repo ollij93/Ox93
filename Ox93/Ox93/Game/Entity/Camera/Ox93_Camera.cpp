@@ -6,10 +6,12 @@
 static const float fOX93_MOUSE_SENSITIVITY = 0.01f;
 static const float fOX93_MOVEMENT_SPEED = 0.15f;
 
-Ox93_Camera::Ox93_Camera()
-: m_xViewMatrix()
-, m_xPosition(Ox93_Math::ZeroVector3)
-, m_xOrientation(Ox93_Math::IdentityMatrix3x3)
+// Statics...
+Ox93_Camera* Ox93_Camera::s_pxActiveCamera = nullptr;
+
+Ox93_Camera::Ox93_Camera(u_int uClassification)
+: PARENT(uClassification)
+, m_xViewMatrix()
 {
 }
 

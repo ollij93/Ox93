@@ -55,9 +55,6 @@
     <Filter Include="DirectX\DDSTextureLoader">
       <UniqueIdentifier>{dcfcd77b-d78f-4b68-8273-c843c2419601}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Ox93\Game\Camera">
-      <UniqueIdentifier>{433a8267-010a-4b52-81b1-1a8637e7640b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="TinyXML">
       <UniqueIdentifier>{c329de74-2750-4947-a6a6-770426657bf5}</UniqueIdentifier>
     </Filter>
@@ -93,6 +90,9 @@
     </Filter>
     <Filter Include="Ox93\Game\Entity\Light">
       <UniqueIdentifier>{0d430d40-6d81-4490-9996-69a18b068bfc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ox93\Game\Entity\Camera">
+      <UniqueIdentifier>{433a8267-010a-4b52-81b1-1a8637e7640b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -168,9 +168,6 @@
     <ClCompile Include="Ox93\Game\LoadSave\Ox93_SaveSystem.cpp">
       <Filter>Ox93\Game\LoadSave</Filter>
     </ClCompile>
-    <ClCompile Include="Ox93\Game\Camera\Ox93_Camera.cpp">
-      <Filter>Ox93\Game\Camera</Filter>
-    </ClCompile>
     <ClCompile Include="TinyXML\tinyxml2.cpp">
       <Filter>TinyXML</Filter>
     </ClCompile>
@@ -236,6 +233,9 @@
     </ClCompile>
     <ClCompile Include="Ox93\Game\Entity\Light\Ox93_Light.cpp">
       <Filter>Ox93\Game\Entity\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="Ox93\Game\Entity\Camera\Ox93_Camera.cpp">
+      <Filter>Ox93\Game\Entity\Camera</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -323,9 +323,6 @@
     <ClInclude Include="Ox93\Game\LoadSave\Ox93_SaveSystem.h">
       <Filter>Ox93\Game\LoadSave</Filter>
     </ClInclude>
-    <ClInclude Include="Ox93\Game\Camera\Ox93_Camera.h">
-      <Filter>Ox93\Game\Camera</Filter>
-    </ClInclude>
     <ClInclude Include="TinyXML\tinyxml2.h">
       <Filter>TinyXML</Filter>
     </ClInclude>
@@ -391,6 +388,9 @@
     </ClInclude>
     <ClInclude Include="Ox93\Game\Entity\Light\Ox93_Light.h">
       <Filter>Ox93\Game\Entity\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\Game\Entity\Camera\Ox93_Camera.h">
+      <Filter>Ox93\Game\Entity\Camera</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

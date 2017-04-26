@@ -1,6 +1,6 @@
 // Includes...
 #include "Ox93_GraphicsSystem.h"
-#include "Game/Camera/Ox93_Camera.h"
+#include "Game/Entity/Camera/Ox93_Camera.h"
 #include "ROOT/Specification/Ox93_Specification_System.h"
 
 // Global Variables...
@@ -17,7 +17,6 @@ float Ox93_GraphicsSystem::s_fFPS = 0.f;
 
 Ox93_GraphicsSystem::Ox93_GraphicsSystem()
 : m_pxD3D(nullptr)
-, m_pxCamera(nullptr)
 , m_pxRenderSystem(nullptr)
 , m_fPrevUpdateTime(0.f)
 , m_uUpdateCounter(g_uFPSFrameSpan)
@@ -55,10 +54,11 @@ bool Ox93_GraphicsSystem::Init(u_int uScreenWidth, u_int uScreenHeight, HWND hWn
 	if (!bResult) { return false; }
 
 	// Create and initialize the camera 
-	m_pxCamera = new Ox93_Camera;
-	if (!m_pxCamera) { return false; }
+	Ox93_Camera* pxCamera = new Ox93_Camera(OX93_CLASS_CAMERA);
+	if (!pxCamera) { return false; }
 
-	m_pxCamera->SetPosition(0.0f, 0.0f, -10.0f);
+	pxCamera->SetPosition(0.0f, 0.0f, -10.0f);
+	Ox93_Camera::SetActive(pxCamera);
 
 	// Create and initialize the Render System
 	bResult = Ox93_RenderSystem::Create();
@@ -75,12 +75,6 @@ bool Ox93_GraphicsSystem::Init(u_int uScreenWidth, u_int uScreenHeight, HWND hWn
 void Ox93_GraphicsSystem::Shutdown()
 {
 	Ox93_RenderSystem::Destroy();
-
-	if (m_pxCamera)
-	{
-		delete m_pxCamera;
-		m_pxCamera = nullptr;
-	}
 
 	Ox93_TextureHandler::Destroy();
 	Ox93_D3D::Destroy();
@@ -113,7 +107,7 @@ bool Ox93_GraphicsSystem::Render()
 	m_pxD3D->BeginScene(0.0f, 0.0f, 0.0f, 1.0f);
 
 	// Prepare the camera for rendering
-	m_pxCamera->Render();
+	Ox93_Camera::RenderActive();
 
 	// Do the render processing.
 	Ox93_RenderSystem::Render();
@@ -137,8 +131,8 @@ void Ox93_GraphicsSystem::CentreSkybox()
 		}
 	}
 
-	if (m_pxCamera)
+	if (Ox93_Camera::GetActive())
 	{
-		pxSkybox->SetPosition(m_pxCamera->GetPosition());
+		pxSkybox->SetPosition(Ox93_Camera::GetActive()->GetPosition());
 	}
 }

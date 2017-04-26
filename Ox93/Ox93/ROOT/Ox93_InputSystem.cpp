@@ -1,6 +1,6 @@
 // Includes...
 #include "Ox93_InputSystem.h"
-#include "Game/Camera/Ox93_Camera.h"
+#include "Game/Entity/Camera/Ox93_Camera.h"
 #include "Game/Entity/PhysicalObject/Character/Ox93_Character.h"
 #include "Game/Menu/Ox93_MenuSystem.h"
 #include "ROOT/Graphics/Ox93_GraphicsSystem.h"
@@ -135,7 +135,7 @@ void Ox93_InputSystem::HandleInput()
 	{
 		case OX93_GAMEMODE_FREECAM:
 		{
-			Ox93_Camera* pxCamera = Ox93_GraphicsSystem::GetCamera();
+			Ox93_Camera* pxCamera = Ox93_Camera::GetActive();
 			pxCamera->HandleInput();
 			break;
 		}
