@@ -6,7 +6,6 @@
 #include "ROOT/Graphics/Ox93_D3D.h"
 #include "ROOT/Graphics/Ox93_GraphicsSystem.h"
 #include "ROOT/Graphics/Shader/Ox93_TerrainShader.h"
-#include "ROOT/Ox93_Light.h"
 
 // Globals...
 static const float fOX93_MINIMAP_FOV = Ox93_Math::PI / 8.f;
@@ -70,12 +69,6 @@ void Ox93_MiniMap::Update()
 	m_pxRenderTexture->SetAsRenderTarget();
 	m_pxRenderTexture->ClearRenderTarget(0.f,0.f,0.f,1.f);
 
-	Ox93_Light xLight;
-	xLight.SetAmbientColor(0.15f, 0.15f, 0.15f, 1.f);
-	xLight.SetDiffuseColor(1.f, 1.f, 1.f, 1.f);
-	xLight.SetPosition(-4.f, 10.f, -8.f);
-	xLight.SetDirection(0.4f, -1.f, 0.8f);
-
 	Ox93_Vector_3 xCameraPos;
 	Ox93_Matrix3x3 xCameraOri;
 	Ox93_Camera* pxCamera = Ox93_GraphicsSystem::GetCamera();
@@ -91,10 +84,10 @@ void Ox93_MiniMap::Update()
 		pxCamera->Render();
 
 		// Light Shader
-		Ox93_LightShader::Render(&xLight);
+		Ox93_LightShader::Render();
 
 		// Terrain Shader
-		Ox93_TerrainShader::Render(&xLight);
+		Ox93_TerrainShader::Render();
 
 		pxCamera->SetPosition(xCameraPos);
 		pxCamera->SetOrientation(xCameraOri);

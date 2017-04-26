@@ -17,7 +17,7 @@ public:
 	static bool Create();
 	static void Destroy();
 
-	static bool Render(const Ox93_Light* pxLight);
+	static bool Render();
 
 	static void AddToRenderList(Ox93_Entity_Renderable* pxRenderable) { if (pxRenderable) { s_lpxEntitesToRender.push_back(pxRenderable); } }
 	static void RemoveFromRenderList(Ox93_Entity_Renderable* pxRenderable) { s_lpxEntitesToRender.remove(pxRenderable); }

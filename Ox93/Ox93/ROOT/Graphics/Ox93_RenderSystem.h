@@ -37,8 +37,6 @@ protected:
 	void RenderShaders();
 
 private:
-	Ox93_Light* m_pxLight;
-
 	static Ox93_RenderSystem* s_pxThis;
 };
 

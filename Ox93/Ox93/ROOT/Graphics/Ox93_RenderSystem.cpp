@@ -15,7 +15,6 @@
 Ox93_RenderSystem* Ox93_RenderSystem::s_pxThis = nullptr;
 
 Ox93_RenderSystem::Ox93_RenderSystem()
-: m_pxLight(nullptr)
 {
 }
 
@@ -59,19 +58,12 @@ void Ox93_RenderSystem::Destroy()
 
 bool Ox93_RenderSystem::Init()
 {
-	m_pxLight = new Ox93_Light;
-	m_pxLight->InitRenderTexture();
 	return true;
 }
 
 
 void Ox93_RenderSystem::Shutdown()
 {
-	if (m_pxLight)
-	{
-		delete m_pxLight;
-		m_pxLight = nullptr;
-	}
 }
 
 bool Ox93_RenderSystem::Render()
@@ -87,21 +79,11 @@ void Ox93_RenderSystem::RenderShaders()
 	// Ensure the Z Buffer is enabled before 3D rendering
 	Ox93_D3D::SetZBufferEnabled(true);
 
-	Ox93_Vector_3 xPos = Ox93_Math::ZeroVector3;
-	if (Ox93_Character::GetLocalPlayer())
-	{
-		xPos = Ox93_Character::GetLocalPlayer()->GetPosition() + Ox93_Vector_3(-80.f, 200.f, -160.f);
-	}
-	
-	m_pxLight->SetAmbientColor(0.15f, 0.15f, 0.15f, 1.f);
-	m_pxLight->SetDiffuseColor(1.f, 1.f, 1.f, 1.f);
-	m_pxLight->SetPosition(xPos.x, xPos.y, xPos.z);
-	m_pxLight->SetDirection(4.f, -10.f, 8.f);
-	m_pxLight->Render();
+	Ox93_Light::RenderList();
 
-	Ox93_LightShader::Render(m_pxLight);
+	Ox93_LightShader::Render();
 	Ox93_SkyboxShader::Render();
-	Ox93_TerrainShader::Render(m_pxLight);
+	Ox93_TerrainShader::Render();
 
 	/////////////////////////
 	// 2D RENDERING
@@ -112,6 +94,7 @@ void Ox93_RenderSystem::RenderShaders()
 	
 	Ox93_BitMapShader::Render();
 }
+
 /////////////////////////////////////////////////////
 // Global function for all shaders
 /////////////////////////////////////////////////////

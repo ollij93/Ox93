@@ -38,9 +38,9 @@ void Ox93_TerrainShader::Destroy()
 	s_pxThis = nullptr;
 }
 
-bool Ox93_TerrainShader::Render(const Ox93_Light* pxLight)
+bool Ox93_TerrainShader::Render()
 {
-	if (!s_pxThis || !pxLight) { return false; }
+	if (!s_pxThis) { return false; }
 
 	ID3D11DeviceContext* pxDeviceContext = Ox93_D3D::GetDeviceContext();
 	if (!pxDeviceContext) { return false; }
@@ -52,6 +52,12 @@ bool Ox93_TerrainShader::Render(const Ox93_Light* pxLight)
 	DirectX::XMMATRIX xLightProjectionMatrix;
 	Ox93_D3D::GetProjectionMatrix(xProjectionMatrix);
 	Ox93_GraphicsSystem::GetViewMatrix(xViewMatrix);
+
+	// OJ - If no lights exist then we need to wait for one to be loaded, do nothing now
+	if (Ox93_Light::GetList().empty()) { return true; }
+	// OJ - Get the first light in the list and use this
+	const Ox93_Light* pxLight = Ox93_Light::GetList().front();
+	if (!pxLight) { return false; }
 	pxLight->GetViewMatrix(xLightViewMatrix);
 	pxLight->GetProjectionMatrix(xLightProjectionMatrix);
 

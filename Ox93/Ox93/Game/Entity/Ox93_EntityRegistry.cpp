@@ -13,6 +13,7 @@ void Ox93_EntityRegistry::RegisterEntityClasses()
 {
 	RegisterEntity(OX93_CLASS_PHYSICALOBJECT, Ox93_PhysicalObject::Create);
 	RegisterEntity(OX93_CLASS_CHARACTER, Ox93_Character::Create);
+	RegisterEntity(OX93_CLASS_LIGHT, Ox93_Light::Create);
 }
 
 void Ox93_EntityRegistry::RegisterEntity(u_int uClassification, pfnCreateFunction pfnCreate )

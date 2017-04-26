@@ -1,26 +1,49 @@
 <World seed="1919">
-    <Entity class="2" specification="2393081601">
-        <Member value="-48.140614"/>
-        <Member value="2.5353954"/>
-        <Member value="67.858894"/>
-        <Member value="0.83161181"/>
+    <Entity class="4" specification="0">
+        <Member value="-30.356506"/>
+        <Member value="34.409206"/>
+        <Member value="19.298409"/>
+        <Member value="1"/>
         <Member value="0"/>
-        <Member value="-0.55582929"/>
+        <Member value="0"/>
+        <Member value="0"/>
+        <Member value="0.70710677"/>
+        <Member value="-0.70710677"/>
+        <Member value="0"/>
+        <Member value="0.70710677"/>
+        <Member value="0.70710677"/>
+        <Member value="0.15000001"/>
+        <Member value="0.15000001"/>
+        <Member value="0.15000001"/>
+        <Member value="1"/>
+        <Member value="1"/>
+        <Member value="1"/>
+        <Member value="1"/>
+        <Member value="1"/>
+        <Member value="1"/>
+    </Entity>
+    <Entity class="2" specification="2393081601">
+        <Member value="-30.356506"/>
+        <Member value="-0.94613391"/>
+        <Member value="54.653748"/>
+        <Member value="0.98222291"/>
+        <Member value="0"/>
+        <Member value="0.18928096"/>
         <Member value="0"/>
         <Member value="1"/>
         <Member value="0"/>
-        <Member value="0.55582929"/>
+        <Member value="-0.18928096"/>
         <Member value="0"/>
-        <Member value="0.83161181"/>
-        <Member value="0.83161181"/>
+        <Member value="0.98222291"/>
+        <Member value="0.98222291"/>
         <Member value="0"/>
-        <Member value="-0.55582929"/>
-        <Member value="0.17444877"/>
-        <Member value="0.94957435"/>
-        <Member value="0.26099333"/>
-        <Member value="0.52783275"/>
-        <Member value="-0.31384277"/>
-        <Member value="0.7896952"/>
+        <Member value="0.18928096"/>
+        <Member value="-0.066820502"/>
+        <Member value="0.93570244"/>
+        <Member value="0.34678861"/>
+        <Member value="-0.17710516"/>
+        <Member value="-0.3530511"/>
+        <Member value="0.91912657"/>
         <Member value="1"/>
     </Entity>
     <Entity class="0" specification="64279661">

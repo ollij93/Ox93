@@ -31,13 +31,15 @@ public:
 
 	virtual void ReadFromChunkStream(const Ox93_ChunkStream& xChunkStream);
 	virtual void WriteToChunkStream(Ox93_ChunkStream& xChunkStream) const;
-	
-	void SetPosition(float fX, float fY, float fZ) { m_xPosition = Ox93_Vector_3(fX,fY,fZ); }
-	void SetPosition(Ox93_Vector_3 xPosition) { m_xPosition = xPosition; }
+
+	/* Some entities need to update other quantities when their position is changed */
+	virtual void SetPosition(float fX, float fY, float fZ) { m_xPosition = Ox93_Vector_3(fX,fY,fZ); }
+	virtual void SetPosition(Ox93_Vector_3 xPosition) { m_xPosition = xPosition; }
 	Ox93_Vector_3 GetPosition() const { return m_xPosition; }
 
-	void SetOrientation(Ox93_Matrix3x3 xOrientation) { m_xOrientation = xOrientation; }
+	virtual void SetOrientation(Ox93_Matrix3x3 xOrientation) { m_xOrientation = xOrientation; }
 	Ox93_Matrix3x3 GetOrientation() const { return m_xOrientation; }
+	Ox93_Vector_3 GetDirection() const { return Ox93_Vector_3(m_xOrientation.e02, m_xOrientation.e12, m_xOrientation.e22); }
 
 	static float GetRunningUpdateTime() { return (s_ulCurrentUpdateTime - s_ulPreviousUpdateTime < 200.f) ? s_ulCurrentUpdateTime - s_ulPreviousUpdateTime : 200.f; }
 
@@ -65,4 +67,3 @@ private:
 };
 
 #endif // ifndef __OX93_ENTITY_H__
-
