@@ -90,7 +90,7 @@ void Ox93_Entity::ShutdownAll()
 {
 	while (s_lpxEntityList.size() > 0)
 	{
-		Ox93_Entity* pxEntity = s_lpxEntityList.back();
+		Ox93_Entity* pxEntity = s_lpxEntityList.front();
 		if (pxEntity)
 		{
 			delete pxEntity;

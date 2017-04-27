@@ -30,11 +30,23 @@ Ox93_Character::Ox93_Character(u_int uClassification)
 , m_fHeight(2.f)
 , m_xEyeOri(Ox93_Math::IdentityMatrix3x3)
 , m_pxInventory(nullptr)
+, m_pxCamera(nullptr)
 {
+	m_pxCamera = new Ox93_Camera(OX93_CLASS_CAMERA);
 }
 
 Ox93_Character::~Ox93_Character()
 {
+	if (m_pxCamera)
+	{
+		delete m_pxCamera;
+		m_pxCamera = nullptr;
+	}
+
+	if (s_pxLocalPlayer == this)
+	{
+		s_pxLocalPlayer = nullptr;
+	}
 }
 
 void Ox93_Character::ReadFromChunkStream(const Ox93_ChunkStream& xChunkStream)
@@ -145,8 +157,7 @@ void Ox93_Character::Update()
 		m_xVelocity.y = 0.f;
 	}
 
-	Ox93_Camera* pxCamera = Ox93_Camera::GetActive();
-	if (pxCamera)
+	if (m_pxCamera)
 	{
 		Ox93_Vector_3 xPosAdjust;
 		if (s_bFirstPerson)
@@ -160,8 +171,8 @@ void Ox93_Character::Update()
 			xPosAdjust *= s_fThirdPersonZoom;
 			xPosAdjust += Ox93_Vector_3(0.f, m_fHeight - m_fRadius, 0.f);
 		}
-		pxCamera->SetPosition(GetPosition() + xPosAdjust);
-		pxCamera->SetOrientation(m_xEyeOri);
+		m_pxCamera->SetPosition(GetPosition() + xPosAdjust);
+		m_pxCamera->SetOrientation(m_xEyeOri);
 	}
 
 	if (m_pxInventory)

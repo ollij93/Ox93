@@ -80,6 +80,11 @@ void Ox93_RenderSystem::RenderShaders()
 	Ox93_D3D::SetZBufferEnabled(true);
 
 	Ox93_Light::RenderList();
+	if(Ox93_Character::GetLocalPlayer())
+	{
+		Ox93_Character::GetLocalPlayer()->SetCameraActive();
+	}
+	Ox93_Camera::RenderActive();
 
 	Ox93_LightShader::Render();
 	Ox93_SkyboxShader::Render();

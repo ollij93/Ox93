@@ -15,6 +15,14 @@ Ox93_Camera::Ox93_Camera(u_int uClassification)
 {
 }
 
+Ox93_Camera::~Ox93_Camera()
+{
+	if (s_pxActiveCamera == this)
+	{
+		s_pxActiveCamera = nullptr;
+	}
+}
+
 void Ox93_Camera::HandleInput()
 {
 	// Check for mouse movement

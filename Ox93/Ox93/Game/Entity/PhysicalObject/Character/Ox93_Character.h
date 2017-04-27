@@ -5,6 +5,7 @@
 
 // Includes...
 #include "Ox93_Core.h"
+#include "Game/Entity/Camera/Ox93_Camera.h"
 #include "Game/Entity/PhysicalObject/Ox93_PhysicalObject.h"
 
 // Forward Declarations...
@@ -16,6 +17,7 @@ public:
 	Ox93_Character(u_int uClassification);
 	~Ox93_Character();
 
+	// Overrides...
 	virtual void Update() override;
 
 	virtual void ReadFromChunkStream(const Ox93_ChunkStream& xChunkStream) override;
@@ -23,14 +25,18 @@ public:
 
 	virtual void InitFromSpecification(const Ox93_Specification* pxSpecification) override;
 
+	// Getters & Setters...
+	Ox93_Vector_3 GetEyePosition() const { return GetPosition() + Ox93_Vector_3(0, m_fHeight - m_fRadius, 0); }
+	Ox93_Matrix3x3 GetEyeOrientation() const { return m_xEyeOri; }
+	void SetCameraActive() const { Ox93_Camera::SetActive(m_pxCamera); }
+
+	// Statics...
 	static Ox93_Entity* Create() { return new Ox93_Character(OX93_CLASS_CHARACTER); }
 	static Ox93_Entity* CreateLocalPlayer();
 
 	static void HandleInput();
 
-	Ox93_Vector_3 GetEyePosition() const { return GetPosition() + Ox93_Vector_3(0, m_fHeight - m_fRadius, 0); }
-	Ox93_Matrix3x3 GetEyeOrientation() const { return m_xEyeOri; }
-
+	// Statics Getters & Setters...
 	static const Ox93_Character* GetLocalPlayer() { return s_pxLocalPlayer; }
 
 private:
@@ -44,6 +50,7 @@ private:
 
 	Ox93_Matrix3x3 m_xEyeOri;
 	Ox93_Inventory* m_pxInventory;
+	Ox93_Camera* m_pxCamera;
 
 	static bool s_bFirstPerson;
 	static float s_fThirdPersonZoom;

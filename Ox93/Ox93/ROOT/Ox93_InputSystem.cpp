@@ -135,8 +135,9 @@ void Ox93_InputSystem::HandleInput()
 	{
 		case OX93_GAMEMODE_FREECAM:
 		{
-			Ox93_Camera* pxCamera = Ox93_Camera::GetActive();
-			pxCamera->HandleInput();
+			// TODO-OJ
+			//Ox93_Camera* pxCamera = Ox93_Camera::GetDefault();
+			//pxCamera->HandleInput();
 			break;
 		}
 		case OX93_GAMEMODE_PLAYER:

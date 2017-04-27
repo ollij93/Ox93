@@ -110,9 +110,6 @@ bool Ox93_GraphicsSystem::Render()
 	// Clear the buffer to a black background
 	m_pxD3D->BeginScene(0.0f, 0.0f, 0.0f, 1.0f);
 
-	// Prepare the camera for rendering
-	Ox93_Camera::RenderActive();
-
 	// Do the render processing.
 	Ox93_RenderSystem::Render();
 

@@ -12,7 +12,7 @@ class Ox93_Camera : public Ox93_Entity
 {
 public:
 	Ox93_Camera(u_int uClassification);
-	~Ox93_Camera() {};
+	~Ox93_Camera();
 
 	void HandleInput();
 	void Render();

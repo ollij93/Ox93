@@ -8,6 +8,7 @@
 
 // Forward Declarations...
 class Ox93_BitMap;
+class Ox93_Camera;
 class Ox93_RenderTexture;
 
 class Ox93_MiniMap
@@ -22,6 +23,7 @@ public:
 private:
 	Ox93_BitMap* m_pxBitMap;
 	Ox93_RenderTexture* m_pxRenderTexture;
+	Ox93_Camera* m_pxCamera;
 };
 
 #endif // OX93_MINIMAP_H__
