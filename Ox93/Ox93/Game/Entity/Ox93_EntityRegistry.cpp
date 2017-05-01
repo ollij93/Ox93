@@ -2,7 +2,6 @@
 #include "Ox93_EntityRegistry.h"
 #include "Game/Entity/PhysicalObject/Character/Ox93_Character.h"
 #include "Game/Entity/PhysicalObject/Ox93_PhysicalObject.h"
-#include "Game/World/Terrain/Ox93_Terrain.h"
 
 // Statics...
 std::vector<Ox93_EntityRegistry_Entry> Ox93_EntityRegistry::s_xRegistry;

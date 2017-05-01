@@ -66,51 +66,51 @@ void Ox93_InventoryItem::OnDeselect()
 
 void Ox93_InventoryItem::OnActivate()
 {
-	if (m_pxSelectionObject && m_uQuantity > 0)
-	{
-		Ox93_PhysicalObject* pxObject = m_pxSelectionObject->CreatePhysicalObject();
-		if (pxObject)
-		{
-			bool bSuccess = Ox93_TerrainSystem::AddPhysicalObject(pxObject);
-			if (bSuccess)
-			{
-				m_uQuantity -= 1;
-			}
-			else
-			{
-				delete pxObject;
-				pxObject = nullptr;
-			}
-		}
-	}
+	//if (m_pxSelectionObject && m_uQuantity > 0)
+	//{
+	//	Ox93_PhysicalObject* pxObject = m_pxSelectionObject->CreatePhysicalObject();
+	//	if (pxObject)
+	//	{
+	//		bool bSuccess = Ox93_TerrainSystem::AddPhysicalObject(pxObject);
+	//		if (bSuccess)
+	//		{
+	//			m_uQuantity -= 1;
+	//		}
+	//		else
+	//		{
+	//			delete pxObject;
+	//			pxObject = nullptr;
+	//		}
+	//	}
+	//}
 }
 
 void Ox93_InventoryItem::Update()
 {
-	const Ox93_Character* pxPlayer = Ox93_Character::GetLocalPlayer();
-	if (pxPlayer)
-	{
-		Ox93_Vector_3 xEyePos = pxPlayer->GetEyePosition();
-		Ox93_Matrix3x3 xEyeOri = pxPlayer->GetEyeOrientation();
-		Ox93_Vector_3 xEyeDir(xEyeOri.e20, xEyeOri.e21, xEyeOri.e22);
-		xEyeDir.y = 0.f;
-		xEyeDir.Normalize();
-		xEyeDir *= 6.f;
+	//const Ox93_Character* pxPlayer = Ox93_Character::GetLocalPlayer();
+	//if (pxPlayer)
+	//{
+	//	Ox93_Vector_3 xEyePos = pxPlayer->GetEyePosition();
+	//	Ox93_Matrix3x3 xEyeOri = pxPlayer->GetEyeOrientation();
+	//	Ox93_Vector_3 xEyeDir(xEyeOri.e20, xEyeOri.e21, xEyeOri.e22);
+	//	xEyeDir.y = 0.f;
+	//	xEyeDir.Normalize();
+	//	xEyeDir *= 6.f;
 
-		Ox93_Vector_3 xPlacePoint = xEyePos + xEyeDir;
-		xPlacePoint = Ox93_TerrainSystem::GetClosestCentre(xPlacePoint);
+	//	Ox93_Vector_3 xPlacePoint = xEyePos + xEyeDir;
+	//	xPlacePoint = Ox93_TerrainSystem::GetClosestCentre(xPlacePoint);
 
-		if(m_pxSelectionObject)
-		{
-			m_pxSelectionObject->SetPosition(xPlacePoint);
-			m_pxSelectionObject->Unhide();
+	//	if(m_pxSelectionObject)
+	//	{
+	//		m_pxSelectionObject->SetPosition(xPlacePoint);
+	//		m_pxSelectionObject->Unhide();
 
-			// If no items remain hide the object
-			if (m_uQuantity == 0)
-			{
-				m_pxSelectionObject->Hide();
-			}
-		}
+	//		// If no items remain hide the object
+	//		if (m_uQuantity == 0)
+	//		{
+	//			m_pxSelectionObject->Hide();
+	//		}
+	//	}
 
-	}
+	//}
 }

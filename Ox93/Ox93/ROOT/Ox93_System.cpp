@@ -90,7 +90,7 @@ void Ox93_System::Shutdown()
 	Ox93_Specification_System::Destroy();
 	Ox93_LoadSystem::Destroy();
 	Ox93_SaveSystem::Destroy();
-	Ox93_TerrainSystem::Destroy();
+	//Ox93_TerrainSystem::Destroy();
 	Ox93_MenuSystem::Destroy();
 
 	ShutdownWindows();
@@ -137,7 +137,7 @@ bool Ox93_System::Frame()
 	Ox93_InputSystem::HandleInput();
 	Ox93_Entity::ProcessUpdates();
 	Ox93_MenuSystem::UpdateMenus();
-	Ox93_TerrainSystem::Update();
+	//Ox93_TerrainSystem::Update();
 
 	// Do the graphics frame processing
 	bool bResult = Ox93_GraphicsSystem::Frame();
@@ -351,7 +351,7 @@ void Ox93_System::QuitGame()
 	{
 		Ox93_SaveSystem::SaveCurrentWorldToFile(L"Saves/DefaultSave.ent");
 		Ox93_SaveSystem::SavePlayerSettings(L"Saves/Olli.plyr");
-		Ox93_TerrainSystem::Destroy();
+		//Ox93_TerrainSystem::Destroy();
 		Ox93_Entity::ShutdownAll();
 	}
 

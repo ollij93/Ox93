@@ -6,7 +6,6 @@
 #include "Game/LoadSave/Ox93_LoadSystem.h"
 #include "Game/LoadSave/Ox93_SaveSystem.h"
 #include "Game/Menu/Ox93_MenuSystem.h"
-#include "Game/World/Terrain/Ox93_TerrainSystem.h"
 #include "ROOT/Graphics/Ox93_GraphicsSystem.h"
 #include "ROOT/Ox93_InputSystem.h"
 #include "ROOT/Specification/Ox93_Specification.h"
@@ -140,20 +139,11 @@ void Ox93_Character::Update()
 
 	m_xVelocity.y -= fOX93_GRAVITATIONAL_STRENGTH * Ox93_Entity::GetRunningUpdateTime() / 1000.f;
 
-	Ox93_Vector_3 xTerrainIntersect;
-	Ox93_Vector_3 xSpherePos = GetPosition() + Ox93_Vector_3(0.f, m_fRadius, 0.f);
-	bool bIntersecting = Ox93_TerrainSystem::GetClosestPointInRange(xSpherePos, m_fRadius, &xTerrainIntersect);
-
-	if (bIntersecting)
+	if (m_xPosition.y < 0.f)
 	{
-		// Move the Character vertically enough to just be touching the terrain (counteracts gravity dragging through the surface)
-		Ox93_Vector_3 xAdjustPos = (xSpherePos - xTerrainIntersect);
-		float fAdjustDist = m_fRadius - xAdjustPos.Length();
-		xAdjustPos.Normalize();
-		xAdjustPos *= fAdjustDist;
-		SetPosition(GetPosition() + xAdjustPos);
+		m_xPosition.y = 0.0f;
 
-		// Also set vertical momentum to zero as the character is now stood on the slope
+		// Also set vertical momentum to zero as the character is now stood
 		m_xVelocity.y = 0.f;
 	}
 
@@ -305,7 +295,7 @@ void Ox93_Character::HandlePlayerInput()
 			{
 				// Jump
 				Ox93_Vector_3 xUpJunk = Ox93_Vector_3(0.f, m_fRadius, 0.f);
-				if (Ox93_InputSystem::KeyJustPressed(SPACE_KEY) && Ox93_TerrainSystem::GetClosestPointInRange(GetPosition() + xUpJunk, m_fRadius + fOX93_JUMP_DISTANCE, &xUpJunk))
+				if (Ox93_InputSystem::KeyJustPressed(SPACE_KEY) && m_xPosition.y <= 0.1f)
 				{
 					m_xVelocity.y = fOX93_JUMP_SPEED;
 				}

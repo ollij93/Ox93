@@ -104,7 +104,7 @@ void Ox93_LoadSystem::LoadDefault()
 		if (pxWorldElement)
 		{
 			int iSeed = pxWorldElement->IntAttribute("seed");
-			Ox93_TerrainSystem::Create(iSeed);
+			//Ox93_TerrainSystem::Create(iSeed);
 
 			s_pxThis->LoadEntitiesFromWorld(pxWorldElement);
 		}
@@ -136,10 +136,10 @@ void Ox93_LoadSystem::LoadEntitiesFromWorld(tinyxml2::XMLElement* pxWorldElement
 			const Ox93_Specification* pxSpecification = Ox93_Specification_System::GetSpecificationByHash(uSpecificationHash);
 			pxEntity->InitFromSpecification(pxSpecification);
 
-			if (pxEntity->GetClassification() == OX93_CLASS_PHYSICALOBJECT)
-			{
-				Ox93_TerrainSystem::AddPhysicalObject(static_cast<Ox93_PhysicalObject*>(pxEntity));
-			}
+			//if (pxEntity->GetClassification() == OX93_CLASS_PHYSICALOBJECT)
+			//{
+			//	Ox93_TerrainSystem::AddPhysicalObject(static_cast<Ox93_PhysicalObject*>(pxEntity));
+			//}
 		}
 
 		pxEntElement = pxEntElement->NextSiblingElement("Entity");
