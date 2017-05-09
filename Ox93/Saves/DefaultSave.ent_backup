@@ -1,25 +1,8 @@
-<World seed="0">
-    <Entity class="5" specification="0">
-        <Member value="0"/>
-        <Member value="0"/>
-        <Member value="-10"/>
-        <Member value="0"/>
-        <Member value="0"/>
-        <Member value="0"/>
-        <Member value="1"/>
-        <Member value="0"/>
-        <Member value="0"/>
-        <Member value="0"/>
-        <Member value="1"/>
-        <Member value="0"/>
-        <Member value="0"/>
-        <Member value="0"/>
-        <Member value="1"/>
-    </Entity>
+<World seed="1919">
     <Entity class="4" specification="0">
-        <Member value="-30.211468"/>
-        <Member value="35.355339"/>
-        <Member value="47.701492"/>
+        <Member value="-30.356506"/>
+        <Member value="34.409206"/>
+        <Member value="19.298409"/>
         <Member value="0"/>
         <Member value="0"/>
         <Member value="0"/>
@@ -43,106 +26,38 @@
         <Member value="1"/>
     </Entity>
     <Entity class="2" specification="2393081601">
-        <Member value="-30.211468"/>
-        <Member value="0"/>
-        <Member value="83.056831"/>
-        <Member value="0"/>
-        <Member value="-0.34"/>
-        <Member value="0"/>
-        <Member value="0.77874231"/>
-        <Member value="0"/>
-        <Member value="0.62783325"/>
-        <Member value="0"/>
-        <Member value="1"/>
-        <Member value="0"/>
-        <Member value="-0.62783325"/>
-        <Member value="0"/>
-        <Member value="0.77874231"/>
-        <Member value="0.77874231"/>
-        <Member value="0"/>
-        <Member value="0.62783325"/>
-        <Member value="-0.21577416"/>
-        <Member value="0.93918836"/>
-        <Member value="0.26765195"/>
-        <Member value="-0.58967787"/>
-        <Member value="-0.34367746"/>
-        <Member value="0.73144305"/>
-        <Member value="1"/>
-    </Entity>
-    <Entity class="5" specification="0">
-        <Member value="-28.44318"/>
-        <Member value="2.3305979"/>
-        <Member value="80.863426"/>
+        <Member value="-30.356506"/>
+        <Member value="-0.94613391"/>
+        <Member value="54.653748"/>
         <Member value="0"/>
         <Member value="0"/>
         <Member value="0"/>
-        <Member value="0.77874231"/>
+        <Member value="0.98222291"/>
         <Member value="0"/>
-        <Member value="0.62783325"/>
-        <Member value="-0.21577416"/>
-        <Member value="0.93918836"/>
-        <Member value="0.26765195"/>
-        <Member value="-0.58967787"/>
-        <Member value="-0.34367746"/>
-        <Member value="0.73144305"/>
-    </Entity>
-    <Entity class="0" specification="64279661">
-        <Member value="0"/>
-        <Member value="0.5751282"/>
-        <Member value="0"/>
-        <Member value="0"/>
-        <Member value="-0.1"/>
+        <Member value="0.18928096"/>
         <Member value="0"/>
         <Member value="1"/>
         <Member value="0"/>
+        <Member value="-0.18928096"/>
         <Member value="0"/>
+        <Member value="0.98222291"/>
+        <Member value="0.98222291"/>
         <Member value="0"/>
-        <Member value="1"/>
-        <Member value="0"/>
-        <Member value="0"/>
-        <Member value="0"/>
-        <Member value="1"/>
-    </Entity>
-    <Entity class="0" specification="64279661">
-        <Member value="0"/>
-        <Member value="0.5751282"/>
-        <Member value="1"/>
-        <Member value="0"/>
-        <Member value="-0.1"/>
-        <Member value="0"/>
-        <Member value="1"/>
-        <Member value="0"/>
-        <Member value="0"/>
-        <Member value="0"/>
-        <Member value="1"/>
-        <Member value="0"/>
-        <Member value="0"/>
-        <Member value="0"/>
-        <Member value="1"/>
-    </Entity>
-    <Entity class="0" specification="64279661">
-        <Member value="1"/>
-        <Member value="0.5751282"/>
-        <Member value="0"/>
-        <Member value="0"/>
-        <Member value="-0.1"/>
-        <Member value="0"/>
-        <Member value="1"/>
-        <Member value="0"/>
-        <Member value="0"/>
-        <Member value="0"/>
-        <Member value="1"/>
-        <Member value="0"/>
-        <Member value="0"/>
-        <Member value="0"/>
+        <Member value="0.18928096"/>
+        <Member value="-0.066820502"/>
+        <Member value="0.93570244"/>
+        <Member value="0.34678861"/>
+        <Member value="-0.17710516"/>
+        <Member value="-0.3530511"/>
+        <Member value="0.91912657"/>
         <Member value="1"/>
     </Entity>
     <Entity class="0" specification="64279661">
         <Member value="-32.042942"/>
-        <Member value="0"/>
+        <Member value="3.6148486"/>
         <Member value="85.5"/>
         <Member value="0"/>
-        <Member value="-6330.8813"/>
+        <Member value="0"/>
         <Member value="0"/>
         <Member value="1"/>
         <Member value="0"/>
@@ -156,10 +71,10 @@
     </Entity>
     <Entity class="0" specification="64279661">
         <Member value="-30.310884"/>
-        <Member value="0"/>
+        <Member value="3.4066269"/>
         <Member value="85.5"/>
         <Member value="0"/>
-        <Member value="-6330.8813"/>
+        <Member value="0"/>
         <Member value="0"/>
         <Member value="1"/>
         <Member value="0"/>
@@ -173,10 +88,10 @@
     </Entity>
     <Entity class="0" specification="64279661">
         <Member value="-29.44486"/>
-        <Member value="0"/>
+        <Member value="3.0708311"/>
         <Member value="84"/>
         <Member value="0"/>
-        <Member value="-0.1"/>
+        <Member value="0"/>
         <Member value="0"/>
         <Member value="1"/>
         <Member value="0"/>
@@ -190,10 +105,10 @@
     </Entity>
     <Entity class="0" specification="64279661">
         <Member value="-30.310884"/>
-        <Member value="0"/>
+        <Member value="3.1678658"/>
         <Member value="82.5"/>
         <Member value="0"/>
-        <Member value="-0.1"/>
+        <Member value="0"/>
         <Member value="0"/>
         <Member value="1"/>
         <Member value="0"/>
@@ -207,27 +122,10 @@
     </Entity>
     <Entity class="0" specification="64279661">
         <Member value="-32.042942"/>
-        <Member value="0"/>
+        <Member value="3.426477"/>
         <Member value="82.5"/>
         <Member value="0"/>
-        <Member value="-0.1"/>
         <Member value="0"/>
-        <Member value="1"/>
-        <Member value="0"/>
-        <Member value="0"/>
-        <Member value="0"/>
-        <Member value="1"/>
-        <Member value="0"/>
-        <Member value="0"/>
-        <Member value="0"/>
-        <Member value="1"/>
-    </Entity>
-    <Entity class="0" specification="64279661">
-        <Member value="-32.5"/>
-        <Member value="0"/>
-        <Member value="84"/>
-        <Member value="0"/>
-        <Member value="-0.1"/>
         <Member value="0"/>
         <Member value="1"/>
         <Member value="0"/>
@@ -241,10 +139,44 @@
     </Entity>
     <Entity class="0" specification="64279661">
         <Member value="-32.90897"/>
-        <Member value="1.6312873"/>
+        <Member value="3.5376625"/>
         <Member value="84"/>
         <Member value="0"/>
-        <Member value="-0.1"/>
+        <Member value="0"/>
+        <Member value="0"/>
+        <Member value="1"/>
+        <Member value="0"/>
+        <Member value="0"/>
+        <Member value="0"/>
+        <Member value="1"/>
+        <Member value="0"/>
+        <Member value="0"/>
+        <Member value="0"/>
+        <Member value="1"/>
+    </Entity>
+    <Entity class="0" specification="2615230">
+        <Member value="-34.64101"/>
+        <Member value="3.533654"/>
+        <Member value="84"/>
+        <Member value="0"/>
+        <Member value="0"/>
+        <Member value="0"/>
+        <Member value="1"/>
+        <Member value="0"/>
+        <Member value="0"/>
+        <Member value="0"/>
+        <Member value="1"/>
+        <Member value="0"/>
+        <Member value="0"/>
+        <Member value="0"/>
+        <Member value="1"/>
+    </Entity>
+    <Entity class="0" specification="2615230">
+        <Member value="-32.90897"/>
+        <Member value="3.6774256"/>
+        <Member value="87"/>
+        <Member value="0"/>
+        <Member value="0"/>
         <Member value="0"/>
         <Member value="1"/>
         <Member value="0"/>

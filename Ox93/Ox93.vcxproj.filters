@@ -237,6 +237,9 @@
     <ClCompile Include="Ox93\Game\Entity\Camera\Ox93_Camera.cpp">
       <Filter>Ox93\Game\Entity\Camera</Filter>
     </ClCompile>
+    <ClCompile Include="Ox93\ROOT\Physics\Ox93_CollisionObject.cpp">
+      <Filter>Ox93\ROOT\Physics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ox93\ROOT\Ox93_System.h">
@@ -391,6 +394,9 @@
     </ClInclude>
     <ClInclude Include="Ox93\Game\Entity\Camera\Ox93_Camera.h">
       <Filter>Ox93\Game\Entity\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\ROOT\Physics\Ox93_CollisionObject.h">
+      <Filter>Ox93\ROOT\Physics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

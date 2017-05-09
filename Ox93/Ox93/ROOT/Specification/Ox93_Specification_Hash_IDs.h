@@ -21,8 +21,18 @@ static const Ox93_Hash uOX93_SPEC_NAME_SKYBOX = 0x93BE8D2A; // "Skybox"
 static const Ox93_Hash uOX93_SPEC_PARAM_VERT_FACES = 0xEBEF07C0; // "VerticalFaces"
 static const Ox93_Hash uOX93_SPEC_PARAM_HOR_FACES  = 0x02EB27D2; // "HorizontalFaces"
 
-// Characters...
+// Dimensions...
 static const Ox93_Hash uOX93_SPEC_PARAM_HEIGHT = 0x809D7D47; // "Height"
+static const Ox93_Hash uOX93_SPEC_PARAM_WIDTH = 0x04FB3DA6; // "Width"
+static const Ox93_Hash uOX93_SPEC_PARAM_DEPTH = 0x03EDDAA3; // "Depth"
+
+///////////////////////////////////////////////
+// C O L L I D E R   H A S H E S
+///////////////////////////////////////////////
+static const Ox93_Hash uOX93_SPEC_PARAM_COLLIDER = 0xDE30FC14; // "Collider"
+static const Ox93_Hash uOX93_SPEC_PARAM_COLLIDER_TYPE = 0x0028035A; // "Type"
+static const Ox93_Hash uOX93_COLLIDER_HASH_AABB = 0x001E8860; // "AABB"
+
 
 ///////////////////////////////////////////////
 // T E X T U R E S   H A S H E S 

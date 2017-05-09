@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
 <Specification name="Block">
 	<Parameter name="Model" type="0" value="Models/CUBE.obj" />
-	<Parameter name="Texture" type="0" value="Textures/Skybox.dds" />
+	<Parameter name="Texture" type="0" value="Textures/Default_Green.dds" />
+	<Parameter name="Collider" type="0" value="AABB_Block" />
 </Specification>
 <Specification name="Tree">
   <Parameter name="Model" type="0" value="Models/treeWithMapping.obj" />

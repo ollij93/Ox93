@@ -10,6 +10,7 @@
 #include "ROOT/Graphics/2D/Text/Ox93_Font.h"
 #include "ROOT/Graphics/2D/Text/Ox93_Text.h"
 #include "ROOT/Graphics/Ox93_GraphicsSystem.h"
+#include "ROOT/Physics/Ox93_CollisionObject.h"
 #include "ROOT/Specification/Ox93_Specification_System.h"
 #include "ROOT/Ox93_InputSystem.h"
 

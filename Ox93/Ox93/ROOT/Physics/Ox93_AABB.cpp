@@ -1,14 +1,12 @@
 // Includes...
 #include "Ox93_AABB.h"
-#include "ROOT/Math/Ox93_Math.h"
-#include "ROOT/Math/Ox93_Math_Vectors.h"
+#include "ROOT/Specification/Ox93_Specification.h"
 
-Ox93_AABB::Ox93_AABB(float width, float height, float depth)
-: m_xPosition(Ox93_Math::ZeroVector3)
-, m_fWidth(width)
-, m_fHeight(height)
-, m_fDepth(depth)
-, m_pfOnCollide(nullptr)
+Ox93_AABB::Ox93_AABB(float fHalfWidth, float fHalfHeight, float fHalfDepth)
+: PARENT(OX93_AABB_COLLIDER)
+, m_fHalfWidth(fHalfWidth)
+, m_fHalfHeight(fHalfHeight)
+, m_fHalfDepth(fHalfDepth)
 {
 }
 
@@ -16,13 +14,16 @@ Ox93_AABB::~Ox93_AABB()
 {
 }
 
-bool Ox93_AABB::TestCollide(Ox93_AABB xAABB1, Ox93_AABB xAABB2)
+Ox93_CollisionObject* Ox93_AABB::InitFromSpecification(const Ox93_Specification* pxSpecification)
 {
-	bool bRetVal = true;
+	Ox93_CollisionObject* pxCollider = nullptr;
+	if (pxSpecification)
+	{
+		float fHalfWidth = pxSpecification->GetValueAsFloat(uOX93_SPEC_PARAM_WIDTH, 0.5f);
+		float fHalfHeight = pxSpecification->GetValueAsFloat(uOX93_SPEC_PARAM_HEIGHT, 0.5f);
+		float fHalfDepth = pxSpecification->GetValueAsFloat(uOX93_SPEC_PARAM_DEPTH, 0.5f);
+		pxCollider = new Ox93_AABB(fHalfWidth, fHalfHeight, fHalfDepth);
+	}
 
-	bRetVal &= abs(xAABB1.m_xPosition.x - xAABB2.m_xPosition.x) * 2 > xAABB1.m_fWidth + xAABB2.m_fWidth;
-	bRetVal &= abs(xAABB1.m_xPosition.y - xAABB2.m_xPosition.y) * 2 > xAABB1.m_fHeight + xAABB2.m_fHeight;
-	bRetVal &= abs(xAABB1.m_xPosition.z - xAABB2.m_xPosition.z) * 2 > xAABB1.m_fDepth + xAABB2.m_fDepth;
-
-	return bRetVal;
+	return pxCollider;
 }

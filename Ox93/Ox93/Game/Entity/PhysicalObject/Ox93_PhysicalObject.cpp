@@ -1,13 +1,14 @@
 #include "Ox93_PhysicalObject.h"
 #include "Game/Entity/Ox93_Model.h"
 #include "ROOT/Graphics/Shader/Ox93_DepthShader.h"
+#include "ROOT/Physics/Ox93_CollisionObject.h"
 #include "ROOT/Specification/Ox93_Specification.h"
+#include "ROOT/Specification/Ox93_Specification_System.h"
 
 
 Ox93_PhysicalObject::Ox93_PhysicalObject(u_int uClassification)
 : PARENT(uClassification)
 , m_pxModel(nullptr)
-, m_xAABB(1.f, 1.f, 1.f)
 {
 	Ox93_LightShader::AddToRenderList(this);
 	Ox93_DepthShader::AddToRenderList(this);
@@ -30,7 +31,12 @@ void Ox93_PhysicalObject::Update()
 {
 	PARENT::Update();
 
-	m_xAABB.SetPosition(m_xPosition);
+	if (m_xPosition.y < 0.f)
+	{
+		m_xPosition.y = 0.f;
+	}
+
+	m_xVelocity.y += -0.1f;
 }
 
 void Ox93_PhysicalObject::InitFromSpecification(const Ox93_Specification* pxSpecification)
@@ -51,6 +57,7 @@ void Ox93_PhysicalObject::InitFromSpecification(const Ox93_Specification* pxSpec
 
 		m_pxModel = new Ox93_Model;
 		m_pxModel->Init(uModelHash, uTextureHash);
+
 	}
 }
 

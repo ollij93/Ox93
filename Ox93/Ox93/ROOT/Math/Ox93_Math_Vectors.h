@@ -29,6 +29,8 @@ public:
 
 	operator DirectX::XMVECTOR() const { return DirectX::XMVectorSet( x, y, z, 0 ); }
 
+	float operator [](char i) const { switch (i) { case 0: return x;  case 1: return y; case 2: return z; default: Ox93_Assert(false, "Access Violation for Ox93_Vector_3"); return 0.f; } }
+
 	bool operator !=(Ox93_Vector_3 xVector) const { return (x != xVector.x) || (y != xVector.y) || (z != xVector.z); }
 
 	void operator +=(Ox93_Vector_3 xVector) { x += xVector.x; y += xVector.y; z += xVector.z; }

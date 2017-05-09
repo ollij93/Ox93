@@ -12,6 +12,7 @@
 class Ox93_Vector_3;
 class Ox93_Matrix3x3;
 class Ox93_ChunkStream;
+class Ox93_CollisionObject;
 class Ox93_Specification;
 
 class Ox93_Entity
@@ -37,6 +38,8 @@ public:
 	virtual void SetPosition(Ox93_Vector_3 xPosition) { m_xPosition = xPosition; }
 	Ox93_Vector_3 GetPosition() const { return m_xPosition; }
 
+	Ox93_Vector_3 GetVelocity() const { return m_xVelocity; }
+
 	virtual void SetOrientation(Ox93_Matrix3x3 xOrientation) { m_xOrientation = xOrientation; }
 	Ox93_Matrix3x3 GetOrientation() const { return m_xOrientation; }
 	Ox93_Vector_3 GetDirection() const { return Ox93_Vector_3(m_xOrientation.e02, m_xOrientation.e12, m_xOrientation.e22); }
@@ -57,6 +60,8 @@ protected:
 private:
 	u_int m_uClassification;
 	u_int m_uSpecificationHash;
+
+	Ox93_CollisionObject* m_pxCollider;
 
 	static u_long s_ulCurrentUpdateTime;
 	static u_long s_ulPreviousUpdateTime;

@@ -5,7 +5,6 @@
 #include "Ox93_Core.h"
 #include "Game/Entity/Ox93_Entity_Renderable.h"
 #include "Game/Entity/Ox93_Model.h"
-#include "ROOT/Physics/Ox93_AABB.h"
 
 // Forward Declarations...
 class Ox93_Specification;
@@ -28,8 +27,6 @@ public:
 
 private:
 	Ox93_Model* m_pxModel;
-	// TODO-OJ This should be a generic collision object not specifically an AABB
-	Ox93_AABB m_xAABB;
 
 	typedef Ox93_Entity_Renderable PARENT;
 };
