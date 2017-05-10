@@ -94,6 +94,9 @@
     <Filter Include="Ox93\Game\Entity\Camera">
       <UniqueIdentifier>{433a8267-010a-4b52-81b1-1a8637e7640b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ReactPhysics3D">
+      <UniqueIdentifier>{c0b2de30-d0b6-4ef9-9c0e-d2eb11a7c805}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Ox93\ROOT\Ox93_Main.cpp">
@@ -391,6 +394,9 @@
     </ClInclude>
     <ClInclude Include="Ox93\Game\Entity\Camera\Ox93_Camera.h">
       <Filter>Ox93\Game\Entity\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="ReactPhysics3D\reactphysics3d.h">
+      <Filter>ReactPhysics3D</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -129,6 +129,7 @@
     <ClInclude Include="Ox93\ROOT\Specification\Ox93_Specification_Hash_IDs.h" />
     <ClInclude Include="Ox93\Game\Entity\Ox93_EntityRegistry.h" />
     <ClInclude Include="Ox93\ROOT\Graphics\Shader\Ox93_TerrainShader.h" />
+    <ClInclude Include="ReactPhysics3D\reactphysics3d.h" />
     <ClInclude Include="TinyXML\tinyxml2.h" />
   </ItemGroup>
   <ItemGroup>
