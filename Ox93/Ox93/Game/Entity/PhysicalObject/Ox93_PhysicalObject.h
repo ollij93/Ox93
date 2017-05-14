@@ -5,7 +5,6 @@
 #include "Ox93_Core.h"
 #include "Game/Entity/Ox93_Entity_Renderable.h"
 #include "Game/Entity/Ox93_Model.h"
-#include "ROOT/Physics/Ox93_AABB.h"
 
 // Forward Declarations...
 class Ox93_Specification;
@@ -20,7 +19,6 @@ public:
 
 	virtual void InitFromSpecification(const Ox93_Specification* pxSpecification) override;
 
-	virtual void Update() override;
 	virtual void Render() override { if(m_pxModel) { m_pxModel->Render(); } }
 
 	virtual ID3D11ShaderResourceView* GetTexture() const override { return m_pxModel ? m_pxModel->GetTexture() : nullptr; }
@@ -28,8 +26,6 @@ public:
 
 private:
 	Ox93_Model* m_pxModel;
-	// TODO-OJ This should be a generic collision object not specifically an AABB
-	Ox93_AABB m_xAABB;
 
 	typedef Ox93_Entity_Renderable PARENT;
 };

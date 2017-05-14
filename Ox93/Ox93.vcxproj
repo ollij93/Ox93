@@ -118,7 +118,6 @@
     <ClInclude Include="Ox93\Game\Entity\Ox93_Entity_Renderable.h" />
     <ClInclude Include="Ox93\ROOT\Ox93_Random.h" />
     <ClInclude Include="Ox93\ROOT\Ox93_System.h" />
-    <ClInclude Include="Ox93\ROOT\Physics\Ox93_AABB.h" />
     <ClInclude Include="Ox93\ROOT\Specification\Ox93_Specification.h" />
     <ClInclude Include="Ox93\ROOT\Specification\Ox93_Specification_System.h" />
     <ClInclude Include="Ox93\ROOT\Audio\Ox93_AudioPlayer.h" />
@@ -173,7 +172,6 @@
     <ClCompile Include="Ox93\ROOT\Ox93_Random.cpp" />
     <ClCompile Include="Ox93\ROOT\Ox93_System.cpp" />
     <ClCompile Include="Ox93\ROOT\Ox93_TextureHandler.cpp" />
-    <ClCompile Include="Ox93\ROOT\Physics\Ox93_AABB.cpp" />
     <ClCompile Include="Ox93\ROOT\Specification\Ox93_Specification.cpp" />
     <ClCompile Include="Ox93\ROOT\Specification\Ox93_Specification_System.cpp" />
     <ClCompile Include="Ox93\ROOT\Audio\Ox93_AudioPlayer.cpp" />
