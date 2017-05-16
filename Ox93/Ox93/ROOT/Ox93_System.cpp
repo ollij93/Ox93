@@ -12,12 +12,15 @@
 #include "ROOT/Graphics/Ox93_GraphicsSystem.h"
 #include "ROOT/Specification/Ox93_Specification_System.h"
 #include "ROOT/Ox93_InputSystem.h"
+#include "ROOT/Ox93_PhysicsSystem.h"
 
 // Global Variables...
 static const u_int uMOUSE_POS_X = 800;
 static const u_int uMOUSE_POS_Y = 400;
 
 // Static variables...
+u_long Ox93_System::s_ulCurrentFrameTime = 0;
+u_long Ox93_System::s_ulPreviousFrameTime = 0;
 Ox93_System* Ox93_System::s_pxThis = nullptr;
 
 Ox93_System::Ox93_System()
@@ -46,11 +49,16 @@ void Ox93_System::Destroy()
 
 bool Ox93_System::Init()
 {
+	bool bResult;
 	u_int uScreenWidth = 0;
 	u_int uScreenHeight = 0;
 	InitWindows(uScreenWidth, uScreenHeight);
 
-	bool bResult = Ox93_GraphicsSystem::Create(uScreenWidth, uScreenHeight, m_hWnd);
+	bResult = Ox93_PhysicsSystem::Create();
+	Ox93_Assert(bResult, "Failed to create Ox93_PhysicsSystem.");
+	if (!bResult) { return false; }
+
+	bResult = Ox93_GraphicsSystem::Create(uScreenWidth, uScreenHeight, m_hWnd);
 	Ox93_Assert(bResult, "Failed to create Ox93_GraphicsSystem.");
 	if (!bResult) { return false; }
 
@@ -101,6 +109,8 @@ void Ox93_System::Run()
 {
 	if (!s_pxThis) { return; }
 
+	s_pxThis->InitFrames();
+
 	MSG xMsg;
 	ZeroMemory(&xMsg, sizeof(MSG));
 
@@ -133,15 +143,21 @@ void Ox93_System::Run()
 
 bool Ox93_System::Frame()
 {
+	s_ulCurrentFrameTime = timeGetTime();
+	float fTime = (s_ulCurrentFrameTime - s_ulPreviousFrameTime) / 1000.f;
 	// TODO-OJ : Some of these will need only to be done every N frames or a limited number of times a second for speed
+	Ox93_PhysicsSystem::Update(fTime);
+	Ox93_Entity::ProcessUpdates(fTime);
 	Ox93_InputSystem::HandleInput();
-	Ox93_Entity::ProcessUpdates();
 	Ox93_MenuSystem::UpdateMenus();
 	Ox93_TerrainSystem::Update();
 
 	// Do the graphics frame processing
 	bool bResult = Ox93_GraphicsSystem::Frame();
 	Ox93_Assert(bResult, "The frame processing of Ox93_GraphicsSystem failed.");
+
+	s_ulPreviousFrameTime = s_ulCurrentFrameTime;
+
 	return bResult;
 }
 
@@ -303,7 +319,6 @@ void Ox93_System::StartGame()
 		{
 			Ox93_MenuSystem::CloseOpenMenu();
 			Ox93_LoadSystem::LoadDefault();
-			Ox93_Entity::InitUpdates();
 			break;
 		}
 		default:

@@ -3,6 +3,7 @@
 
 // Includes...
 #include "Ox93_Core.h"
+#include "ReactPhysics3D/reactphysics3d.h"
 
 class Ox93_Vector_2
 {
@@ -25,6 +26,7 @@ public:
 	Ox93_Vector_3();
 	Ox93_Vector_3(float fX, float fY, float fZ);
 	Ox93_Vector_3(const Ox93_Vector_3& xVector) { x = xVector.x; y = xVector.y; z = xVector.z; }
+	Ox93_Vector_3(const rp3d::Vector3& xVector) { x = xVector.x; y = xVector.y; z = xVector.z; }
 	~Ox93_Vector_3() {}
 
 	operator DirectX::XMVECTOR() const { return DirectX::XMVectorSet( x, y, z, 0 ); }
@@ -45,6 +47,10 @@ public:
 
 	float operator*(Ox93_Vector_3 xVector) const { return (x * xVector.x + y * xVector.y + z * xVector.z); }
 	Ox93_Vector_3 operator^(Ox93_Vector_3 xVector) const;
+
+	// Conversion to/from rp3d
+	operator rp3d::Vector3() { return rp3d::Vector3(x, y, z); }
+	Ox93_Vector_3 operator=(const rp3d::Vector3& xVec) { x = xVec.x; y = xVec.y; z = xVec.z; return *this; }
 
 	float x;
 	float y;

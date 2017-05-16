@@ -58,10 +58,6 @@ void Ox93_Light::ReadFromChunkStream(const Ox93_ChunkStream& xChunkStream)
 	xChunkStream >> m_xDiffuseColor.fAlpha;
 
 	xChunkStream >> m_bFollowPlayer;
-
-	// Ensure position and orientation setters are called to correctly set matrices
-	SetPosition(m_xPosition);
-	SetOrientation(m_xOrientation);
 }
 
 void Ox93_Light::WriteToChunkStream(Ox93_ChunkStream& xChunkStream) const
@@ -80,25 +76,18 @@ void Ox93_Light::WriteToChunkStream(Ox93_ChunkStream& xChunkStream) const
 	xChunkStream << m_bFollowPlayer;
 }
 
-void Ox93_Light::SetPosition(float fX, float fY, float fZ)
-{
-	PARENT::SetPosition(fX, fY, fZ);
-
-	m_xViewMatrix = DirectX::XMMatrixLookAtLH(m_xPosition, m_xPosition + GetDirection() * 10.f, Ox93_Vector_3(0.f, 1.f, 0.f));
-}
-
 void Ox93_Light::SetPosition(Ox93_Vector_3 xPosition)
 {
 	PARENT::SetPosition(xPosition);
 
-	m_xViewMatrix = DirectX::XMMatrixLookAtLH(m_xPosition, m_xPosition + GetDirection() * 10.f, Ox93_Vector_3(0.f, 1.f, 0.f));
+	m_xViewMatrix = DirectX::XMMatrixLookAtLH(GetPosition(), GetPosition() + GetDirection() * 10.f, Ox93_Vector_3(0.f, 1.f, 0.f));
 }
 
 void Ox93_Light::SetOrientation(Ox93_Matrix3x3 xOrientation)
 {
 	PARENT::SetOrientation(xOrientation);
 
-	m_xViewMatrix = DirectX::XMMatrixLookAtLH(m_xPosition, m_xPosition + GetDirection() * 10.f, Ox93_Vector_3(0.f, 1.f, 0.f));
+	m_xViewMatrix = DirectX::XMMatrixLookAtLH(GetPosition(), GetPosition() + GetDirection() * 10.f, Ox93_Vector_3(0.f, 1.f, 0.f));
 }
 
 bool Ox93_Light::InitRenderTexture()

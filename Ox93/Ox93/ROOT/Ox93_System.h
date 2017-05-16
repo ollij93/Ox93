@@ -55,6 +55,7 @@ private:
 	bool Frame();
 	void InitWindows(u_int&, u_int&);
 	void ShutdownWindows();
+	void InitFrames() { s_ulPreviousFrameTime = timeGetTime(); }
 
 
 	LPCWSTR m_pszAppName;
@@ -62,6 +63,9 @@ private:
 	HWND m_hWnd;
 
 	Ox93_GameMode m_eGameMode;
+
+	static u_long s_ulCurrentFrameTime;
+	static u_long s_ulPreviousFrameTime;
 
 	static Ox93_System* s_pxThis;
 };

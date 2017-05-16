@@ -22,7 +22,37 @@ Ox93_Matrix3x3 Ox93_Matrix3x3::operator*(const Ox93_Matrix3x3& xMatrix) const
 	return xResult;
 }
 
-void Ox93_Matrix3x3::RotateLocalX(float fDeltaTheta)
+Ox93_Matrix3x3 Ox93_Matrix3x3::operator=(const rp3d::Quaternion& q)
+{
+	float sqw = q.w*q.w;
+	float sqx = q.x*q.x;
+	float sqy = q.y*q.y;
+	float sqz = q.z*q.z;
+
+	// invs (inverse square length) is only required if quaternion is not already normalised
+	float invs = 1 / (sqx + sqy + sqz + sqw);
+	e00 = (sqx - sqy - sqz + sqw)*invs; // since sqw + sqx + sqy + sqz =1/invs*invs
+	e11 = (-sqx + sqy - sqz + sqw)*invs;
+	e22 = (-sqx - sqy + sqz + sqw)*invs;
+
+	float tmp1 = q.x*q.y;
+	float tmp2 = q.z*q.w;
+	e10 = 2.0 * (tmp1 + tmp2)*invs;
+	e01 = 2.0 * (tmp1 - tmp2)*invs;
+
+	tmp1 = q.x*q.z;
+	tmp2 = q.y*q.w;
+	e20 = 2.0 * (tmp1 - tmp2)*invs;
+	e02 = 2.0 * (tmp1 + tmp2)*invs;
+	tmp1 = q.y*q.z;
+	tmp2 = q.x*q.w;
+	e21 = 2.0 * (tmp1 + tmp2)*invs;
+	e12 = 2.0 * (tmp1 - tmp2)*invs;
+
+	return *this;
+}
+
+Ox93_Matrix3x3 Ox93_Matrix3x3::RotateLocalX(float fDeltaTheta) const
 {
 	Ox93_Matrix3x3 xRotateMat = { 1.f, 0.f, 0.f,
 									0.f, cos(fDeltaTheta), -sin(fDeltaTheta),
@@ -30,10 +60,10 @@ void Ox93_Matrix3x3::RotateLocalX(float fDeltaTheta)
 
 	Ox93_Matrix3x3 xResult = xRotateMat * (*this);
 
-	(*this) = xResult;
+	return xResult;
 }
 
-void Ox93_Matrix3x3::RotateWorldY(float fDeltaPhi)
+Ox93_Matrix3x3 Ox93_Matrix3x3::RotateWorldY(float fDeltaPhi) const
 {
 	Ox93_Matrix3x3 xRotateMat = { cos(fDeltaPhi), 0.f, sin(fDeltaPhi),
 									0.f,  1.f, 0.f,
@@ -41,5 +71,5 @@ void Ox93_Matrix3x3::RotateWorldY(float fDeltaPhi)
 
 	Ox93_Matrix3x3 xResult = (*this) * xRotateMat;
 
-	(*this) = xResult;
+	return xResult;
 }

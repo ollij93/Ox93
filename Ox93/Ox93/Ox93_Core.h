@@ -3,6 +3,9 @@
 #ifndef __OX93_CORE_H__
 #define __OX93_CORE_H__
 
+// ReactPhysics3D produces many errors when this flag is not set before any inclusions
+#define NOMINMAX
+
 /////////////////////////////////////////
 // T Y P E D E F S
 /////////////////////////////////////////

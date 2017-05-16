@@ -3,6 +3,7 @@
 
 // Includes...
 #include "Ox93_Core.h"
+#include "ReactPhysics3D/reactphysics3d.h"
 
 class Ox93_Matrix3x3
 {
@@ -20,8 +21,12 @@ public:
 
 	Ox93_Matrix3x3 operator*(const Ox93_Matrix3x3& xMatrix) const;
 
-	void RotateLocalX(float fDeltaTheta);
-	void RotateWorldY(float fDeltaPhi);
+	// Conversion to/from rp3d
+	operator rp3d::Matrix3x3() { return rp3d::Matrix3x3(e00, e01, e02, e10, e11, e12, e20, e21, e22); }
+	Ox93_Matrix3x3 operator=(const rp3d::Quaternion& xQuat);
+
+	Ox93_Matrix3x3 RotateLocalX (float fDeltaTheta) const;
+	Ox93_Matrix3x3 RotateWorldY (float fDeltaPhi) const;
 
 	float e00, e01, e02;
 	float e10, e11, e12;

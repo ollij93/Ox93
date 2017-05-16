@@ -32,8 +32,8 @@ void Ox93_Camera::HandleInput()
 		float fDeltaPhi = -xMouseDisp.x * fOX93_MOUSE_SENSITIVITY;
 		float fDeltaTheta = -xMouseDisp.y * fOX93_MOUSE_SENSITIVITY;
 
-		m_xOrientation.RotateLocalX(fDeltaTheta);
-		m_xOrientation.RotateWorldY(fDeltaPhi);
+		SetOrientation(GetOrientation().RotateLocalX(fDeltaTheta));
+		SetOrientation(GetOrientation().RotateWorldY(fDeltaPhi));
 
 		Ox93_InputSystem::SetCursorPosition(Ox93_InputSystem::GetMouseClickLocation());
 	}
@@ -49,46 +49,46 @@ void Ox93_Camera::HandleInput()
 			case W_KEY:
 			{
 				// Move forward
-				const Ox93_Vector_3 xDir(m_xOrientation.e20, m_xOrientation.e21, m_xOrientation.e22);
-				m_xPosition += xDir * fOX93_MOVEMENT_SPEED;
+				const Ox93_Vector_3 xDir(GetOrientation().e20, GetOrientation().e21, GetOrientation().e22);
+				SetPosition(GetPosition() + xDir * fOX93_MOVEMENT_SPEED);
 				break;
 			}
 			case A_KEY:
 			{
 				// Move left
-				Ox93_Vector_3 xDir(m_xOrientation.e22, 0, -m_xOrientation.e20);
+				Ox93_Vector_3 xDir(GetOrientation().e22, 0, -GetOrientation().e20);
 				xDir.Normalize();
 
-				m_xPosition -= xDir * fOX93_MOVEMENT_SPEED;
+				SetPosition(GetPosition() - xDir * fOX93_MOVEMENT_SPEED);
 				break;
 			}
 			case S_KEY:
 			{
 				// Move backward
-				const Ox93_Vector_3 xDir(m_xOrientation.e20, m_xOrientation.e21, m_xOrientation.e22);
-				m_xPosition -= xDir * fOX93_MOVEMENT_SPEED;
+				const Ox93_Vector_3 xDir(GetOrientation().e20, GetOrientation().e21, GetOrientation().e22);
+				SetPosition(GetPosition() - xDir * fOX93_MOVEMENT_SPEED);
 				break;
 				break;
 			}
 			case D_KEY:
 			{
 				// Move right
-				Ox93_Vector_3 xDir(m_xOrientation.e22, 0, -m_xOrientation.e20);
+				Ox93_Vector_3 xDir(GetOrientation().e22, 0, -GetOrientation().e20);
 				xDir.Normalize();
 
-				m_xPosition += xDir * fOX93_MOVEMENT_SPEED;
+				SetPosition(GetPosition() + xDir * fOX93_MOVEMENT_SPEED);
 				break;
 			}
 			case SPACE_KEY:
 			{
 				//Move vertically up
-				m_xPosition.y += fOX93_MOVEMENT_SPEED;
+				SetPosition(GetPosition().x, GetPosition().y + fOX93_MOVEMENT_SPEED, GetPosition().z);
 				break;
 			}
 			case SHIFT_KEY:
 			{
 				//Move vertically down
-				m_xPosition.y -= fOX93_MOVEMENT_SPEED;
+				SetPosition(GetPosition().x, GetPosition().y - fOX93_MOVEMENT_SPEED, GetPosition().z);
 				break;
 			}
 			default:

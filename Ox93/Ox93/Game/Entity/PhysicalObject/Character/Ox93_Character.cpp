@@ -138,8 +138,6 @@ void Ox93_Character::Update()
 {
 	PARENT::Update();
 
-	m_xVelocity.y -= fOX93_GRAVITATIONAL_STRENGTH * Ox93_Entity::GetRunningUpdateTime() / 1000.f;
-
 	Ox93_Vector_3 xTerrainIntersect;
 	Ox93_Vector_3 xSpherePos = GetPosition() + Ox93_Vector_3(0.f, m_fRadius, 0.f);
 	bool bIntersecting = Ox93_TerrainSystem::GetClosestPointInRange(xSpherePos, m_fRadius, &xTerrainIntersect);
@@ -154,7 +152,7 @@ void Ox93_Character::Update()
 		SetPosition(GetPosition() + xAdjustPos);
 
 		// Also set vertical momentum to zero as the character is now stood on the slope
-		m_xVelocity.y = 0.f;
+		SetVelocity(Ox93_Vector_3(GetVelocity().x, 0.f, GetVelocity().z));
 	}
 
 	if (m_pxCamera)
@@ -198,25 +196,24 @@ void Ox93_Character::HandlePlayerInput()
 		float fDeltaPhi = -xMouseDisp.x * fOX93_MOUSE_SENSITIVITY;
 		float fDeltaTheta = -xMouseDisp.y * fOX93_MOUSE_SENSITIVITY;
 
-		m_xEyeOri.RotateLocalX(fDeltaTheta);
+		m_xEyeOri = m_xEyeOri.RotateLocalX(fDeltaTheta);
 		// Check we're not over rotating:
 		if (m_xEyeOri.e11 < 0.f)
 		{
 			if (m_xEyeOri.e21 < 0.f)
 			{
 				// Looking down
-				m_xEyeOri.RotateLocalX(-asin(m_xEyeOri.e11));
+				m_xEyeOri = m_xEyeOri.RotateLocalX(-asin(m_xEyeOri.e11));
 			}
 			else
 			{
 				// Looking up
-				m_xEyeOri.RotateLocalX(asin(m_xEyeOri.e11));
-
+				m_xEyeOri = m_xEyeOri.RotateLocalX(asin(m_xEyeOri.e11));
 			}
 		}
 
-		m_xEyeOri.RotateWorldY(fDeltaPhi);
-		m_xOrientation.RotateWorldY(fDeltaPhi);
+		m_xEyeOri = m_xEyeOri.RotateWorldY(fDeltaPhi);
+		SetOrientation(GetOrientation().RotateWorldY(fDeltaPhi));
 
 		Ox93_InputSystem::SetCursorPosition(Ox93_InputSystem::GetMouseClickLocation());
 	}
@@ -261,37 +258,37 @@ void Ox93_Character::HandlePlayerInput()
 			case W_KEY:
 			{
 				// Move forward
-				Ox93_Vector_3 xDir(m_xOrientation.e20, 0, m_xOrientation.e22);
+				Ox93_Vector_3 xDir(GetOrientation().e20, 0, GetOrientation().e22);
 				xDir.Normalize();
 
-				m_xPosition += xDir * fOX93_MOVEMENT_SPEED * m_fSprintMultiplier * m_fCrawlMultiplier;
+				SetPosition(GetPosition() + xDir * fOX93_MOVEMENT_SPEED * m_fSprintMultiplier * m_fCrawlMultiplier);
 				break;
 			}
 			case A_KEY:
 			{
 				// Move left
-				Ox93_Vector_3 xDir(m_xOrientation.e22, 0, -m_xOrientation.e20);
+				Ox93_Vector_3 xDir(GetOrientation().e22, 0, -GetOrientation().e20);
 				xDir.Normalize();
 
-				m_xPosition -= xDir * fOX93_MOVEMENT_SPEED * m_fCrawlMultiplier;
+				SetPosition(GetPosition() - xDir * fOX93_MOVEMENT_SPEED * m_fCrawlMultiplier);
 				break;
 			}
 			case S_KEY:
 			{
 				// Move backward
-				Ox93_Vector_3 xDir(m_xOrientation.e20, 0, m_xOrientation.e22);
+				Ox93_Vector_3 xDir(GetOrientation().e20, 0, GetOrientation().e22);
 				xDir.Normalize();
 
-				m_xPosition -= xDir * fOX93_MOVEMENT_SPEED * m_fCrawlMultiplier;
+				SetPosition(GetPosition() - xDir * fOX93_MOVEMENT_SPEED * m_fCrawlMultiplier);
 				break;
 			}
 			case D_KEY:
 			{
 				// Move right
-				Ox93_Vector_3 xDir(m_xOrientation.e22, 0, -m_xOrientation.e20);
+				Ox93_Vector_3 xDir(GetOrientation().e22, 0, -GetOrientation().e20);
 				xDir.Normalize();
 
-				m_xPosition += xDir * fOX93_MOVEMENT_SPEED * m_fCrawlMultiplier;
+				SetPosition(GetPosition() + xDir * fOX93_MOVEMENT_SPEED * m_fCrawlMultiplier);
 				break;
 			}
 			case E_KEY:
@@ -307,7 +304,7 @@ void Ox93_Character::HandlePlayerInput()
 				Ox93_Vector_3 xUpJunk = Ox93_Vector_3(0.f, m_fRadius, 0.f);
 				if (Ox93_InputSystem::KeyJustPressed(SPACE_KEY) && Ox93_TerrainSystem::GetClosestPointInRange(GetPosition() + xUpJunk, m_fRadius + fOX93_JUMP_DISTANCE, &xUpJunk))
 				{
-					m_xVelocity.y = fOX93_JUMP_SPEED;
+					AddVelocity(Ox93_Vector_3(0.f, fOX93_JUMP_SPEED, 0.f));
 				}
 				break;
 			}

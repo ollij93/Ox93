@@ -4,18 +4,17 @@
 #include "ROOT/Specification/Ox93_Specification.h"
 
 // Statics...
-u_long Ox93_Entity::s_ulPreviousUpdateTime = 0;
-u_long Ox93_Entity::s_ulCurrentUpdateTime = 0;
 std::list<Ox93_Entity*> Ox93_Entity::s_lpxEntityList;
 
 Ox93_Entity::Ox93_Entity(u_int uClassification)
 : m_xPosition(Ox93_Math::ZeroVector3)
-, m_xVelocity(Ox93_Math::ZeroVector3)
 , m_xOrientation(Ox93_Math::IdentityMatrix3x3)
 , m_uClassification(uClassification)
 , m_uSpecificationHash(OX93_HASH_UNSET)
+, m_eCollisionGroup(OX93_NONE_COLLIDING)
 {
 	AddToEntityList(this);
+	Ox93_PhysicsSystem::AddEntity(this);
 }
 
 Ox93_Entity::~Ox93_Entity()
@@ -23,9 +22,8 @@ Ox93_Entity::~Ox93_Entity()
 	RemoveFromEntityList(this);
 }
 
-void Ox93_Entity::ProcessUpdates()
+void Ox93_Entity::ProcessUpdates(float fTime)
 {
-	s_ulCurrentUpdateTime = timeGetTime();
 	std::list<Ox93_Entity*>::const_iterator xIter;
 	for (xIter = s_lpxEntityList.begin(); xIter != s_lpxEntityList.end(); ++xIter)
 	{
@@ -35,8 +33,6 @@ void Ox93_Entity::ProcessUpdates()
 			pxEntity->Update();
 		}
 	}
-
-	s_ulPreviousUpdateTime = s_ulCurrentUpdateTime;
 }
 
 void Ox93_Entity::ReadFromChunkStream(const Ox93_ChunkStream& xChunkStream)
@@ -54,6 +50,10 @@ void Ox93_Entity::ReadFromChunkStream(const Ox93_ChunkStream& xChunkStream)
 	xChunkStream >> m_xOrientation.e20;
 	xChunkStream >> m_xOrientation.e21;
 	xChunkStream >> m_xOrientation.e22;
+
+	// Ensure position and orientation setters are called to correctly set matrices
+	SetPosition(m_xPosition);
+	SetOrientation(m_xOrientation);
 }
 
 void Ox93_Entity::WriteToChunkStream(Ox93_ChunkStream& xChunkStream) const
@@ -83,7 +83,10 @@ void Ox93_Entity::InitFromSpecification(const Ox93_Specification* pxSpecificatio
 
 void Ox93_Entity::Update()
 {
-	m_xPosition += m_xVelocity * (GetRunningUpdateTime() / 1000.f);
+	if (m_pxRigidBody) {
+		m_xPosition = m_pxRigidBody->getTransform().getPosition();
+		m_xOrientation = m_pxRigidBody->getTransform().getOrientation();
+	}
 }
 
 void Ox93_Entity::ShutdownAll()
@@ -97,4 +100,39 @@ void Ox93_Entity::ShutdownAll()
 			pxEntity = nullptr;
 		}
 	}
+}
+
+void Ox93_Entity::SetPosition(float fX, float fY, float fZ)
+{
+	SetPosition(Ox93_Vector_3(fX, fY, fZ));
+}
+void Ox93_Entity::SetPosition(Ox93_Vector_3 xPosition)
+{
+	Ox93_Assert(m_pxRigidBody, "Setting position of entity without a rigidbody");
+	rp3d::Transform xTransform(xPosition, m_xOrientation);
+	m_pxRigidBody->setTransform(xTransform);
+	m_xPosition = xPosition;
+}
+void Ox93_Entity::SetOrientation(Ox93_Matrix3x3 xOrientation)
+{
+	Ox93_Assert(m_pxRigidBody, "Setting orientation of entity without a rigidbody");
+	rp3d::Transform xTransform(m_xPosition, xOrientation);
+	m_pxRigidBody->setTransform(xTransform);
+	m_xOrientation= xOrientation;
+}
+
+Ox93_Vector_3 Ox93_Entity::GetVelocity() const
+{
+	Ox93_Assert(m_pxRigidBody, "Getting velocity of entity without a rigidbody");
+	return m_pxRigidBody->getLinearVelocity();
+}
+void Ox93_Entity::AddVelocity(Ox93_Vector_3 xVelocity)
+{
+	Ox93_Assert(m_pxRigidBody, "Adding velocity of entity without a rigidbody");
+	m_pxRigidBody->setLinearVelocity(m_pxRigidBody->getLinearVelocity() + xVelocity);
+}
+void Ox93_Entity::SetVelocity(Ox93_Vector_3 xVelocity)
+{
+	Ox93_Assert(m_pxRigidBody, "Setting velocity of entity without a rigidbody");
+	m_pxRigidBody->setLinearVelocity(xVelocity);
 }

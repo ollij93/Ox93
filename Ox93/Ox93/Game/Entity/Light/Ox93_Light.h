@@ -26,7 +26,6 @@ public:
 	virtual void WriteToChunkStream(Ox93_ChunkStream& xChunkStream) const override;
 
 	// Getters & Setters...
-	virtual void SetPosition(float fX, float fY, float fZ) override;
 	virtual void SetPosition(Ox93_Vector_3 xPosition) override;
 	virtual void SetOrientation(Ox93_Matrix3x3 xOrientation) override;
 	void SetAmbientColor(float fRed, float fGreen, float fBlue, float fAlpha);

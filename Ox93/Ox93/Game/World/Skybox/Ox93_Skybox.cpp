@@ -89,12 +89,12 @@ bool Ox93_Skybox::InitBuffers(ID3D11Device* pxDevice)
 			const float fZLowerHigh = m_fRadius * sin(fThetaLower) * sin(fPhiHigh);
 			const float fZLowerLow = m_fRadius * sin(fThetaLower) * sin(fPhiLow);
 
-			pxVertices[6 * (uVertFace * m_uHorizontalFaces + uHorFace) + 0].m_xPosition = { fXUpperLow, fYUpper, fZUpperLow };
-			pxVertices[6 * (uVertFace * m_uHorizontalFaces + uHorFace) + 1].m_xPosition = { fXUpperHigh, fYUpper, fZUpperHigh };
-			pxVertices[6 * (uVertFace * m_uHorizontalFaces + uHorFace) + 2].m_xPosition = { fXLowerLow, fYLower, fZLowerLow };
-			pxVertices[6 * (uVertFace * m_uHorizontalFaces + uHorFace) + 3].m_xPosition = { fXLowerHigh, fYLower, fZLowerHigh };
-			pxVertices[6 * (uVertFace * m_uHorizontalFaces + uHorFace) + 4].m_xPosition = { fXLowerLow, fYLower, fZLowerLow };
-			pxVertices[6 * (uVertFace * m_uHorizontalFaces + uHorFace) + 5].m_xPosition = { fXUpperHigh, fYUpper, fZUpperHigh };
+			pxVertices[6 * (uVertFace * m_uHorizontalFaces + uHorFace) + 0].m_xPosition = Ox93_Vector_3{ fXUpperLow, fYUpper, fZUpperLow };
+			pxVertices[6 * (uVertFace * m_uHorizontalFaces + uHorFace) + 1].m_xPosition = Ox93_Vector_3{ fXUpperHigh, fYUpper, fZUpperHigh };
+			pxVertices[6 * (uVertFace * m_uHorizontalFaces + uHorFace) + 2].m_xPosition = Ox93_Vector_3{ fXLowerLow, fYLower, fZLowerLow };
+			pxVertices[6 * (uVertFace * m_uHorizontalFaces + uHorFace) + 3].m_xPosition = Ox93_Vector_3{ fXLowerHigh, fYLower, fZLowerHigh };
+			pxVertices[6 * (uVertFace * m_uHorizontalFaces + uHorFace) + 4].m_xPosition = Ox93_Vector_3{ fXLowerLow, fYLower, fZLowerLow };
+			pxVertices[6 * (uVertFace * m_uHorizontalFaces + uHorFace) + 5].m_xPosition = Ox93_Vector_3{ fXUpperHigh, fYUpper, fZUpperHigh };
 
 			pxVertices[6 * (uVertFace * m_uHorizontalFaces + uHorFace) + 0].m_xNormal = pxVertices[6 * (uVertFace * m_uHorizontalFaces + uHorFace) + 0].m_xPosition;
 			pxVertices[6 * (uVertFace * m_uHorizontalFaces + uHorFace) + 1].m_xNormal = pxVertices[6 * (uVertFace * m_uHorizontalFaces + uHorFace) + 1].m_xPosition;

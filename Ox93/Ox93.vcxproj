@@ -45,7 +45,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>$(SolutionDir)\Ox93\Ox93;$(SolutionDir)\Ox93;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)\Ox93\LibNoise\LIB;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)\Ox93\ReactPhysics3D\LIB;$(SolutionDir)\Ox93\LibNoise\LIB;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(SolutionDir)/Ox93/Ox93;$(SolutionDir)/Ox93;$(IncludePath)</IncludePath>
@@ -61,7 +61,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>NotSet</SubSystem>
-      <AdditionalDependencies>libnoise.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libnoise.lib;kernel32.lib;reactphysics3d.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -116,6 +116,7 @@
     <ClInclude Include="Ox93\ROOT\Ox93_InputSystem.h" />
     <ClInclude Include="Ox93\ROOT\Graphics\Ox93_RenderSystem.h" />
     <ClInclude Include="Ox93\Game\Entity\Ox93_Entity_Renderable.h" />
+    <ClInclude Include="Ox93\ROOT\Ox93_PhysicsSystem.h" />
     <ClInclude Include="Ox93\ROOT\Ox93_Random.h" />
     <ClInclude Include="Ox93\ROOT\Ox93_System.h" />
     <ClInclude Include="Ox93\ROOT\Specification\Ox93_Specification.h" />
@@ -169,6 +170,7 @@
     <ClCompile Include="Ox93\ROOT\Ox93_InputSystem.cpp" />
     <ClCompile Include="Ox93\ROOT\Graphics\Ox93_RenderSystem.cpp" />
     <ClCompile Include="Ox93\Game\Entity\Ox93_Entity_Renderable.cpp" />
+    <ClCompile Include="Ox93\ROOT\Ox93_PhysicsSystem.cpp" />
     <ClCompile Include="Ox93\ROOT\Ox93_Random.cpp" />
     <ClCompile Include="Ox93\ROOT\Ox93_System.cpp" />
     <ClCompile Include="Ox93\ROOT\Ox93_TextureHandler.cpp" />
