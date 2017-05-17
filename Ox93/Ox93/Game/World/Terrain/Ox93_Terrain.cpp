@@ -107,19 +107,19 @@ bool Ox93_Terrain::InitBuffers(ID3D11Device* pxDevice, int iTileX, int iTileZ, n
 				pxVertices[(uX * uOX93_TERRAIN_NUMSIDEFACES + uZ) * 6 + 5].m_xNormal = xNormal2;
 			}
 			// COLORS
-			const float fBiomeValue0 = xModule.GetValue(
+			const float fBiomeValue0 = (float)xModule.GetValue(
 				(uX + iTileX * (float)uOX93_TERRAIN_NUMSIDEFACES) / (float)uOX93_TERRAIN_BIOME_SCALE, 
 				(uZ + iTileZ * (float)uOX93_TERRAIN_NUMSIDEFACES) / (float)uOX93_TERRAIN_BIOME_SCALE, 
 				1.5f);
-			const float fBiomeValue1 = xModule.GetValue(
+			const float fBiomeValue1 = (float)xModule.GetValue(
 				(uX + 1 + iTileX * (float)uOX93_TERRAIN_NUMSIDEFACES) / (float)uOX93_TERRAIN_BIOME_SCALE,
 				(uZ + iTileZ * (float)uOX93_TERRAIN_NUMSIDEFACES) / (float)uOX93_TERRAIN_BIOME_SCALE,
 				1.5f);
-			const float fBiomeValue2 = xModule.GetValue(
+			const float fBiomeValue2 = (float)xModule.GetValue(
 				(uX + iTileX * (float)uOX93_TERRAIN_NUMSIDEFACES) / (float)uOX93_TERRAIN_BIOME_SCALE,
 				(uZ + 1 + iTileZ * (float)uOX93_TERRAIN_NUMSIDEFACES) / (float)uOX93_TERRAIN_BIOME_SCALE,
 				1.5f);
-			const float fBiomeValue3 = xModule.GetValue(
+			const float fBiomeValue3 = (float)xModule.GetValue(
 				(uX + 1 + iTileX * (float)uOX93_TERRAIN_NUMSIDEFACES) / (float)uOX93_TERRAIN_BIOME_SCALE,
 				(uZ + 1 + iTileZ * (float)uOX93_TERRAIN_NUMSIDEFACES) / (float)uOX93_TERRAIN_BIOME_SCALE,
 				1.5f);
@@ -237,11 +237,11 @@ bool Ox93_Terrain::GenerateRandom(int iTileX, int iTileZ, noise::module::Perlin 
 			const float fXBiome = (uX + iTileX * (float)uOX93_TERRAIN_NUMSIDEFACES) / (float)uOX93_TERRAIN_BIOME_SCALE;
 			const float fZBiome = (uZ + iTileZ * (float)uOX93_TERRAIN_NUMSIDEFACES) / (float)uOX93_TERRAIN_BIOME_SCALE;
 
-			const float fBiomeValue = xModule.GetValue(fXBiome, fZBiome, 1.5f);
+			const float fBiomeValue = (float)xModule.GetValue(fXBiome, fZBiome, 1.5f);
 			const float fBiomeScale = (fBiomeValue > 0.8f) ? 10.f + 300.f * (fBiomeValue - 0.8f)  : 10.f;
 			const float fBiomeAdjust = (fBiomeValue > 0.8f) ? 300.f * (fBiomeValue - 0.8f) : 0.f;
 
-			m_afHeightMap[uX][uZ] = xModule.GetValue(fXFrac, fZFrac, 0.f) * fBiomeScale + fBiomeAdjust;
+			m_afHeightMap[uX][uZ] = (float)xModule.GetValue(fXFrac, fZFrac, 0.f) * fBiomeScale + fBiomeAdjust;
 		}
 	}
 
@@ -765,13 +765,13 @@ Ox93_Vector_3 Ox93_Terrain::GetClosestCentre(Ox93_Vector_3 xPos)
 {
 	const float fFrac = Ox93_Math::Sqrt3 / 2.f;
 
-	int iX = floor((xPos.x - m_xPosition.x) / (fOX93_TERRAIN_SCALE * fFrac));
+	int iX = (int)floor((xPos.x - m_xPosition.x) / (fOX93_TERRAIN_SCALE * fFrac));
 	const float fX = static_cast<float>(iX) * fFrac * fOX93_TERRAIN_SCALE + m_xPosition.x;
 
 	// Adjust position to remove zagged edge effect
 	float fAdjustedPosZ = xPos.z - abs(xPos.x - (iX + (iX % 2)) * fFrac * fOX93_TERRAIN_SCALE - m_xPosition.x) / Ox93_Math::Sqrt3;
 
-	int iZ = floor((fAdjustedPosZ - m_xPosition.z) / fOX93_TERRAIN_SCALE);
+	int iZ = (int)floor((fAdjustedPosZ - m_xPosition.z) / fOX93_TERRAIN_SCALE);
 	const float fZ = (static_cast<float>(iZ) + 0.5f * (iX % 2)) * fOX93_TERRAIN_SCALE + m_xPosition.z;
 
 	Ox93_Assert(!(iX < 0 || iX > uOX93_TERRAIN_NUMSIDEFACES || iZ < 0 || iZ > uOX93_TERRAIN_NUMSIDEFACES), "Input Position out of range for GetHeightAtPoint");
@@ -833,13 +833,13 @@ bool Ox93_Terrain::AddPhysicalObject(Ox93_PhysicalObject* pxObject)
 
 		Ox93_Vector_3 xPos = pxObject->GetPosition();
 
-		int iX = floor((xPos.x - m_xPosition.x) / (fOX93_TERRAIN_SCALE * fFrac));
+		int iX = (int)floor((xPos.x - m_xPosition.x) / (fOX93_TERRAIN_SCALE * fFrac));
 		const float fX = static_cast<float>(iX) * fFrac * fOX93_TERRAIN_SCALE + m_xPosition.x;
 
 		// Adjust position to remove zagged edge effect
 		float fAdjustedPosZ = xPos.z - abs(xPos.x - (iX + (iX % 2)) * fFrac * fOX93_TERRAIN_SCALE - m_xPosition.x) / Ox93_Math::Sqrt3;
 		
-		int iZ = floor((fAdjustedPosZ - m_xPosition.z) / fOX93_TERRAIN_SCALE);
+		int iZ = (int)floor((fAdjustedPosZ - m_xPosition.z) / fOX93_TERRAIN_SCALE);
 		const float fZ = (static_cast<float>(iZ) + 0.5f * (iX % 2)) * fOX93_TERRAIN_SCALE + m_xPosition.z;
 
 		Ox93_Assert(!(iX < 0 || iX > uOX93_TERRAIN_NUMSIDEFACES || iZ < 0 || iZ > uOX93_TERRAIN_NUMSIDEFACES), "Input Position out of range for GetHeightAtPoint");

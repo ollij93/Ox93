@@ -37,17 +37,17 @@ Ox93_Matrix3x3 Ox93_Matrix3x3::operator=(const rp3d::Quaternion& q)
 
 	float tmp1 = q.x*q.y;
 	float tmp2 = q.z*q.w;
-	e10 = 2.0 * (tmp1 + tmp2)*invs;
-	e01 = 2.0 * (tmp1 - tmp2)*invs;
+	e10 = 2.f * (tmp1 + tmp2)*invs;
+	e01 = 2.f * (tmp1 - tmp2)*invs;
 
 	tmp1 = q.x*q.z;
 	tmp2 = q.y*q.w;
-	e20 = 2.0 * (tmp1 - tmp2)*invs;
-	e02 = 2.0 * (tmp1 + tmp2)*invs;
+	e20 = 2.f * (tmp1 - tmp2)*invs;
+	e02 = 2.f * (tmp1 + tmp2)*invs;
 	tmp1 = q.y*q.z;
 	tmp2 = q.x*q.w;
-	e21 = 2.0 * (tmp1 + tmp2)*invs;
-	e12 = 2.0 * (tmp1 - tmp2)*invs;
+	e21 = 2.f * (tmp1 + tmp2)*invs;
+	e12 = 2.f * (tmp1 - tmp2)*invs;
 
 	return *this;
 }

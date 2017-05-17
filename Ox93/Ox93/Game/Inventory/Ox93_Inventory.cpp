@@ -78,11 +78,11 @@ void Ox93_Inventory::PlayerSelectItem(int iItem)
 	}
 
 	Ox93_Assert(iItem < (int)s_pxPlayerInventory->m_lpxItemList.size(), "Attempting to select an item out of range.");
-	if (iItem < s_pxPlayerInventory->m_lpxItemList.size() && iItem >= 0)
+	if (iItem < (int)s_pxPlayerInventory->m_lpxItemList.size() && iItem >= 0)
 	{
 		std::list<Ox93_InventoryItem*>::const_iterator xIter;
 		xIter = s_pxPlayerInventory->m_lpxItemList.begin();
-		for (u_int u = 0; u < iItem; u++)
+		for (int i = 0; i < iItem; i++)
 		{
 			xIter++;
 		}

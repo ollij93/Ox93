@@ -33,6 +33,7 @@ Ox93_Character::Ox93_Character(u_int uClassification)
 , m_pxCamera(nullptr)
 {
 	m_pxCamera = new Ox93_Camera(OX93_CLASS_CAMERA);
+	LockOrientation(true);
 }
 
 Ox93_Character::~Ox93_Character()
@@ -330,4 +331,9 @@ void Ox93_Character::HandlePlayerInput()
 				break;
 		}
 	}
+}
+
+void Ox93_Character::SetRigidBody(rp3d::RigidBody* pxRigidBody)
+{
+	PARENT::SetRigidBody(pxRigidBody);
 }

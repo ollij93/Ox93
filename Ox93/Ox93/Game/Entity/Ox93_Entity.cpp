@@ -12,6 +12,9 @@ Ox93_Entity::Ox93_Entity(u_int uClassification)
 , m_uClassification(uClassification)
 , m_uSpecificationHash(OX93_HASH_UNSET)
 , m_eCollisionGroup(OX93_NONE_COLLIDING)
+, m_pxRigidBody(nullptr)
+, m_bLockPosition(false)
+, m_bLockOrientation(false)
 {
 	AddToEntityList(this);
 	Ox93_PhysicsSystem::AddEntity(this);
@@ -84,8 +87,18 @@ void Ox93_Entity::InitFromSpecification(const Ox93_Specification* pxSpecificatio
 void Ox93_Entity::Update()
 {
 	if (m_pxRigidBody) {
-		m_xPosition = m_pxRigidBody->getTransform().getPosition();
-		m_xOrientation = m_pxRigidBody->getTransform().getOrientation();
+		// Update position of rigidbody or of our entity
+		if (m_bLockPosition) {
+			m_pxRigidBody->setTransform(rp3d::Transform(m_xPosition, m_pxRigidBody->getTransform().getOrientation()));
+		} else {
+			m_xPosition = m_pxRigidBody->getTransform().getPosition();
+		}
+		// Update orientation of rigidbody or of our entity
+		if (m_bLockOrientation) {
+			m_pxRigidBody->setTransform(rp3d::Transform(m_xPosition, m_xOrientation));
+		} else {
+			m_xOrientation = m_pxRigidBody->getTransform().getOrientation();
+		}
 	}
 }
 

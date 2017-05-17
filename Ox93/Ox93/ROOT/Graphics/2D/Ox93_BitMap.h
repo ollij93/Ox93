@@ -23,7 +23,7 @@ public:
 	void Render();
 	ID3D11ShaderResourceView* GetTexture() { return m_pxTexture ? m_pxTexture : Ox93_TextureHandler::GetTextureByHash(m_uTextureHash); }
 
-	Ox93_Vector_2 GetPosition() const { return Ox93_Vector_2(m_iPosX, m_iPosY); }
+	Ox93_Vector_2 GetPosition() const { return Ox93_Vector_2((float)m_iPosX, (float)m_iPosY); }
 	void SetPosition(int iPosX, int iPosY) { m_bMovedSinceRender = true; m_iPosX = iPosX; m_iPosY = iPosY; }
 
 	u_int GetHeight() const { return m_uHeight; }

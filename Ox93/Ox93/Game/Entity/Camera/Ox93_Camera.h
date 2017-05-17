@@ -8,11 +8,15 @@
 #include "Game/Entity/Ox93_Entity.h"
 #include "ROOT/Math/Ox93_Math.h"
 
+__declspec(align(16))
 class Ox93_Camera : public Ox93_Entity
 {
 public:
 	Ox93_Camera(u_int uClassification);
 	~Ox93_Camera();
+
+	void* operator new(size_t i) { return _mm_malloc(i, 16); }
+	void operator delete(void* p) { _mm_free(p); }
 
 	void HandleInput();
 	void Render();

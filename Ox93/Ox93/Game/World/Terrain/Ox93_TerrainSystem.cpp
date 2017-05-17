@@ -52,8 +52,8 @@ void Ox93_TerrainSystem::Update()
 	fTileZ = xPos.z / (fOX93_TERRAIN_SCALE * (float)uOX93_TERRAIN_NUMSIDEFACES);
 
 	int iTileX, iTileZ;
-	iTileX = floor(fTileX);
-	iTileZ = floor(fTileZ);
+	iTileX = (int)floor(fTileX);
+	iTileZ = (int)floor(fTileZ);
 
 	// If the player is too close to an edge we need to create a new set of tiles
 	if (s_pxThis->m_iTileMaxX < iTileX + 2)
@@ -317,8 +317,8 @@ bool Ox93_TerrainSystem::GetClosestPointInRange(Ox93_Vector_3 xPos, float fRange
 	fTileZ = xPos.z / (fOX93_TERRAIN_SCALE * (float)uOX93_TERRAIN_NUMSIDEFACES);
 
 	int iTileX, iTileZ;
-	iTileX = floor(fTileX);
-	iTileZ = floor(fTileZ);
+	iTileX = (int)floor(fTileX);
+	iTileZ = (int)floor(fTileZ);
 
 	Ox93_Vector_3 xPositions[9] = { Ox93_Math::ZeroVector3 };
 	bool bValidRange[9] = { false };
@@ -369,8 +369,8 @@ bool Ox93_TerrainSystem::GetClosestPointToLine(Ox93_Vector_3 xDir, Ox93_Vector_3
 	fTileZ = xPos.z / (fOX93_TERRAIN_SCALE * (float)uOX93_TERRAIN_NUMSIDEFACES);
 
 	int iTileX, iTileZ;
-	iTileX = floor(fTileX);
-	iTileZ = floor(fTileZ);
+	iTileX = (int)floor(fTileX);
+	iTileZ = (int)floor(fTileZ);
 
 	Ox93_Vector_3 xPositions[9] = { Ox93_Math::ZeroVector3 };
 	float fDistances[9] = { fRange + 1.f };
@@ -424,7 +424,7 @@ float Ox93_TerrainSystem::GetHeightAtPoint(Ox93_Vector_3 xPos)
 {
 	// Adjust position to remove zagged edge effect
 	const float fFrac = Ox93_Math::Sqrt3 / 2.f;
-	int iX = floor((xPos.x) / (fOX93_TERRAIN_SCALE * fFrac));
+	int iX = (int)floor((xPos.x) / (fOX93_TERRAIN_SCALE * fFrac));
 	const float fX = static_cast<float>(iX) * fFrac * fOX93_TERRAIN_SCALE;
 
 	float fAdjustedPosZ = xPos.z - abs(xPos.x - (iX + abs(iX % 2)) * fFrac * fOX93_TERRAIN_SCALE) / Ox93_Math::Sqrt3;
@@ -434,8 +434,8 @@ float Ox93_TerrainSystem::GetHeightAtPoint(Ox93_Vector_3 xPos)
 	fTileZ = fAdjustedPosZ / (fOX93_TERRAIN_SCALE * (float)uOX93_TERRAIN_NUMSIDEFACES);
 
 	int iTileX, iTileZ;
-	iTileX = floor(fTileX);
-	iTileZ = floor(fTileZ);
+	iTileX = (int)floor(fTileX);
+	iTileZ = (int)floor(fTileZ);
 
 	std::list<std::list<Ox93_TerrainType*>*>::const_iterator xIterX;
 	for (xIterX = s_pxThis->m_lplpxTerrainTiles.begin(); xIterX != s_pxThis->m_lplpxTerrainTiles.end(); ++xIterX)
@@ -466,7 +466,7 @@ Ox93_Vector_3 Ox93_TerrainSystem::GetClosestCentre(Ox93_Vector_3 xPos)
 
 	// Adjust position to remove zagged edge effect
 	const float fFrac = Ox93_Math::Sqrt3 / 2.f;
-	int iX = floor((xPos.x) / (fOX93_TERRAIN_SCALE * fFrac));
+	int iX = (int)floor((xPos.x) / (fOX93_TERRAIN_SCALE * fFrac));
 	const float fX = static_cast<float>(iX) * fFrac * fOX93_TERRAIN_SCALE;
 
 	float fAdjustedPosZ = xPos.z - abs(xPos.x - (iX + abs(iX % 2)) * fFrac * fOX93_TERRAIN_SCALE) / Ox93_Math::Sqrt3;
@@ -476,8 +476,8 @@ Ox93_Vector_3 Ox93_TerrainSystem::GetClosestCentre(Ox93_Vector_3 xPos)
 	fTileZ = fAdjustedPosZ / (fOX93_TERRAIN_SCALE * (float)uOX93_TERRAIN_NUMSIDEFACES);
 
 	int iTileX, iTileZ;
-	iTileX = floor(fTileX);
-	iTileZ = floor(fTileZ);
+	iTileX = (int)floor(fTileX);
+	iTileZ = (int)floor(fTileZ);
 
 	std::list<std::list<Ox93_TerrainType*>*>::const_iterator xIterX;
 	for (xIterX = s_pxThis->m_lplpxTerrainTiles.begin(); xIterX != s_pxThis->m_lplpxTerrainTiles.end(); ++xIterX)
@@ -510,7 +510,7 @@ bool Ox93_TerrainSystem::AddPhysicalObject(Ox93_PhysicalObject* pxObject)
 
 	// Adjust position to remove zagged edge effect
 	const float fFrac = Ox93_Math::Sqrt3 / 2.f;
-	int iX = floor((xPos.x) / (fOX93_TERRAIN_SCALE * fFrac));
+	int iX = (int)floor((xPos.x) / (fOX93_TERRAIN_SCALE * fFrac));
 	const float fX = static_cast<float>(iX) * fFrac * fOX93_TERRAIN_SCALE;
 
 	float fAdjustedPosZ = xPos.z - abs(xPos.x - (iX + abs(iX % 2)) * fFrac * fOX93_TERRAIN_SCALE) / Ox93_Math::Sqrt3;
@@ -520,8 +520,8 @@ bool Ox93_TerrainSystem::AddPhysicalObject(Ox93_PhysicalObject* pxObject)
 	fTileZ = fAdjustedPosZ / (fOX93_TERRAIN_SCALE * (float)uOX93_TERRAIN_NUMSIDEFACES);
 
 	int iTileX, iTileZ;
-	iTileX = floor(fTileX);
-	iTileZ = floor(fTileZ);
+	iTileX = (int)floor(fTileX);
+	iTileZ = (int)floor(fTileZ);
 
 	std::list<std::list<Ox93_TerrainType*>*>::const_iterator xIterX;
 	for (xIterX = s_pxThis->m_lplpxTerrainTiles.begin(); xIterX != s_pxThis->m_lplpxTerrainTiles.end(); ++xIterX)

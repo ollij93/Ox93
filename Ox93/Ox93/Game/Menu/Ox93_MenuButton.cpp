@@ -139,5 +139,5 @@ void Ox93_MenuButton::SetPosition(int iX, int iY)
 	{
 		m_pxImage->SetPosition(iX, iY);
 	}
-	m_xPosition = Ox93_Vector_2(iX, iY);
+	m_xPosition = Ox93_Vector_2((float)iX, (float)iY);
 }

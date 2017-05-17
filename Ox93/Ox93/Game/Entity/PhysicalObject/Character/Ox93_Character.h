@@ -29,6 +29,7 @@ public:
 	Ox93_Vector_3 GetEyePosition() const { return GetPosition() + Ox93_Vector_3(0, m_fHeight - m_fRadius, 0); }
 	Ox93_Matrix3x3 GetEyeOrientation() const { return m_xEyeOri; }
 	void SetCameraActive() const { Ox93_Camera::SetActive(m_pxCamera); }
+	virtual void SetRigidBody(rp3d::RigidBody* pxRigidBody) override;
 
 	// Statics...
 	static Ox93_Entity* Create() { return new Ox93_Character(OX93_CLASS_CHARACTER); }

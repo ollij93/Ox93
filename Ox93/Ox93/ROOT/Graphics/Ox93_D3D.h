@@ -4,6 +4,7 @@
 #include "Ox93_Core.h"
 #include "ROOT/Math/Ox93_Math.h"
 
+__declspec(align(16))
 class Ox93_D3D
 {
 public:
@@ -37,6 +38,9 @@ protected:
 	Ox93_D3D();
 	Ox93_D3D(const Ox93_D3D&);
 	~Ox93_D3D();
+
+	void* operator new(size_t i) { return _mm_malloc(i, 16); }
+	void operator delete(void* p) { _mm_free(p); }
 
 	bool Initialize(int, int, bool, HWND, bool, float, float);
 	void Shutdown();

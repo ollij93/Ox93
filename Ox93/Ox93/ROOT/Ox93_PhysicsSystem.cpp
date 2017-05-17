@@ -4,7 +4,7 @@
 
 // Global Variables...
 static const float fTIMESTEPMIN = 0.2f;
-static const rp3d::Vector3 xGRAVITY(0.0, -9.81, 0.0);
+static const rp3d::Vector3 xGRAVITY(0.0, -9.81f, 0.0);
 
 // Static variables...
 Ox93_PhysicsSystem* Ox93_PhysicsSystem::s_pxThis = nullptr;
@@ -38,6 +38,8 @@ void Ox93_PhysicsSystem::AddEntity(Ox93_Entity* pxEntity)
 
 	rp3d::Transform xTransform((rp3d::Vector3)pxEntity->GetPosition(), (rp3d::Matrix3x3)pxEntity->GetOrientation());
 	rp3d::RigidBody* pxRigidBody = s_pxThis->xWorld.createRigidBody(xTransform);
+	rp3d::BoxShape* xBoxShape = new rp3d::BoxShape(Ox93_Vector_3(0.5f, 0.5f, 0.5f));
+	pxRigidBody->addCollisionShape(xBoxShape, rp3d::Transform::identity(), 1.f);
 	pxEntity->SetRigidBody(pxRigidBody);
 }
 

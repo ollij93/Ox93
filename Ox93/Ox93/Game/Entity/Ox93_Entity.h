@@ -43,7 +43,7 @@ public:
 	Ox93_Vector_3 GetVelocity() const;
 	void AddVelocity(Ox93_Vector_3 xVelocity);
 
-	void SetRigidBody(rp3d::RigidBody* pxRigidBody) { m_pxRigidBody = pxRigidBody; }
+	virtual void SetRigidBody(rp3d::RigidBody* pxRigidBody) { m_pxRigidBody = pxRigidBody; }
 
 	static void AddToEntityList(Ox93_Entity* pxEntity) { s_lpxEntityList.push_back(pxEntity); }
 	static void RemoveFromEntityList(Ox93_Entity* pxEntity) { s_lpxEntityList.remove(pxEntity); }
@@ -51,6 +51,9 @@ public:
 	static const std::list<Ox93_Entity*> GetList() { return s_lpxEntityList; }
 	static void ShutdownAll();
 
+protected:
+	void LockPosition(bool bLock) { m_bLockPosition = bLock; }
+	void LockOrientation(bool bLock) { m_bLockOrientation = bLock; }
 private:
 	Ox93_Vector_3 m_xPosition;
 	Ox93_Matrix3x3 m_xOrientation;
@@ -59,6 +62,8 @@ private:
 	u_int m_uSpecificationHash;
 	Ox93_CollisionGroup m_eCollisionGroup;
 	rp3d::RigidBody* m_pxRigidBody;
+	bool m_bLockPosition;
+	bool m_bLockOrientation;
 
 	static const u_int uVERSION = 0;
 

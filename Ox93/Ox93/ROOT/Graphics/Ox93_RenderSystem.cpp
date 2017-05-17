@@ -110,7 +110,7 @@ void Ox93_RenderSystem::OutputShaderErrorMessage(ID3D10Blob* pxErrorMessage, HWN
 
 	std::ofstream fOutStream;
 	fOutStream.open("shader-error.txt");
-	for (int i = 0; i < ulBufferSize; i++)
+	for (u_int i = 0; i < ulBufferSize; i++)
 	{
 		fOutStream << pcCompileErrors[i];
 	}

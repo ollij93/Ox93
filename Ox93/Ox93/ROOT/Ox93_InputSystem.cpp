@@ -15,7 +15,7 @@ Ox93_InputSystem* Ox93_InputSystem::s_pxThis;
 Ox93_InputSystem::Ox93_InputSystem()
 : m_abKeys()
 , m_abFreshKeys()
-, m_xMousePos(uOX93_MOUSE_POS_X, uOX93_MOUSE_POS_Y)
+, m_xMousePos((float)uOX93_MOUSE_POS_X, (float)uOX93_MOUSE_POS_Y)
 , m_xMouseMove(0,0)
 , m_xLMBClick(0,0)
 , m_bMouseMoved(false)
@@ -82,7 +82,7 @@ void Ox93_InputSystem::MouseMove(int iPosX, int iPosY)
 	if (!s_pxThis) { return; }
 	s_pxThis->SetMouseMoved(iPosX, iPosY);
 
-	s_pxThis->m_xMousePos = Ox93_Vector_2(iPosX, iPosY);
+	s_pxThis->m_xMousePos = Ox93_Vector_2((float)iPosX, (float)iPosY);
 }
 
 void Ox93_InputSystem::OnLMButtonPressed()
@@ -94,7 +94,7 @@ void Ox93_InputSystem::OnLMButtonPressed()
 	POINT xPoint;
 	GetCursorPos(&xPoint);
 
-	s_pxThis->m_xLMBClick = Ox93_Vector_2(xPoint.x, xPoint.y);
+	s_pxThis->m_xLMBClick = Ox93_Vector_2((float)xPoint.x, (float)xPoint.y);
 }
 
 void Ox93_InputSystem::OnRMButtonPressed()
@@ -118,7 +118,7 @@ void Ox93_InputSystem::OnRMButtonReleased()
 
 void Ox93_InputSystem::SetMouseMoved(int iPosX, int iPosY)
 {
-	m_xMouseMove = Ox93_Vector_2(iPosX, iPosY) - m_xMousePos;	
+	m_xMouseMove = Ox93_Vector_2((float)iPosX, (float)iPosY) - m_xMousePos;
 	m_bMouseMoved = true;
 }
 
@@ -172,6 +172,6 @@ void Ox93_InputSystem::SetCursorPosition(const Ox93_Vector_2& xPos)
 {
 	if (!s_pxThis) { return; }
 
-	SetCursorPos(xPos.x, xPos.y);
+	SetCursorPos((int)xPos.x, (int)xPos.y);
 	s_pxThis->m_xMousePos = xPos;
 }

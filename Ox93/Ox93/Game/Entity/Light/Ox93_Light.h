@@ -9,12 +9,16 @@
 #include "ROOT/Graphics/2D/Ox93_RenderTexture.h"
 #include "ROOT/Math/Ox93_Math.h"
 
+__declspec(align(16))
 class Ox93_Light : public Ox93_Entity
 {
 public:
 	Ox93_Light(u_int uClassification);
 	~Ox93_Light();
 	static Ox93_Entity* Create() { return new Ox93_Light(OX93_CLASS_LIGHT); }
+
+	void* operator new(size_t i) { return _mm_malloc(i, 16); }
+	void operator delete(void* p) { _mm_free(p); }
 
 	bool InitRenderTexture();
 

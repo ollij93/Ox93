@@ -267,7 +267,7 @@ void Ox93_System::InitWindows(u_int& uScreenWidth, u_int& uScreenHeight)
 		uPosY = (GetSystemMetrics(SM_CYSCREEN) - uScreenHeight) / 2;
 	}
 
-	RECT xWindowRect = { 0, 0, uScreenWidth, uScreenHeight };
+	RECT xWindowRect = { 0, 0, (LONG)uScreenWidth, (LONG)uScreenHeight };
 	AdjustWindowRect(&xWindowRect, WS_OVERLAPPEDWINDOW, false);
 
 	// Create the window with the screen settings and get the handle to it.

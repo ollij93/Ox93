@@ -392,7 +392,7 @@ bool Ox93_D3D::Initialize(int screenWidth, int screenHeight, bool vsync, HWND hw
 	m_worldMatrix = DirectX::XMMatrixIdentity();
 
 	// Create an orthographic projection matrix for 2D rendering.
-	m_orthoMatrix = DirectX::XMMatrixOrthographicLH(screenWidth, screenHeight, screenNear, screenDepth);
+	m_orthoMatrix = DirectX::XMMatrixOrthographicLH((float)screenWidth, (float)screenHeight, (float)screenNear, (float)screenDepth);
 
 	// Clear the second depth stencil before setting the parameters.
 	ZeroMemory(&depthDisabledStencilDesc, sizeof(depthDisabledStencilDesc));

@@ -25,7 +25,7 @@ Ox93_Text::~Ox93_Text()
 
 void Ox93_Text::SetPosition(int iX, int iY)
 {
-	m_xPosition = Ox93_Vector_2( iX, iY );
+	m_xPosition = Ox93_Vector_2((float)iX, (float)iY);
 
 	if (m_lpxBitMaps.size() == 0)
 	{

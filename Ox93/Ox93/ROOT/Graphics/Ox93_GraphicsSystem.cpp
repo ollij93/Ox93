@@ -69,7 +69,7 @@ bool Ox93_GraphicsSystem::Init(u_int uScreenWidth, u_int uScreenHeight, HWND hWn
 	Ox93_Assert(bResult, "Failed to create Ox93_RenderSystem.");
 	if (!bResult) { return false; }
 
-	m_fPrevUpdateTime = timeGetTime();
+	m_fPrevUpdateTime = (float)timeGetTime();
 	m_uUpdateCounter = g_uFPSFrameSpan;
 
 	return true;
@@ -95,7 +95,7 @@ bool Ox93_GraphicsSystem::Frame()
 	{
 		s_pxThis->m_uUpdateCounter = g_uFPSFrameSpan;
 
-		const float fThisUpdateTime = timeGetTime();
+		const float fThisUpdateTime = (float)timeGetTime();
 		s_fFPS = g_uFPSFrameSpan * 1000.f / (fThisUpdateTime - s_pxThis->m_fPrevUpdateTime);
 		s_pxThis->m_fPrevUpdateTime = fThisUpdateTime;
 	}
