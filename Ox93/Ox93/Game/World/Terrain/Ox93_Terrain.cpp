@@ -241,7 +241,7 @@ bool Ox93_Terrain::GenerateRandom(int iTileX, int iTileZ, noise::module::Perlin 
 			const float fBiomeScale = (fBiomeValue > 0.8f) ? 10.f + 300.f * (fBiomeValue - 0.8f)  : 10.f;
 			const float fBiomeAdjust = (fBiomeValue > 0.8f) ? 300.f * (fBiomeValue - 0.8f) : 0.f;
 
-			m_afHeightMap[uX][uZ] = (float)xModule.GetValue(fXFrac, fZFrac, 0.f) * fBiomeScale + fBiomeAdjust;
+			m_afHeightMap[uX][uZ] = -10.f; // (float)xModule.GetValue(fXFrac, fZFrac, 0.f) * fBiomeScale + fBiomeAdjust;
 		}
 	}
 
