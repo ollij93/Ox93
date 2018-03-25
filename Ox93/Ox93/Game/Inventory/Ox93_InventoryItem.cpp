@@ -97,20 +97,20 @@ void Ox93_InventoryItem::Update()
 		xEyeDir.Normalize();
 		xEyeDir *= 6.f;
 
-		Ox93_Vector_3 xPlacePoint = xEyePos + xEyeDir;
-		xPlacePoint = Ox93_TerrainSystem::GetClosestCentre(xPlacePoint);
+		//Ox93_Vector_3 xPlacePoint = xEyePos + xEyeDir;
+		//xPlacePoint = Ox93_TerrainSystem::GetClosestCentre(xPlacePoint);
 
-		if(m_pxSelectionObject)
-		{
-			m_pxSelectionObject->SetPosition(xPlacePoint);
-			m_pxSelectionObject->Unhide();
+		//if(m_pxSelectionObject)
+		//{
+		//	m_pxSelectionObject->SetPosition(xPlacePoint);
+		//	m_pxSelectionObject->Unhide();
 
-			// If no items remain hide the object
-			if (m_uQuantity == 0)
-			{
-				m_pxSelectionObject->Hide();
-			}
-		}
+		//	// If no items remain hide the object
+		//	if (m_uQuantity == 0)
+		//	{
+		//		m_pxSelectionObject->Hide();
+		//	}
+		//}
 
 	}
 }

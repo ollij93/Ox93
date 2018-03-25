@@ -51,7 +51,7 @@ bool Ox93_PhysicsSystem::Init()
 	memset(piHeightField, 0, sizeof(int) * 40000);
 	rp3d::HeightFieldShape* pxHeightShape = new rp3d::HeightFieldShape(200, 200, -0.1f, 0.1f, piHeightField, rp3d::HeightFieldShape::HeightDataType::HEIGHT_FLOAT_TYPE);
 	pxRigidBody->addCollisionShape(pxHeightShape, rp3d::Transform::identity(), 1.f);
-	pxRigidBody->setTransform(rp3d::Transform(Ox93_Vector_3(0.f, -10.f, 0.f), rp3d::Matrix3x3::identity()));
+	pxRigidBody->setTransform(rp3d::Transform(Ox93_Vector_3(0.f, -25.f, 0.f), rp3d::Matrix3x3::identity()));
 	return true;
 }
 

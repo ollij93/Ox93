@@ -23,10 +23,10 @@ public:
 
 	static int GetCurrentSeed() { return s_pxThis ? s_pxThis->m_iSeed : 0; }
 
-	static bool GetClosestPointInRange(Ox93_Vector_3 xPos, float fRange, Ox93_Vector_3* pxResultPos);
-	static bool GetClosestPointToLine(Ox93_Vector_3 xDir, Ox93_Vector_3 xPos, Ox93_Vector_3* pxResult, float fRange, float fNear = 0.f, bool bForcePositive = false);
-	static float GetHeightAtPoint(Ox93_Vector_3 xPos);
-	static Ox93_Vector_3 GetClosestCentre(Ox93_Vector_3 xPos);
+	//static bool GetClosestPointInRange(Ox93_Vector_3 xPos, float fRange, Ox93_Vector_3* pxResultPos);
+	//static bool GetClosestPointToLine(Ox93_Vector_3 xDir, Ox93_Vector_3 xPos, Ox93_Vector_3* pxResult, float fRange, float fNear = 0.f, bool bForcePositive = false);
+	//static float GetHeightAtPoint(Ox93_Vector_3 xPos);
+	//static Ox93_Vector_3 GetClosestCentre(Ox93_Vector_3 xPos);
 
 	static bool AddPhysicalObject(Ox93_PhysicalObject* pxObject);
 

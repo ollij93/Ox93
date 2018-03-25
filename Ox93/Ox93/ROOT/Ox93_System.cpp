@@ -58,7 +58,7 @@ bool Ox93_System::Init()
 	Ox93_Assert(bResult, "Failed to create Ox93_PhysicsSystem.");
 	if (!bResult) { return false; }
 
-	bResult = Ox93_GraphicsSystem::Create(uScreenWidth, uScreenHeight, m_hWnd);
+	bResult = Ox93_GraphicsSystem::Create(uScreenWidth, uScreenHeight, m_gHWND);
 	Ox93_Assert(bResult, "Failed to create Ox93_GraphicsSystem.");
 	if (!bResult) { return false; }
 
@@ -162,7 +162,7 @@ bool Ox93_System::Frame()
 }
 
 
-LRESULT CALLBACK Ox93_System::MessageHandler(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
+LRESULT CALLBACK Ox93_System::MessageHandler(gHWND gHWND, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
 	switch (uMsg)
 	{
@@ -200,7 +200,7 @@ LRESULT CALLBACK Ox93_System::MessageHandler(HWND hWnd, UINT uMsg, WPARAM wParam
 		// Default to let windows handle the message
 		default:
 		{
-			return DefWindowProc(hWnd, uMsg, wParam, lParam);
+			return DefWindowProc(gHWND, uMsg, wParam, lParam);
 		}
 	}
 }
@@ -271,14 +271,14 @@ void Ox93_System::InitWindows(u_int& uScreenWidth, u_int& uScreenHeight)
 	AdjustWindowRect(&xWindowRect, WS_OVERLAPPEDWINDOW, false);
 
 	// Create the window with the screen settings and get the handle to it.
-	m_hWnd = CreateWindowEx(WS_EX_APPWINDOW, m_pszAppName, m_pszAppName,
+	m_gHWND = CreateWindowEx(WS_EX_APPWINDOW, m_pszAppName, m_pszAppName,
 		WS_OVERLAPPEDWINDOW,
 		uPosX, uPosY, xWindowRect.right - xWindowRect.left, xWindowRect.bottom - xWindowRect.top, NULL, NULL, m_hInstance, NULL);
 
 	// Bring the window up on the screen and set it as main focus.
-	ShowWindow(m_hWnd, SW_SHOW);
-	SetForegroundWindow(m_hWnd);
-	SetFocus(m_hWnd);
+	ShowWindow(m_gHWND, SW_SHOW);
+	SetForegroundWindow(m_gHWND);
+	SetFocus(m_gHWND);
 }
 
 
@@ -294,8 +294,8 @@ void Ox93_System::ShutdownWindows()
 	}
 
 	// Remove the window.
-	DestroyWindow(m_hWnd);
-	m_hWnd = nullptr;
+	DestroyWindow(m_gHWND);
+	m_gHWND = nullptr;
 
 	// Remove the application instance.
 	UnregisterClass(m_pszAppName, m_hInstance);
@@ -375,7 +375,7 @@ void Ox93_System::QuitGame()
 	Ox93_Assert(s_pxThis->m_eGameMode == OX93_GAMEMODE_PAUSED || s_pxThis->m_eGameMode == OX93_GAMEMODE_MENU,
 		"Attempting to quit the game from an unexpected GameMode, will continue anyway but this should not be happening");
 
-	PostMessage(s_pxThis->m_hWnd, WM_QUIT, 0, 0);
+	PostMessage(s_pxThis->m_gHWND, WM_QUIT, 0, 0);
 }
 
 ///////////////////////////////////////////////////////////////////
@@ -505,7 +505,7 @@ const void* Ox93_System::GetValue(const char* pszValueName)
 
 ///////////////////////////////////////////////////////////////////
 
-LRESULT CALLBACK WndProc(HWND hwnd, UINT umessage, WPARAM wparam, LPARAM lparam)
+LRESULT CALLBACK WndProc(gHWND gHWND, UINT umessage, WPARAM wparam, LPARAM lparam)
 {
 	switch (umessage)
 	{
@@ -519,7 +519,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT umessage, WPARAM wparam, LPARAM lparam)
 		// All other messages let the settings class deal with
 		default:
 		{
-			return Ox93_System::MessageHandler(hwnd, umessage, wparam, lparam);
+			return Ox93_System::MessageHandler(gHWND, umessage, wparam, lparam);
 		}
 	}
 }

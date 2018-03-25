@@ -48,8 +48,8 @@ void Ox93_TerrainSystem::Update()
 	}
 
 	float fTileX, fTileZ;
-	fTileX = xPos.x / (fOX93_TERRAIN_SCALE * (float)uOX93_TERRAIN_NUMSIDEFACES * Ox93_Math::Sqrt3 / 2.f);
-	fTileZ = xPos.z / (fOX93_TERRAIN_SCALE * (float)uOX93_TERRAIN_NUMSIDEFACES);
+	fTileX = xPos.x / (fOX93_TERRAIN_SCALE * (float)OX93_TERRAIN_NUMSIDEFACES * Ox93_Math::Sqrt3 / 2.f);
+	fTileZ = xPos.z / (fOX93_TERRAIN_SCALE * (float)OX93_TERRAIN_NUMSIDEFACES);
 
 	int iTileX, iTileZ;
 	iTileX = (int)floor(fTileX);
@@ -308,199 +308,199 @@ void Ox93_TerrainSystem::Shutdown()
 	}
 }
 
-bool Ox93_TerrainSystem::GetClosestPointInRange(Ox93_Vector_3 xPos, float fRange, Ox93_Vector_3* pxResultPos)
-{
-	if (!s_pxThis) { return false; }
+//bool Ox93_TerrainSystem::GetClosestPointInRange(Ox93_Vector_3 xPos, float fRange, Ox93_Vector_3* pxResultPos)
+//{
+//	if (!s_pxThis) { return false; }
+//
+//	float fTileX, fTileZ;
+//	fTileX = xPos.x / (fOX93_TERRAIN_SCALE * (float)OX93_TERRAIN_NUMSIDEFACES * Ox93_Math::Sqrt3 / 2.f);
+//	fTileZ = xPos.z / (fOX93_TERRAIN_SCALE * (float)OX93_TERRAIN_NUMSIDEFACES);
+//
+//	int iTileX, iTileZ;
+//	iTileX = (int)floor(fTileX);
+//	iTileZ = (int)floor(fTileZ);
+//
+//	Ox93_Vector_3 xPositions[9] = { Ox93_Math::ZeroVector3 };
+//	bool bValidRange[9] = { false };
+//	
+//	std::list<std::list<Ox93_TerrainType*>*>::const_iterator xIterX;
+//	for (xIterX = s_pxThis->m_lplpxTerrainTiles.begin(); xIterX != s_pxThis->m_lplpxTerrainTiles.end(); ++xIterX)
+//	{
+//		std::list<Ox93_TerrainType*>* plpxTerrainTypes = *xIterX;
+//		if (!plpxTerrainTypes) { continue; }
+//
+//		std::list<Ox93_TerrainType*>::const_iterator xIterZ;
+//		for (xIterZ = plpxTerrainTypes->begin(); xIterZ != plpxTerrainTypes->end(); ++xIterZ)
+//		{
+//			Ox93_TerrainType* pxTerrainType = *xIterZ;
+//			if (!pxTerrainType || !pxTerrainType->pxTerrain) { continue; }
+//
+//			if (pxTerrainType->iTileX <= iTileX + 1
+//				&& pxTerrainType->iTileX >= iTileX - 1
+//				&& pxTerrainType->iTileZ <= iTileZ + 1
+//				&& pxTerrainType->iTileZ >= iTileZ - 1)
+//			{
+//				int iIndex = 3 * (pxTerrainType->iTileX - iTileX + 1) + (pxTerrainType->iTileZ - iTileZ + 1);
+//
+//				bValidRange[iIndex] = pxTerrainType->pxTerrain->GetClosestPointInRange(xPos, fRange, &xPositions[iIndex]);
+//			}
+//		}
+//	}
+//
+//	float fDist = fRange + 1.f;
+//	for (int i = 0; i < 9; i++)
+//	{
+//		if (bValidRange[i] && (xPositions[i] - xPos).Length() < fDist)
+//		{
+//			fDist = (xPositions[i] - xPos).Length();
+//			*pxResultPos = xPositions[i];
+//		}
+//	}
+//
+//	return (fDist < fRange);
+//}
 
-	float fTileX, fTileZ;
-	fTileX = xPos.x / (fOX93_TERRAIN_SCALE * (float)uOX93_TERRAIN_NUMSIDEFACES * Ox93_Math::Sqrt3 / 2.f);
-	fTileZ = xPos.z / (fOX93_TERRAIN_SCALE * (float)uOX93_TERRAIN_NUMSIDEFACES);
-
-	int iTileX, iTileZ;
-	iTileX = (int)floor(fTileX);
-	iTileZ = (int)floor(fTileZ);
-
-	Ox93_Vector_3 xPositions[9] = { Ox93_Math::ZeroVector3 };
-	bool bValidRange[9] = { false };
-	
-	std::list<std::list<Ox93_TerrainType*>*>::const_iterator xIterX;
-	for (xIterX = s_pxThis->m_lplpxTerrainTiles.begin(); xIterX != s_pxThis->m_lplpxTerrainTiles.end(); ++xIterX)
-	{
-		std::list<Ox93_TerrainType*>* plpxTerrainTypes = *xIterX;
-		if (!plpxTerrainTypes) { continue; }
-
-		std::list<Ox93_TerrainType*>::const_iterator xIterZ;
-		for (xIterZ = plpxTerrainTypes->begin(); xIterZ != plpxTerrainTypes->end(); ++xIterZ)
-		{
-			Ox93_TerrainType* pxTerrainType = *xIterZ;
-			if (!pxTerrainType || !pxTerrainType->pxTerrain) { continue; }
-
-			if (pxTerrainType->iTileX <= iTileX + 1
-				&& pxTerrainType->iTileX >= iTileX - 1
-				&& pxTerrainType->iTileZ <= iTileZ + 1
-				&& pxTerrainType->iTileZ >= iTileZ - 1)
-			{
-				int iIndex = 3 * (pxTerrainType->iTileX - iTileX + 1) + (pxTerrainType->iTileZ - iTileZ + 1);
-
-				bValidRange[iIndex] = pxTerrainType->pxTerrain->GetClosestPointInRange(xPos, fRange, &xPositions[iIndex]);
-			}
-		}
-	}
-
-	float fDist = fRange + 1.f;
-	for (int i = 0; i < 9; i++)
-	{
-		if (bValidRange[i] && (xPositions[i] - xPos).Length() < fDist)
-		{
-			fDist = (xPositions[i] - xPos).Length();
-			*pxResultPos = xPositions[i];
-		}
-	}
-
-	return (fDist < fRange);
-}
-
-bool Ox93_TerrainSystem::GetClosestPointToLine(Ox93_Vector_3 xDir, Ox93_Vector_3 xPos, Ox93_Vector_3* pxResult, float fRange, float fNear /* = 0.f */, bool bForcePositive /* = false */)
-{
-	if (!s_pxThis) { return false; }
-
-	float fTileX, fTileZ;
-	fTileX = xPos.x / (fOX93_TERRAIN_SCALE * (float)uOX93_TERRAIN_NUMSIDEFACES * Ox93_Math::Sqrt3 / 2.f);
-	fTileZ = xPos.z / (fOX93_TERRAIN_SCALE * (float)uOX93_TERRAIN_NUMSIDEFACES);
-
-	int iTileX, iTileZ;
-	iTileX = (int)floor(fTileX);
-	iTileZ = (int)floor(fTileZ);
-
-	Ox93_Vector_3 xPositions[9] = { Ox93_Math::ZeroVector3 };
-	float fDistances[9] = { fRange + 1.f };
-	bool bValidRange[9] = { false };
-
-	std::list<std::list<Ox93_TerrainType*>*>::const_iterator xIterX;
-	for (xIterX = s_pxThis->m_lplpxTerrainTiles.begin(); xIterX != s_pxThis->m_lplpxTerrainTiles.end(); ++xIterX)
-	{
-		std::list<Ox93_TerrainType*>* plpxTerrainTypes = *xIterX;
-		if (!plpxTerrainTypes) { continue; }
-
-		std::list<Ox93_TerrainType*>::const_iterator xIterZ;
-		for (xIterZ = plpxTerrainTypes->begin(); xIterZ != plpxTerrainTypes->end(); ++xIterZ)
-		{
-			Ox93_TerrainType* pxTerrainType = *xIterZ;
-			if (!pxTerrainType || !pxTerrainType->pxTerrain) { continue; }
-
-			if (pxTerrainType->iTileX <= iTileX + 1
-				&& pxTerrainType->iTileX >= iTileX - 1
-				&& pxTerrainType->iTileZ <= iTileZ + 1
-				&& pxTerrainType->iTileZ >= iTileZ - 1)
-			{
-				int iIndex = 3 * (pxTerrainType->iTileX - iTileX + 1) + (pxTerrainType->iTileZ - iTileZ + 1);
-
-				bValidRange[iIndex] = pxTerrainType->pxTerrain->GetClosestPointToLine(xDir, xPos, &xPositions[iIndex], &fDistances[iIndex], fRange, fNear, bForcePositive);
-			}
-		}
-	}
-
-	float fDist = fRange + 1.f;
-	for (int i = 0; i < 9; i++)
-	{
-		if (bValidRange[i] && fDistances[i] < fDist)
-		{
-			fDist = fDistances[i];
-			*pxResult = xPositions[i];
-		}
-	}
-
-	if (fDist < fRange)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-}
-
-float Ox93_TerrainSystem::GetHeightAtPoint(Ox93_Vector_3 xPos)
-{
-	// Adjust position to remove zagged edge effect
-	const float fFrac = Ox93_Math::Sqrt3 / 2.f;
-	int iX = (int)floor((xPos.x) / (fOX93_TERRAIN_SCALE * fFrac));
-	const float fX = static_cast<float>(iX) * fFrac * fOX93_TERRAIN_SCALE;
-
-	float fAdjustedPosZ = xPos.z - abs(xPos.x - (iX + abs(iX % 2)) * fFrac * fOX93_TERRAIN_SCALE) / Ox93_Math::Sqrt3;
-
-	float fTileX, fTileZ;
-	fTileX = xPos.x / (fOX93_TERRAIN_SCALE * (float)uOX93_TERRAIN_NUMSIDEFACES * Ox93_Math::Sqrt3 / 2.f);
-	fTileZ = fAdjustedPosZ / (fOX93_TERRAIN_SCALE * (float)uOX93_TERRAIN_NUMSIDEFACES);
-
-	int iTileX, iTileZ;
-	iTileX = (int)floor(fTileX);
-	iTileZ = (int)floor(fTileZ);
-
-	std::list<std::list<Ox93_TerrainType*>*>::const_iterator xIterX;
-	for (xIterX = s_pxThis->m_lplpxTerrainTiles.begin(); xIterX != s_pxThis->m_lplpxTerrainTiles.end(); ++xIterX)
-	{
-		std::list<Ox93_TerrainType*>* plpxTerrainTypes = *xIterX;
-		if (!plpxTerrainTypes) { continue; }
-
-		std::list<Ox93_TerrainType*>::const_iterator xIterZ;
-		for (xIterZ = plpxTerrainTypes->begin(); xIterZ != plpxTerrainTypes->end(); ++xIterZ)
-		{
-			Ox93_TerrainType* pxTerrainType = *xIterZ;
-			if (!pxTerrainType || !pxTerrainType->pxTerrain) { continue; }
-
-			if (pxTerrainType->iTileX == iTileX
-				&& pxTerrainType->iTileZ == iTileZ)
-			{
-				return pxTerrainType->pxTerrain->GetHeightAtPoint(xPos);
-			}
-		}
-	}
-
-	return 0.f;
-}
-
-Ox93_Vector_3 Ox93_TerrainSystem::GetClosestCentre(Ox93_Vector_3 xPos)
-{
-	if (!s_pxThis) { return Ox93_Math::ZeroVector3; }
-
-	// Adjust position to remove zagged edge effect
-	const float fFrac = Ox93_Math::Sqrt3 / 2.f;
-	int iX = (int)floor((xPos.x) / (fOX93_TERRAIN_SCALE * fFrac));
-	const float fX = static_cast<float>(iX) * fFrac * fOX93_TERRAIN_SCALE;
-
-	float fAdjustedPosZ = xPos.z - abs(xPos.x - (iX + abs(iX % 2)) * fFrac * fOX93_TERRAIN_SCALE) / Ox93_Math::Sqrt3;
-
-	float fTileX, fTileZ;
-	fTileX = xPos.x / (fOX93_TERRAIN_SCALE * (float)uOX93_TERRAIN_NUMSIDEFACES * Ox93_Math::Sqrt3 / 2.f);
-	fTileZ = fAdjustedPosZ / (fOX93_TERRAIN_SCALE * (float)uOX93_TERRAIN_NUMSIDEFACES);
-
-	int iTileX, iTileZ;
-	iTileX = (int)floor(fTileX);
-	iTileZ = (int)floor(fTileZ);
-
-	std::list<std::list<Ox93_TerrainType*>*>::const_iterator xIterX;
-	for (xIterX = s_pxThis->m_lplpxTerrainTiles.begin(); xIterX != s_pxThis->m_lplpxTerrainTiles.end(); ++xIterX)
-	{
-		std::list<Ox93_TerrainType*>* plpxTerrainTypes = *xIterX;
-		if (!plpxTerrainTypes) { continue; }
-
-		std::list<Ox93_TerrainType*>::const_iterator xIterZ;
-		for (xIterZ = plpxTerrainTypes->begin(); xIterZ != plpxTerrainTypes->end(); ++xIterZ)
-		{
-			Ox93_TerrainType* pxTerrainType = *xIterZ;
-			if (!pxTerrainType || !pxTerrainType->pxTerrain) { continue; }
-
-			if (pxTerrainType->iTileX == iTileX
-				&& pxTerrainType->iTileZ == iTileZ)
-			{
-				return pxTerrainType->pxTerrain->GetClosestCentre(xPos);
-			}
-		}
-	}
-
-	return Ox93_Math::ZeroVector3;
-}
+//bool Ox93_TerrainSystem::GetClosestPointToLine(Ox93_Vector_3 xDir, Ox93_Vector_3 xPos, Ox93_Vector_3* pxResult, float fRange, float fNear /* = 0.f */, bool bForcePositive /* = false */)
+//{
+//	if (!s_pxThis) { return false; }
+//
+//	float fTileX, fTileZ;
+//	fTileX = xPos.x / (fOX93_TERRAIN_SCALE * (float)OX93_TERRAIN_NUMSIDEFACES * Ox93_Math::Sqrt3 / 2.f);
+//	fTileZ = xPos.z / (fOX93_TERRAIN_SCALE * (float)OX93_TERRAIN_NUMSIDEFACES);
+//
+//	int iTileX, iTileZ;
+//	iTileX = (int)floor(fTileX);
+//	iTileZ = (int)floor(fTileZ);
+//
+//	Ox93_Vector_3 xPositions[9] = { Ox93_Math::ZeroVector3 };
+//	float fDistances[9] = { fRange + 1.f };
+//	bool bValidRange[9] = { false };
+//
+//	std::list<std::list<Ox93_TerrainType*>*>::const_iterator xIterX;
+//	for (xIterX = s_pxThis->m_lplpxTerrainTiles.begin(); xIterX != s_pxThis->m_lplpxTerrainTiles.end(); ++xIterX)
+//	{
+//		std::list<Ox93_TerrainType*>* plpxTerrainTypes = *xIterX;
+//		if (!plpxTerrainTypes) { continue; }
+//
+//		std::list<Ox93_TerrainType*>::const_iterator xIterZ;
+//		for (xIterZ = plpxTerrainTypes->begin(); xIterZ != plpxTerrainTypes->end(); ++xIterZ)
+//		{
+//			Ox93_TerrainType* pxTerrainType = *xIterZ;
+//			if (!pxTerrainType || !pxTerrainType->pxTerrain) { continue; }
+//
+//			if (pxTerrainType->iTileX <= iTileX + 1
+//				&& pxTerrainType->iTileX >= iTileX - 1
+//				&& pxTerrainType->iTileZ <= iTileZ + 1
+//				&& pxTerrainType->iTileZ >= iTileZ - 1)
+//			{
+//				int iIndex = 3 * (pxTerrainType->iTileX - iTileX + 1) + (pxTerrainType->iTileZ - iTileZ + 1);
+//
+//				bValidRange[iIndex] = pxTerrainType->pxTerrain->GetClosestPointToLine(xDir, xPos, &xPositions[iIndex], &fDistances[iIndex], fRange, fNear, bForcePositive);
+//			}
+//		}
+//	}
+//
+//	float fDist = fRange + 1.f;
+//	for (int i = 0; i < 9; i++)
+//	{
+//		if (bValidRange[i] && fDistances[i] < fDist)
+//		{
+//			fDist = fDistances[i];
+//			*pxResult = xPositions[i];
+//		}
+//	}
+//
+//	if (fDist < fRange)
+//	{
+//		return true;
+//	}
+//	else
+//	{
+//		return false;
+//	}
+//}
+//
+//float Ox93_TerrainSystem::GetHeightAtPoint(Ox93_Vector_3 xPos)
+//{
+//	// Adjust position to remove zagged edge effect
+//	const float fFrac = Ox93_Math::Sqrt3 / 2.f;
+//	int iX = (int)floor((xPos.x) / (fOX93_TERRAIN_SCALE * fFrac));
+//	const float fX = static_cast<float>(iX) * fFrac * fOX93_TERRAIN_SCALE;
+//
+//	float fAdjustedPosZ = xPos.z - abs(xPos.x - (iX + abs(iX % 2)) * fFrac * fOX93_TERRAIN_SCALE) / Ox93_Math::Sqrt3;
+//
+//	float fTileX, fTileZ;
+//	fTileX = xPos.x / (fOX93_TERRAIN_SCALE * (float)OX93_TERRAIN_NUMSIDEFACES * Ox93_Math::Sqrt3 / 2.f);
+//	fTileZ = fAdjustedPosZ / (fOX93_TERRAIN_SCALE * (float)OX93_TERRAIN_NUMSIDEFACES);
+//
+//	int iTileX, iTileZ;
+//	iTileX = (int)floor(fTileX);
+//	iTileZ = (int)floor(fTileZ);
+//
+//	std::list<std::list<Ox93_TerrainType*>*>::const_iterator xIterX;
+//	for (xIterX = s_pxThis->m_lplpxTerrainTiles.begin(); xIterX != s_pxThis->m_lplpxTerrainTiles.end(); ++xIterX)
+//	{
+//		std::list<Ox93_TerrainType*>* plpxTerrainTypes = *xIterX;
+//		if (!plpxTerrainTypes) { continue; }
+//
+//		std::list<Ox93_TerrainType*>::const_iterator xIterZ;
+//		for (xIterZ = plpxTerrainTypes->begin(); xIterZ != plpxTerrainTypes->end(); ++xIterZ)
+//		{
+//			Ox93_TerrainType* pxTerrainType = *xIterZ;
+//			if (!pxTerrainType || !pxTerrainType->pxTerrain) { continue; }
+//
+//			if (pxTerrainType->iTileX == iTileX
+//				&& pxTerrainType->iTileZ == iTileZ)
+//			{
+//				return pxTerrainType->pxTerrain->GetHeightAtPoint(xPos);
+//			}
+//		}
+//	}
+//
+//	return 0.f;
+//}
+//
+//Ox93_Vector_3 Ox93_TerrainSystem::GetClosestCentre(Ox93_Vector_3 xPos)
+//{
+//	if (!s_pxThis) { return Ox93_Math::ZeroVector3; }
+//
+//	// Adjust position to remove zagged edge effect
+//	const float fFrac = Ox93_Math::Sqrt3 / 2.f;
+//	int iX = (int)floor((xPos.x) / (fOX93_TERRAIN_SCALE * fFrac));
+//	const float fX = static_cast<float>(iX) * fFrac * fOX93_TERRAIN_SCALE;
+//
+//	float fAdjustedPosZ = xPos.z - abs(xPos.x - (iX + abs(iX % 2)) * fFrac * fOX93_TERRAIN_SCALE) / Ox93_Math::Sqrt3;
+//
+//	float fTileX, fTileZ;
+//	fTileX = xPos.x / (fOX93_TERRAIN_SCALE * (float)OX93_TERRAIN_NUMSIDEFACES * Ox93_Math::Sqrt3 / 2.f);
+//	fTileZ = fAdjustedPosZ / (fOX93_TERRAIN_SCALE * (float)OX93_TERRAIN_NUMSIDEFACES);
+//
+//	int iTileX, iTileZ;
+//	iTileX = (int)floor(fTileX);
+//	iTileZ = (int)floor(fTileZ);
+//
+//	std::list<std::list<Ox93_TerrainType*>*>::const_iterator xIterX;
+//	for (xIterX = s_pxThis->m_lplpxTerrainTiles.begin(); xIterX != s_pxThis->m_lplpxTerrainTiles.end(); ++xIterX)
+//	{
+//		std::list<Ox93_TerrainType*>* plpxTerrainTypes = *xIterX;
+//		if (!plpxTerrainTypes) { continue; }
+//
+//		std::list<Ox93_TerrainType*>::const_iterator xIterZ;
+//		for (xIterZ = plpxTerrainTypes->begin(); xIterZ != plpxTerrainTypes->end(); ++xIterZ)
+//		{
+//			Ox93_TerrainType* pxTerrainType = *xIterZ;
+//			if (!pxTerrainType || !pxTerrainType->pxTerrain) { continue; }
+//
+//			if (pxTerrainType->iTileX == iTileX
+//				&& pxTerrainType->iTileZ == iTileZ)
+//			{
+//				return pxTerrainType->pxTerrain->GetClosestCentre(xPos);
+//			}
+//		}
+//	}
+//
+//	return Ox93_Math::ZeroVector3;
+//}
 
 bool Ox93_TerrainSystem::AddPhysicalObject(Ox93_PhysicalObject* pxObject)
 {
@@ -516,8 +516,8 @@ bool Ox93_TerrainSystem::AddPhysicalObject(Ox93_PhysicalObject* pxObject)
 	float fAdjustedPosZ = xPos.z - abs(xPos.x - (iX + abs(iX % 2)) * fFrac * fOX93_TERRAIN_SCALE) / Ox93_Math::Sqrt3;
 
 	float fTileX, fTileZ;
-	fTileX = xPos.x / (fOX93_TERRAIN_SCALE * (float)uOX93_TERRAIN_NUMSIDEFACES * Ox93_Math::Sqrt3 / 2.f);
-	fTileZ = fAdjustedPosZ / (fOX93_TERRAIN_SCALE * (float)uOX93_TERRAIN_NUMSIDEFACES);
+	fTileX = xPos.x / (fOX93_TERRAIN_SCALE * (float)OX93_TERRAIN_NUMSIDEFACES * Ox93_Math::Sqrt3 / 2.f);
+	fTileZ = fAdjustedPosZ / (fOX93_TERRAIN_SCALE * (float)OX93_TERRAIN_NUMSIDEFACES);
 
 	int iTileX, iTileZ;
 	iTileX = (int)floor(fTileX);

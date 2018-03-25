@@ -89,8 +89,10 @@ void Ox93_Entity::Update()
 	if (m_pxRigidBody) {
 		// Update position of rigidbody or of our entity
 		if (m_bLockPosition) {
+			m_pxRigidBody->setType(rp3d::STATIC);
 			m_pxRigidBody->setTransform(rp3d::Transform(m_xPosition, m_pxRigidBody->getTransform().getOrientation()));
 		} else {
+			m_pxRigidBody->setType(rp3d::DYNAMIC);
 			m_xPosition = m_pxRigidBody->getTransform().getPosition();
 		}
 		// Update orientation of rigidbody or of our entity

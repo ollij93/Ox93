@@ -395,6 +395,9 @@
     <ClInclude Include="Ox93\ROOT\Ox93_PhysicsSystem.h">
       <Filter>Ox93\ROOT</Filter>
     </ClInclude>
+    <ClInclude Include="Ox93\Game\World\Terrain\Ox93_Biome.h">
+      <Filter>Ox93\Game\World\Terrain</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Ox93\ROOT\Graphics\Shader\PS\Color.ps">

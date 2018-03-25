@@ -219,14 +219,7 @@ bool Ox93_D3D::Initialize(int screenWidth, int screenHeight, bool vsync, HWND hw
 	swapChainDesc.SampleDesc.Quality = uMultiSamplingQuality;
 
 	// Set to full screen or windowed mode.
-	if (fullscreen)
-	{
-		swapChainDesc.Windowed = false;
-	}
-	else
-	{
-		swapChainDesc.Windowed = true;
-	}
+    swapChainDesc.Windowed = !fullscreen;
 
 	// Set the scan line ordering and scaling to unspecified.
 	swapChainDesc.BufferDesc.ScanlineOrdering = DXGI_MODE_SCANLINE_ORDER_UNSPECIFIED;

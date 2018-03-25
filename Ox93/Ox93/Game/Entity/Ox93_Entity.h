@@ -65,8 +65,6 @@ private:
 	bool m_bLockPosition;
 	bool m_bLockOrientation;
 
-	static const u_int uVERSION = 0;
-
 	static std::list<Ox93_Entity*> s_lpxEntityList;
 };
 

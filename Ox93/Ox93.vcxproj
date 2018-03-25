@@ -98,6 +98,7 @@
     <ClInclude Include="Ox93\Game\Menu\Ox93_MenuSystem.h" />
     <ClInclude Include="Ox93\Game\Ox93_MiniMap.h" />
     <ClInclude Include="Ox93\Game\World\Skybox\Ox93_Skybox.h" />
+    <ClInclude Include="Ox93\Game\World\Terrain\Ox93_Biome.h" />
     <ClInclude Include="Ox93\Game\World\Terrain\Ox93_Terrain.h" />
     <ClInclude Include="Ox93\Game\World\Terrain\Ox93_TerrainSystem.h" />
     <ClInclude Include="Ox93\ROOT\Assert\Ox93_Assert.h" />

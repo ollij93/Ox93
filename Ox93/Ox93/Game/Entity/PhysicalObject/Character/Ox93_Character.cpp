@@ -34,6 +34,7 @@ Ox93_Character::Ox93_Character(u_int uClassification)
 {
 	m_pxCamera = new Ox93_Camera(OX93_CLASS_CAMERA);
 	LockOrientation(true);
+	LockPosition(true);
 }
 
 Ox93_Character::~Ox93_Character()
@@ -139,22 +140,22 @@ void Ox93_Character::Update()
 {
 	PARENT::Update();
 
-	Ox93_Vector_3 xTerrainIntersect;
-	Ox93_Vector_3 xSpherePos = GetPosition() + Ox93_Vector_3(0.f, m_fRadius, 0.f);
-	bool bIntersecting = Ox93_TerrainSystem::GetClosestPointInRange(xSpherePos, m_fRadius, &xTerrainIntersect);
+	//Ox93_Vector_3 xTerrainIntersect;
+	//Ox93_Vector_3 xSpherePos = GetPosition() + Ox93_Vector_3(0.f, m_fRadius, 0.f);
+	//bool bIntersecting = Ox93_TerrainSystem::GetClosestPointInRange(xSpherePos, m_fRadius, &xTerrainIntersect);
 
-	if (bIntersecting)
-	{
-		// Move the Character vertically enough to just be touching the terrain (counteracts gravity dragging through the surface)
-		Ox93_Vector_3 xAdjustPos = (xSpherePos - xTerrainIntersect);
-		float fAdjustDist = m_fRadius - xAdjustPos.Length();
-		xAdjustPos.Normalize();
-		xAdjustPos *= fAdjustDist;
-		SetPosition(GetPosition() + xAdjustPos);
+	//if (bIntersecting)
+	//{
+	//	// Move the Character vertically enough to just be touching the terrain (counteracts gravity dragging through the surface)
+	//	Ox93_Vector_3 xAdjustPos = (xSpherePos - xTerrainIntersect);
+	//	float fAdjustDist = m_fRadius - xAdjustPos.Length();
+	//	xAdjustPos.Normalize();
+	//	xAdjustPos *= fAdjustDist;
+	//	SetPosition(GetPosition() + xAdjustPos);
 
-		// Also set vertical momentum to zero as the character is now stood on the slope
-		SetVelocity(Ox93_Vector_3(GetVelocity().x, 0.f, GetVelocity().z));
-	}
+	//	// Also set vertical momentum to zero as the character is now stood on the slope
+	//	SetVelocity(Ox93_Vector_3(GetVelocity().x, 0.f, GetVelocity().z));
+	//}
 
 	if (m_pxCamera)
 	{
@@ -303,7 +304,7 @@ void Ox93_Character::HandlePlayerInput()
 			{
 				// Jump
 				Ox93_Vector_3 xUpJunk = Ox93_Vector_3(0.f, m_fRadius, 0.f);
-				if (Ox93_InputSystem::KeyJustPressed(SPACE_KEY) && Ox93_TerrainSystem::GetClosestPointInRange(GetPosition() + xUpJunk, m_fRadius + fOX93_JUMP_DISTANCE, &xUpJunk))
+				if (Ox93_InputSystem::KeyJustPressed(SPACE_KEY))// && Ox93_TerrainSystem::GetClosestPointInRange(GetPosition() + xUpJunk, m_fRadius + fOX93_JUMP_DISTANCE, &xUpJunk))
 				{
 					AddVelocity(Ox93_Vector_3(0.f, fOX93_JUMP_SPEED, 0.f));
 				}
