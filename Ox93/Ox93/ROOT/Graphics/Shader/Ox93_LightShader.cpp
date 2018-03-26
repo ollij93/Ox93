@@ -1,8 +1,11 @@
 // Includes...
+#include <D3Dcompiler.h>
 #include "Ox93_LightShader.h"
 #include "Game/Entity/Ox93_Entity_Renderable.h"
 #include "Game/Entity/Camera/Ox93_Camera.h"
 #include "Game/Entity/Light/Ox93_Light.h"
+#include "ROOT/Ox93_System.h"
+#include "ROOT/Assert/Ox93_Assert.h"
 #include "ROOT/Graphics/Ox93_D3D.h"
 #include "ROOT/Graphics/Ox93_GraphicsSystem.h"
 

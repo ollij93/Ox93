@@ -4,7 +4,7 @@
 #define OX93_INVENTORYITEM_H__
 
 // Includes...
-#include "OX93_Core.h"
+#include "Types/Ox93_Hash.h"
 
 // Forward Declarations...
 class Ox93_Specification;

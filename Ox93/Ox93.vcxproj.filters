@@ -296,9 +296,6 @@
     <ClInclude Include="Ox93\ROOT\Specification\Ox93_Specification_System.h">
       <Filter>Ox93\ROOT\Specification</Filter>
     </ClInclude>
-    <ClInclude Include="Ox93\Ox93_Core.h">
-      <Filter>Ox93</Filter>
-    </ClInclude>
     <ClInclude Include="Ox93\Types\Ox93_Hash.h">
       <Filter>Ox93\Types</Filter>
     </ClInclude>
@@ -391,6 +388,9 @@
     </ClInclude>
     <ClInclude Include="Ox93\Game\Entity\Camera\Ox93_Camera.h">
       <Filter>Ox93\Game\Entity\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Ox93\Types\Ox93_Color.h">
+      <Filter>Ox93\Types</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

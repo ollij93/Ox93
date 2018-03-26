@@ -4,7 +4,10 @@
 #define OX93_BITMAPSHADER_H__
 
 // Includes...
-#include "Ox93_Core.h"
+#include <list>
+#include <d3d11.h>
+#include <DirectXMath.h>
+#include <Windows.h>
 
 // Forward Declarations...
 class Ox93_BitMap;

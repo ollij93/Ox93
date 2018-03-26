@@ -3,7 +3,6 @@
 #define __OX93_MODEL_H__
 
 // Includes...
-#include "Ox93_Core.h"
 #include "ROOT/Graphics/Ox93_RenderSystem.h"
 
 class Ox93_Model

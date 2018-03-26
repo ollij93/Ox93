@@ -4,7 +4,6 @@
 #define OX93_SELECTIONOBJECT_H__
 
 // Includes...
-#include "Ox93_Core.h"
 #include "Game/Entity/Ox93_Entity_Renderable.h"
 #include "Game/Entity/Ox93_Model.h"
 

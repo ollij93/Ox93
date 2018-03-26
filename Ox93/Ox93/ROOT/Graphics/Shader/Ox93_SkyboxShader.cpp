@@ -1,7 +1,10 @@
 // Includes...
+#include <D3Dcompiler.h>
 #include "Ox93_SkyboxShader.h"
 #include "Game/Entity/Camera/Ox93_Camera.h"
 #include "Game/World/Skybox/Ox93_Skybox.h"
+#include "ROOT/Ox93_System.h"
+#include "ROOT/Assert/Ox93_Assert.h"
 #include "ROOT/Graphics/Ox93_GraphicsSystem.h"
 
 // Statics...

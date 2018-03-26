@@ -2,7 +2,7 @@
 #define __OX93_ENTITY_RENDERABLE_H__
 
 // Includes...
-#include "Ox93_Core.h"
+#include <d3d11.h>
 #include "Game/Entity/Ox93_Entity.h"
 
 class Ox93_Entity_Renderable : public Ox93_Entity

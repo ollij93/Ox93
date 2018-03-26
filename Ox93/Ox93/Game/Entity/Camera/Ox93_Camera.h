@@ -4,7 +4,6 @@
 #define __OX93_CAMERA_H__
 
 // Includes...
-#include "Ox93_Core.h"
 #include "Game/Entity/Ox93_Entity.h"
 #include "ROOT/Math/Ox93_Math.h"
 

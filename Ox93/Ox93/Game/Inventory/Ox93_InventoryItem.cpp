@@ -4,6 +4,7 @@
 #include "Game/Entity/SelectionObject/Ox93_SelectionObject.h"
 #include "Game/World/Terrain/Ox93_TerrainSystem.h"
 #include "ROOT/Specification/Ox93_Specification.h"
+#include "ROOT/Specification/Ox93_Specification_Hash_IDs.h"
 #include "ROOT/Specification/Ox93_Specification_System.h"
 
 // Global Variables...

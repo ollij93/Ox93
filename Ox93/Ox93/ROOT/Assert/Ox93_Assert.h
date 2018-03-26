@@ -1,7 +1,6 @@
 #ifndef __OX93_ASSERT_H__
 #define __OX93_ASSERT_H__
 
-#include "Ox93_Core.h"
 #include "ROOT/Ox93_System.h"
 
 #ifdef USE_OX93_ASSERT

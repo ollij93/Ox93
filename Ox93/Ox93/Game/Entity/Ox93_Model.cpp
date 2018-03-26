@@ -1,4 +1,5 @@
 #include "Ox93_Model.h"
+#include "ROOT/Assert/Ox93_Assert.h"
 #include "ROOT/Graphics/Ox93_D3D.h"
 #include <fstream>
 

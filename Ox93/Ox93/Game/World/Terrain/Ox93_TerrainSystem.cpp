@@ -3,6 +3,7 @@
 #include "Game/Entity/PhysicalObject/Character/Ox93_Character.h"
 #include "Game/Entity/PhysicalObject/Ox93_PhysicalObject.h"
 #include "Game/World/Terrain/Ox93_Terrain.h"
+#include "ROOT/Assert/Ox93_Assert.h"
 
 // Static variables...
 Ox93_TerrainSystem* Ox93_TerrainSystem::s_pxThis = nullptr;

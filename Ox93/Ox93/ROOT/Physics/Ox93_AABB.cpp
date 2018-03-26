@@ -20,9 +20,9 @@ bool Ox93_AABB::TestCollide(Ox93_AABB xAABB1, Ox93_AABB xAABB2)
 {
 	bool bRetVal = true;
 
-	bRetVal &= abs(xAABB1.m_xPosition.x - xAABB2.m_xPosition.x) * 2 > xAABB1.m_fWidth + xAABB2.m_fWidth;
-	bRetVal &= abs(xAABB1.m_xPosition.y - xAABB2.m_xPosition.y) * 2 > xAABB1.m_fHeight + xAABB2.m_fHeight;
-	bRetVal &= abs(xAABB1.m_xPosition.z - xAABB2.m_xPosition.z) * 2 > xAABB1.m_fDepth + xAABB2.m_fDepth;
+	bRetVal &= fabsf(xAABB1.m_xPosition.x - xAABB2.m_xPosition.x) * 2 > xAABB1.m_fWidth + xAABB2.m_fWidth;
+	bRetVal &= fabsf(xAABB1.m_xPosition.y - xAABB2.m_xPosition.y) * 2 > xAABB1.m_fHeight + xAABB2.m_fHeight;
+	bRetVal &= fabsf(xAABB1.m_xPosition.z - xAABB2.m_xPosition.z) * 2 > xAABB1.m_fDepth + xAABB2.m_fDepth;
 
 	return bRetVal;
 }

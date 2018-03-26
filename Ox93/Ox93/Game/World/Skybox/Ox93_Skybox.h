@@ -2,7 +2,6 @@
 #define __OX93_SKYBOX_H__
 
 // Includes...
-#include "Ox93_Core.h"
 #include "Game/Entity/Ox93_Entity_Renderable.h"
 #include "ROOT/Ox93_TextureHandler.h"
 #include "ROOT/Graphics/Ox93_D3D.h"

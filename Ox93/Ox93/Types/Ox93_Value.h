@@ -3,8 +3,7 @@
 #ifndef OX93_VALUE_H__
 #define OX93_VALUE_H__
 
-// Includes...
-#include "Ox93_Core.h"
+#include "Ox93_Hash.h"
 
 union Ox93_Value 
 {

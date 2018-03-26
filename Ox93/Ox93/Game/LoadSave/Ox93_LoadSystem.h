@@ -4,7 +4,7 @@
 #define OX93_LOADSYSTEM_H__
 
 // Includes...
-#include "Ox93_Core.h"
+#include <Windows.h>
 
 // Forward Declarations...
 class Ox93_Inventory;

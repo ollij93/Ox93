@@ -2,6 +2,7 @@
 #include "Ox93_SelectionObject.h"
 #include "Game/Entity/PhysicalObject/Ox93_PhysicalObject.h"
 #include "ROOT/Specification/Ox93_Specification.h"
+#include "ROOT/Specification/Ox93_Specification_Hash_IDs.h"
 #include "ROOT/Specification/Ox93_Specification_System.h"
 
 Ox93_SelectionObject::Ox93_SelectionObject(u_int uClassification)

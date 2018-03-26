@@ -4,7 +4,10 @@
 #define OX93_MENUSYSTEM_H__
 
 // Includes...
-#include "Ox93_Core.h"
+#include <Windows.h>
+#include <list>
+
+#include "ROOT/Ox93_System.h"
 
 // Forward Declarations...
 class Ox93_Menu;

@@ -1,7 +1,6 @@
 #ifndef __OX93_AUDIOPLAYER_H__
 #define __OX93_AUDIOPLAYER_H__
 
-#include "Ox93_Core.h"
 #include <dshow.h>
 
 struct Ox93_AudioHandle

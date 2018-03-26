@@ -4,8 +4,8 @@
 #define __OX93_INPUT_H__
 
 // Includes...
-#include "Ox93_Core.h"
 #include "ROOT/Math/Ox93_Math.h"
+#include "Types/Ox93_Hash.h"
 
 // CONTROL_MAPPINGS
 enum Ox93_ControlMap

@@ -3,7 +3,7 @@
 #ifndef OX93_SPECIFICATION_HASH_IDS_H__
 #define OX93_SPECIFICATION_HASH_IDS_H__
 
-#include "Ox93_Core.h"
+#include "Types/Ox93_Hash.h"
 
 ///////////////////////////////////////////////
 // P H Y S I C A L   O B J E C T   H A S H E S

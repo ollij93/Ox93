@@ -2,8 +2,9 @@
 #define __OX93_TEXTUREHANDLER_H__
 
 // Includes...
-#include "Ox93_Core.h"
+#include <vector>
 #include "ROOT/Graphics/Shader/Ox93_LightShader.h"
+#include "Types/Ox93_Hash.h"
 
 struct Ox93_Texture_Handle
 {

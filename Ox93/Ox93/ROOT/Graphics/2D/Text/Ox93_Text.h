@@ -4,8 +4,9 @@
 #define OX93_TEXT_H__
 
 // Includes...
-#include "Ox93_Core.h"
+#include <list>
 #include "ROOT/Math/Ox93_Math.h"
+#include "Types/Ox93_Hash.h"
 
 // Forward Declarations...
 class Ox93_BitMap;

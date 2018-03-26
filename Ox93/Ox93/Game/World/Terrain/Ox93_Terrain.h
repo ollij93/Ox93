@@ -4,9 +4,9 @@
 #define __OX93_TERRAIN_H__
 
 // Includes...
-#include "Ox93_Core.h"
 #include "Game/Entity/Ox93_Entity_Renderable.h"
 #include "LibNoise/noise.h"
+#include "Types/Ox93_Color.h"
 
 // Forwards Declarations...
 class Ox93_PhysicalObject;

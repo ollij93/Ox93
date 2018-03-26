@@ -4,7 +4,9 @@
 #define __OX93_ENTITY_H__
 
 // Includes...
-#include "Ox93_Core.h"
+#include <list>
+#include <Windows.h>
+#include <mmsystem.h>
 #include "ROOT/Math/Ox93_Math.h"
 #include "Game/Entity/Ox93_EntityRegistry.h"
 

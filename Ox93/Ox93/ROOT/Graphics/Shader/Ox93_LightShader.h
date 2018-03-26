@@ -4,8 +4,10 @@
 #define __OX93_LIGHTSHADER_H__
 
 // Includes...
-#include "Ox93_Core.h"
+#include <d3d11.h>
+#include <list>
 #include "ROOT/Math/Ox93_Math.h"
+#include "Types/Ox93_Color.h"
 
 // Forward Declarations...
 class Ox93_Entity_Renderable;

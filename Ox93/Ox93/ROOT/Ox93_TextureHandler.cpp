@@ -1,6 +1,7 @@
-
 // Includes...
 #include "Ox93_TextureHandler.h"
+#include "DirectX/DDSTextureLoader/DDSTextureLoader.h"
+#include "ROOT/Assert/Ox93_Assert.h"
 #include "ROOT/Graphics/Ox93_D3D.h"
 
 // Static Variables...

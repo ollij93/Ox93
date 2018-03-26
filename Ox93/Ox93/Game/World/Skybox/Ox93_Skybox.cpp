@@ -4,6 +4,7 @@
 #include "ROOT/Graphics/Ox93_RenderSystem.h"
 #include "ROOT/Graphics/Shader/Ox93_SkyboxShader.h"
 #include "ROOT/Specification/Ox93_Specification.h"
+#include "ROOT/Specification/Ox93_Specification_Hash_IDs.h"
 
 // Statics...
 Ox93_Skybox* Ox93_Skybox::s_pxActiveSkybox = nullptr;

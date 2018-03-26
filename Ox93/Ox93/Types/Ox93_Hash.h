@@ -3,10 +3,12 @@
 #ifndef OX93_HASH_H__
 #define OX93_HASH_H__
 
-//////////////////////////////////////
-// I N C L U D E S 
-//////////////////////////////////////
-#include "Ox93_Core.h"
+#include <stdint.h>
+#include <Windows.h>
+
+typedef unsigned long u_long;
+typedef uint32_t u_int;
+typedef u_int Ox93_Hash;
 
 //////////////////////////////////////
 // G L O B A L   V A R I A B L E S

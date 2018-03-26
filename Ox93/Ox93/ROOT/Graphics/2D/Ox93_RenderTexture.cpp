@@ -1,5 +1,6 @@
 // Includes...
 #include "Ox93_RenderTexture.h"
+#include "ROOT/Assert/Ox93_Assert.h"
 #include "ROOT/Graphics/Ox93_D3D.h"
 
 Ox93_RenderTexture::Ox93_RenderTexture()

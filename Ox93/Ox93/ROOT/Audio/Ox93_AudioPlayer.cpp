@@ -1,6 +1,7 @@
 
 // Includes...
 #include "Ox93_AudioPlayer.h"
+#include "ROOT/Assert/Ox93_Assert.h"
 #include <cstdio>
 
 // For IID_IGraphBuilder, IID_IMediaControl, IID_IMediaEvent

@@ -4,8 +4,11 @@
 #define OX93_TERRAINSHADER_H__
 
 // Includes...
-#include "Ox93_Core.h"
+#include <list>
+#include <d3d11.h>
+#include <Windows.h>
 #include "ROOT/Math/Ox93_Math.h"
+#include "Types/Ox93_Color.h"
 
 // Forward Declarations...
 class Ox93_Entity_Renderable;

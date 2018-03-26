@@ -4,10 +4,10 @@
 #define __OX93_LIGHT_H__
 
 // Includes...
-#include "Ox93_Core.h"
 #include "Game/Entity/Ox93_Entity.h"
 #include "ROOT/Graphics/2D/Ox93_RenderTexture.h"
 #include "ROOT/Math/Ox93_Math.h"
+#include "Types/Ox93_Color.h"
 
 class Ox93_Light : public Ox93_Entity
 {

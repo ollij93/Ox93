@@ -4,7 +4,9 @@
 #define OX93_INVENTORY_H__
 
 // Includes...
-#include "Ox93_Core.h"
+#include <list>
+#include "ROOT/Assert/Ox93_Assert.h"
+#include "Types/Ox93_Hash.h"
 
 // Forward Declarations...
 class Ox93_InventoryItem;

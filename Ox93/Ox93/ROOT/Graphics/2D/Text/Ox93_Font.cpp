@@ -3,6 +3,7 @@
 
 // Includes...
 #include "Ox93_Font.h"
+#include "ROOT/Assert/Ox93_Assert.h"
 #include "ROOT/Graphics/2D/Ox93_BitMap.h"
 
 // Statics...

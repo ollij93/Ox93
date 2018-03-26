@@ -1,9 +1,6 @@
 #ifndef __OX93_MATRICES_H__
 #define __OX93_MATRICES_H__
 
-// Includes...
-#include "Ox93_Core.h"
-
 class Ox93_Matrix3x3
 {
 public:

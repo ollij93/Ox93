@@ -4,7 +4,6 @@
 #define OX93_CHARACTER_H__
 
 // Includes...
-#include "Ox93_Core.h"
 #include "Game/Entity/Camera/Ox93_Camera.h"
 #include "Game/Entity/PhysicalObject/Ox93_PhysicalObject.h"
 

@@ -4,7 +4,8 @@
 #define OX93_FONT_H__
 
 // Includes...
-#include "Ox93_Core.h"
+#include <list>
+#include "Types/Ox93_Hash.h"
 
 // Constants...
 static const Ox93_Hash uOX93_FONT_DEFAULT = 0xBF4C6E21; // "Default"

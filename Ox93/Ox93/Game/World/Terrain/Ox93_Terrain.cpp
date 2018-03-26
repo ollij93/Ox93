@@ -2,6 +2,7 @@
 #include "Ox93_Terrain.h"
 #include "Game/Entity/PhysicalObject/Ox93_PhysicalObject.h"
 #include "Game/LoadSave/ChunkStream/Ox93_ChunkStream.h"
+#include "ROOT/Assert/Ox93_Assert.h"
 #include "ROOT/Graphics/Ox93_D3D.h"
 #include "ROOT/Graphics/Shader/Ox93_TerrainShader.h"
 

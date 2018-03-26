@@ -3,8 +3,8 @@
 #ifndef OX93_RENDERTEXTURE_H__
 #define OX93_RENDERTEXTURE_H__
 
-// Includes...
-#include "Ox93_Core.h"
+// Include...
+#include <d3d11.h>
 
 class Ox93_RenderTexture
 {

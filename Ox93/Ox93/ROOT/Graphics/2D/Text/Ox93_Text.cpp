@@ -1,5 +1,6 @@
 // Includes...
 #include "Ox93_Text.h"
+#include "ROOT/Assert/Ox93_Assert.h"
 #include "ROOT/Graphics/2D/Ox93_BitMap.h"
 #include "ROOT/Graphics/2D/Text/Ox93_Font.h"
 #include "ROOT/Math/Ox93_Math_Vectors.h"

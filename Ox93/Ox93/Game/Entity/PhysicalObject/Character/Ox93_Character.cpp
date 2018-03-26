@@ -10,6 +10,7 @@
 #include "ROOT/Graphics/Ox93_GraphicsSystem.h"
 #include "ROOT/Ox93_InputSystem.h"
 #include "ROOT/Specification/Ox93_Specification.h"
+#include "ROOT/Specification/Ox93_Specification_Hash_IDs.h"
 #include "ROOT/Specification/Ox93_Specification_System.h"
 
 // Global Variables...

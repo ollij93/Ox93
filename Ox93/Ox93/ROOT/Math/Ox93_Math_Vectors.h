@@ -2,7 +2,7 @@
 #define __OX93_MATH_VECTORS_H__
 
 // Includes...
-#include "Ox93_Core.h"
+#include <DirectXMath.h>
 
 class Ox93_Vector_2
 {

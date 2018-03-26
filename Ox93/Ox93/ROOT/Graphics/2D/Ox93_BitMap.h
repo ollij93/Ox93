@@ -4,7 +4,6 @@
 #define OX93_BITMAP_H__
 
 // Includes...
-#include "Ox93_Core.h"
 #include "ROOT/Ox93_TextureHandler.h"
 
 // Forward Declarations...

@@ -5,8 +5,15 @@
 
 #define WIN32_LEAN_AND_MEAN
 
+#pragma comment(lib, "Winmm.lib")
+
 // Includes...
-#include "Ox93_Core.h"
+#include <Windows.h>
+
+// Typedefs...
+typedef void(*VoidFunction)();
+typedef void*(*PopulationFunction)(unsigned int);
+typedef void(*ListFunction)(int);
 
 // Forward declarations...
 class Ox93_Text;
@@ -53,7 +60,7 @@ protected:
 
 private:
 	bool Frame();
-	void InitWindows(u_int&, u_int&);
+	void InitWindows(unsigned int&, unsigned int&);
 	void ShutdownWindows();
 
 

@@ -2,7 +2,6 @@
 #define __OX93_GRAPHICS_H__
 
 // Includes...
-#include "Ox93_Core.h"
 #include "Game/World/Skybox/Ox93_Skybox.h"
 #include "ROOT/Graphics/Ox93_D3D.h"
 #include "ROOT/Graphics/Ox93_RenderSystem.h"

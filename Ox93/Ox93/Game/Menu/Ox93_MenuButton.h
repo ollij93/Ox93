@@ -4,7 +4,7 @@
 #define OX93_MENUBUTTON_H__
 
 // Includes...
-#include "Ox93_Core.h"
+#include "ROOT/Ox93_System.h"
 #include "ROOT/Graphics/2D/Text/Ox93_Text.h"
 
 class Ox93_MenuButton

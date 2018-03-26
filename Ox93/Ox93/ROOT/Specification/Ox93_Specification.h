@@ -4,11 +4,9 @@
 #define OX93_SPECIFICATION_H__
 
 // Includes...
-#include "Ox93_Core.h"
-#include "Types/Ox93_Value.h"
-
-// TinyXml
+#include <vector>
 #include "TinyXML/tinyxml2.h"
+#include "Types/Ox93_Value.h"
 
 enum Ox93_Specification_ParameterType
 {

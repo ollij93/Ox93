@@ -1,4 +1,5 @@
 #include "Ox93_ChunkStream.h"
+#include "ROOT/Assert/Ox93_Assert.h"
 
 // Constructor for load-streams
 Ox93_ChunkStream::Ox93_ChunkStream(tinyxml2::XMLElement* pxElement)

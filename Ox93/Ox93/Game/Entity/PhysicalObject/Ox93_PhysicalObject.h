@@ -2,7 +2,6 @@
 #define __OX93_PHYSICALOBJECT_H__
 
 // Includes...
-#include "Ox93_Core.h"
 #include "Game/Entity/Ox93_Entity_Renderable.h"
 #include "Game/Entity/Ox93_Model.h"
 #include "ROOT/Physics/Ox93_AABB.h"

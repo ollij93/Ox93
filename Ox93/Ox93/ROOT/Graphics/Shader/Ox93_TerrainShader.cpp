@@ -1,7 +1,10 @@
 // Includes...
+#include <D3DCompiler.h>
 #include "Ox93_TerrainShader.h"
 #include "Game/Entity/Camera/Ox93_Camera.h"
 #include "Game/World/Terrain/Ox93_Terrain.h"
+#include "ROOT/Ox93_System.h"
+#include "ROOT/Assert/Ox93_Assert.h"
 #include "ROOT/Graphics/Ox93_D3D.h"
 #include "ROOT/Graphics/Ox93_GraphicsSystem.h"
 

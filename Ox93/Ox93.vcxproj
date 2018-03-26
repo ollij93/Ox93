@@ -122,8 +122,8 @@
     <ClInclude Include="Ox93\ROOT\Specification\Ox93_Specification.h" />
     <ClInclude Include="Ox93\ROOT\Specification\Ox93_Specification_System.h" />
     <ClInclude Include="Ox93\ROOT\Audio\Ox93_AudioPlayer.h" />
-    <ClInclude Include="Ox93\Ox93_Core.h" />
     <ClInclude Include="Ox93\ROOT\Ox93_TextureHandler.h" />
+    <ClInclude Include="Ox93\Types\Ox93_Color.h" />
     <ClInclude Include="Ox93\Types\Ox93_Hash.h" />
     <ClInclude Include="Ox93\Types\Ox93_Value.h" />
     <ClInclude Include="Ox93\ROOT\Specification\Ox93_Specification_Hash_IDs.h" />

@@ -1,7 +1,13 @@
 #ifndef __OX93_D3D_H__
 #define __OX93_D3D_H__
 
-#include "Ox93_Core.h"
+#pragma comment(lib, "dxgi.lib")
+#pragma comment(lib, "d3d11.lib")
+#pragma comment(lib, "d3dcompiler.lib")
+
+// Includes...
+#include <d3d11.h>
+#include <Windows.h>
 #include "ROOT/Math/Ox93_Math.h"
 
 class Ox93_D3D

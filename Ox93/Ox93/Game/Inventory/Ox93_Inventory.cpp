@@ -1,6 +1,7 @@
 // Includes...
 #include "Ox93_Inventory.h"
 #include "Game/Inventory/Ox93_InventoryItem.h"
+#include "Types/Ox93_Hash.h"
 #include "TinyXML/tinyxml2.h"
 
 // Statics...

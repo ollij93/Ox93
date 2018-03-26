@@ -1,4 +1,5 @@
 #include "Ox93_Matrices.h"
+#include <math.h>
 
 /////////////////////////
 // M A T R I X   3 X 3
@@ -25,8 +26,8 @@ Ox93_Matrix3x3 Ox93_Matrix3x3::operator*(const Ox93_Matrix3x3& xMatrix) const
 void Ox93_Matrix3x3::RotateLocalX(float fDeltaTheta)
 {
 	Ox93_Matrix3x3 xRotateMat = { 1.f, 0.f, 0.f,
-									0.f, cos(fDeltaTheta), -sin(fDeltaTheta),
-									0.f, sin(fDeltaTheta), cos(fDeltaTheta) };
+									0.f, cosf(fDeltaTheta), -sinf(fDeltaTheta),
+									0.f, sinf(fDeltaTheta), cosf(fDeltaTheta) };
 
 	Ox93_Matrix3x3 xResult = xRotateMat * (*this);
 
@@ -35,9 +36,9 @@ void Ox93_Matrix3x3::RotateLocalX(float fDeltaTheta)
 
 void Ox93_Matrix3x3::RotateWorldY(float fDeltaPhi)
 {
-	Ox93_Matrix3x3 xRotateMat = { cos(fDeltaPhi), 0.f, sin(fDeltaPhi),
+	Ox93_Matrix3x3 xRotateMat = { cosf(fDeltaPhi), 0.f, sinf(fDeltaPhi),
 									0.f,  1.f, 0.f,
-									-sin(fDeltaPhi), 0.f, cos(fDeltaPhi) };
+									-sinf(fDeltaPhi), 0.f, cosf(fDeltaPhi) };
 
 	Ox93_Matrix3x3 xResult = (*this) * xRotateMat;
 

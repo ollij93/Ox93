@@ -2,6 +2,7 @@
 #include "Game/Entity/Ox93_Model.h"
 #include "ROOT/Graphics/Shader/Ox93_DepthShader.h"
 #include "ROOT/Specification/Ox93_Specification.h"
+#include "ROOT/Specification/Ox93_Specification_Hash_IDs.h"
 
 
 Ox93_PhysicalObject::Ox93_PhysicalObject(u_int uClassification)

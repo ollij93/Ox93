@@ -1,6 +1,9 @@
 // Includes...
+#include <D3Dcompiler.h>
 #include "Ox93_DepthShader.h"
 #include "Game/Entity/Ox93_Entity_Renderable.h"
+#include "ROOT/Ox93_System.h"
+#include "ROOT/Assert/Ox93_Assert.h"
 #include "ROOT/Graphics/Ox93_D3D.h"
 #include "ROOT/Graphics/Ox93_RenderSystem.h"
 

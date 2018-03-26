@@ -4,7 +4,8 @@
 #define OX93_SPECIFICATION_SYSTEM_H__
 
 // Includes...
-#include "Ox93_Core.h"
+#include <vector>
+#include "Types/Ox93_Hash.h"
 
 // Forward Declarations...
 class Ox93_Specification;

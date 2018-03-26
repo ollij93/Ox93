@@ -3,9 +3,6 @@
 #ifndef OX93_MINIMAP_H__
 #define OX93_MINIMAP_H__
 
-// Includes...
-#include "Ox93_Core.h"
-
 // Forward Declarations...
 class Ox93_BitMap;
 class Ox93_Camera;

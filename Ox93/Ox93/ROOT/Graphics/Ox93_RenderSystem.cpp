@@ -4,6 +4,7 @@
 // Includes...
 #include "Ox93_RenderSystem.h"
 #include "Game/Entity/PhysicalObject/Character/Ox93_Character.h"
+#include "ROOT/Assert/Ox93_Assert.h"
 #include "ROOT/Graphics/Ox93_D3D.h"
 #include "ROOT/Graphics/Shader/Ox93_BitMapShader.h"
 #include "ROOT/Graphics/Shader/Ox93_DepthShader.h"
